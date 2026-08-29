@@ -1,9 +1,33 @@
+import { consumeUsage } from '../../lib/billing'
+
 export async function POST(request: Request) {
   try {
-    const { rfp, companyProfile } = await request.json()
+    const { rfp, companyProfile, email } = await request.json()
 
     if (!rfp) {
       return Response.json({ error: 'No RFP provided' }, { status: 400 })
+    }
+
+    if (!email) {
+      return Response.json({ error: 'Enter your account email first' }, { status: 400 })
+    }
+
+    let usage
+    try {
+      usage = await consumeUsage(email)
+    } catch (billingError: any) {
+      console.error('Billing error:', billingError)
+      return Response.json(
+        { error: billingError.message || 'Could not check your account' },
+        { status: 500 }
+      )
+    }
+
+    if (!usage.allowed) {
+      return Response.json(
+        { error: 'limit_reached', status: usage.status },
+        { status: 402 }
+      )
     }
 
     const apiKey = process.env.GEMINI_API_KEY
@@ -50,7 +74,7 @@ export async function POST(request: Request) {
     const proposal =
       data?.candidates?.[0]?.content?.parts?.[0]?.text || ''
 
-    return Response.json({ proposal })
+    return Response.json({ proposal, status: usage.status })
   } catch (error) {
     console.error('Error:', error)
     return Response.json(
