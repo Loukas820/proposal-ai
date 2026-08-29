@@ -78,6 +78,12 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
         body: 'Translate a proposal into another language for international clients, preserving tone and structure.',
         href: '/tools/translate',
       },
+      {
+        icon: '📄',
+        title: 'Service Agreement Drafter',
+        body: 'A starting contract template built from your scope, payment terms, and timeline \u2014 not legal advice, but a real head start before an attorney reviews it.',
+        href: '/tools/agreement',
+      },
     ],
   },
 ]

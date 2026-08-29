@@ -106,6 +106,12 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
         title: 'Multi-Language Proposals',
         body: 'Translate a proposal into another language, preserving structure and tone.',
       },
+      {
+        href: '/tools/agreement',
+        icon: '📄',
+        title: 'Service Agreement Drafter',
+        body: 'A starting contract template built from your scope, payment terms, and timeline. Not legal advice — for attorney review.',
+      },
     ],
   },
 ]
