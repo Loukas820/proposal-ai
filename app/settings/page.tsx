@@ -11,10 +11,29 @@ export default function Settings() {
     phone: '',
   })
   const [saved, setSaved] = useState(false)
+  const [origin, setOrigin] = useState('')
+  const [linkCopied, setLinkCopied] = useState(false)
 
   useEffect(() => {
     setProfile(getProfile())
+    setOrigin(window.location.origin)
   }, [])
+
+  const quoteLink =
+    origin && profile.email
+      ? `${origin}/quote?to=${encodeURIComponent(profile.email)}&biz=${encodeURIComponent(profile.companyName || 'us')}`
+      : ''
+
+  const copyQuoteLink = async () => {
+    if (!quoteLink) return
+    try {
+      await navigator.clipboard.writeText(quoteLink)
+      setLinkCopied(true)
+      setTimeout(() => setLinkCopied(false), 1800)
+    } catch {
+      // best-effort
+    }
+  }
 
   const handleSave = () => {
     saveProfile(profile)
@@ -115,6 +134,27 @@ export default function Settings() {
           >
             {saved ? 'Saved ✓' : 'Save Profile'}
           </button>
+        </div>
+
+        <div className="card p-8 mt-8">
+          <h2 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+            Your Public Quote Request Link
+          </h2>
+          <p className="text-sm mb-5" style={{ color: 'rgba(34,38,47,0.6)' }}>
+            Share this in your Facebook bio, posts, or anywhere else you reach clients — anyone who opens it can send a quote request straight to your inbox, no account or app needed on their end.
+          </p>
+          {quoteLink ? (
+            <div className="flex gap-3 flex-wrap">
+              <input readOnly value={quoteLink} className="input-refined flex-1 min-w-[240px] px-4 py-3 text-sm" />
+              <button onClick={copyQuoteLink} className="btn-outline px-6 py-3 text-xs tracking-[0.2em] uppercase" style={{ fontWeight: 600 }}>
+                {linkCopied ? 'Copied ✓' : 'Copy Link'}
+              </button>
+            </div>
+          ) : (
+            <p className="text-sm" style={{ color: 'rgba(34,38,47,0.45)' }}>
+              Add a Contact Email above and save your profile to generate your link.
+            </p>
+          )}
         </div>
       </main>
 

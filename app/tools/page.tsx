@@ -33,40 +33,80 @@ function AppHeader({ active }: { active: string }) {
   )
 }
 
-const LIVE_TOOLS = [
-  {
-    href: '/tools/follow-up',
-    icon: '✉',
-    title: 'Follow-Up Email Generator',
-    body: 'Paste your proposal and get a warm, low-pressure follow-up email ready to send — no more staring at a blank compose window a week later.',
-    tag: 'Free with your account',
-  },
-  {
-    href: '/tools/rfp-analyzer',
-    icon: '◎',
-    title: 'RFP Analyzer',
-    body: 'Paste an RFP before you commit to responding — get requirements, budget and deadline signals, and red flags pulled out in seconds.',
-    tag: 'Free with your account',
-  },
-  {
-    href: '/tools/outreach-post',
-    icon: '📣',
-    title: 'Social Post Generator',
-    body: 'For landscapers, roofers, contractors, and any local business — describe what you want to promote and get three ready-to-post Facebook/Instagram options.',
-    tag: 'Free with your account',
-  },
-]
+type Tool = { href: string; icon: string; title: string; body: string }
 
-const ROADMAP_TOOLS = [
+const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
   {
-    icon: '✎',
-    title: 'Client Onboarding Packet',
-    body: 'Generate a welcome packet automatically the moment a proposal is accepted — kickoff details, what to expect, and first steps.',
+    name: 'Get Found & Get Leads',
+    blurb: 'Turn attention into requests, whether that’s a Facebook post or a link in your bio.',
+    tools: [
+      {
+        href: '/tools/outreach-post',
+        icon: '📣',
+        title: 'Social Post Generator',
+        body: 'Describe what you want to promote and get three ready-to-post Facebook/Instagram options.',
+      },
+      {
+        href: '/settings',
+        icon: '🔗',
+        title: 'Public Quote Request Link',
+        body: 'A shareable link for your bio or posts — anyone can request a quote straight to your inbox, no app needed.',
+      },
+    ],
   },
   {
-    icon: '⇄',
-    title: 'Multi-Language Proposals',
-    body: 'Draft the same proposal in a second language for international clients, without losing tone or structure.',
+    name: 'Win The Work',
+    blurb: 'Decide what to bid on, and make the case once you do.',
+    tools: [
+      {
+        href: '/tools/rfp-analyzer',
+        icon: '◎',
+        title: 'RFP Analyzer',
+        body: 'Paste an RFP before you commit to responding — requirements, budget/deadline signals, and red flags in seconds.',
+      },
+      {
+        href: '/tools/quote-builder',
+        icon: '🧾',
+        title: 'Quote Builder',
+        body: 'Line items, tax, and total calculated for you — export a branded quote PDF. No AI involved, just fast math.',
+      },
+    ],
+  },
+  {
+    name: 'Stay In Touch',
+    blurb: 'The follow-through that turns a maybe into a yes.',
+    tools: [
+      {
+        href: '/tools/follow-up',
+        icon: '✉',
+        title: 'Follow-Up Email Generator',
+        body: 'Paste your proposal and get a warm, low-pressure follow-up email ready to send.',
+      },
+      {
+        href: '/tools/review-request',
+        icon: '★',
+        title: 'Review Request Generator',
+        body: 'Job’s done — get a text and email version asking for a review while the feeling is fresh.',
+      },
+    ],
+  },
+  {
+    name: 'Close & Deliver',
+    blurb: 'What happens the moment someone says yes.',
+    tools: [
+      {
+        href: '/tools/onboarding-packet',
+        icon: '✎',
+        title: 'Client Onboarding Packet',
+        body: 'Generate a welcome packet automatically — next steps, what you need from them, and who to contact.',
+      },
+      {
+        href: '/tools/translate',
+        icon: '⇄',
+        title: 'Multi-Language Proposals',
+        body: 'Translate a proposal into another language, preserving structure and tone.',
+      },
+    ],
   },
 ]
 
@@ -79,58 +119,40 @@ export default function Tools() {
         <h1 className="text-3xl mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
           Tools
         </h1>
-        <p className="text-sm mb-12" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Beyond proposal generation — free utilities included with every account, no extra charge.
+        <p className="text-sm mb-14" style={{ color: 'rgba(34,38,47,0.6)' }}>
+          Everything around winning and delivering work, beyond proposal generation itself — all free with your account.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          {LIVE_TOOLS.map((tool) => (
-            <Link key={tool.href} href={tool.href} className="card card-hover p-8 block">
-              <div className="flex items-center justify-between mb-5">
-                <div
-                  className="w-10 h-10 flex items-center justify-center text-lg"
-                  style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
-                >
-                  {tool.icon}
-                </div>
-                <span
-                  className="text-xs tracking-[0.15em] uppercase px-3 py-1"
-                  style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--navy)' }}
-                >
-                  {tool.tag}
-                </span>
-              </div>
-              <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
-                {tool.title}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(34,38,47,0.6)' }}>
-                {tool.body}
-              </p>
-            </Link>
-          ))}
-        </div>
-
-        <div className="text-xs tracking-[0.2em] uppercase mb-6" style={{ color: 'var(--gold)' }}>
-          On the Roadmap
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {ROADMAP_TOOLS.map((tool) => (
-            <div key={tool.title} className="p-8" style={{ border: '1px dashed var(--hairline)', opacity: 0.75 }}>
-              <div
-                className="w-10 h-10 flex items-center justify-center text-lg mb-5"
-                style={{ border: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
-              >
-                {tool.icon}
-              </div>
-              <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--charcoal)' }}>
-                {tool.title}
-              </h3>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(34,38,47,0.5)' }}>
-                {tool.body}
-              </p>
+        {CATEGORIES.map((cat) => (
+          <div key={cat.name} className="mb-14">
+            <div className="flex items-baseline justify-between mb-1 flex-wrap gap-2">
+              <h2 className="text-lg" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+                {cat.name}
+              </h2>
             </div>
-          ))}
-        </div>
+            <p className="text-sm mb-6" style={{ color: 'rgba(34,38,47,0.5)' }}>
+              {cat.blurb}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {cat.tools.map((tool) => (
+                <Link key={tool.href} href={tool.href} className="card card-hover p-8 block">
+                  <div
+                    className="w-10 h-10 flex items-center justify-center text-lg mb-5"
+                    style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+                  >
+                    {tool.icon}
+                  </div>
+                  <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+                    {tool.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(34,38,47,0.6)' }}>
+                    {tool.body}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </main>
 
       <footer
