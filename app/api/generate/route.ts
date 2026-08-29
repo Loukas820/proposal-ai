@@ -1,9 +1,3 @@
-import Anthropic from '@anthropic-ai/sdk'
-
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-})
-
 export async function POST(request: Request) {
   try {
     const { rfp } = await request.json()
@@ -12,19 +6,44 @@ export async function POST(request: Request) {
       return Response.json({ error: 'No RFP provided' }, { status: 400 })
     }
 
-    const message = await client.messages.create({
-      model: 'claude-opus-5',
-      max_tokens: 3000,
-      messages: [
-        {
-          role: 'user',
-          content: `You are an expert proposal writer. Based on this RFP, write a professional consulting proposal. Make it detailed, persuasive, and ready to send to the client.\n\nRFP:\n${rfp}`,
-        },
-      ],
-    })
+    const apiKey = process.env.GEMINI_API_KEY
+
+    if (!apiKey) {
+      return Response.json(
+        { error: 'GEMINI_API_KEY is not set' },
+        { status: 500 }
+      )
+    }
+
+    const prompt = `You are an expert proposal writer. Based on this RFP, write a professional consulting proposal. Make it detailed, persuasive, and ready to send to the client.\n\nRFP:\n${rfp}`
+
+    const geminiRes = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [{ text: prompt }],
+            },
+          ],
+        }),
+      }
+    )
+
+    const data = await geminiRes.json()
+
+    if (!geminiRes.ok) {
+      console.error('Gemini API error:', JSON.stringify(data))
+      return Response.json(
+        { error: data?.error?.message || 'Failed to generate proposal' },
+        { status: 500 }
+      )
+    }
 
     const proposal =
-      message.content[0].type === 'text' ? message.content[0].text : ''
+      data?.candidates?.[0]?.content?.parts?.[0]?.text || ''
 
     return Response.json({ proposal })
   } catch (error) {
