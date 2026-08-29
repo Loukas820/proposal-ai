@@ -50,7 +50,7 @@ const FAQS = [
   },
   {
     q: 'What industries does this work for?',
-    a: 'Any RFP-driven or proposal-driven business \u2014 marketing and creative agencies, IT and software consultancies, management and strategy consultants, construction and trades, professional services, and B2B vendors responding to procurement requests. The AI adapts its structure to whatever brief you paste in.',
+    a: 'Any business that quotes, pitches, or proposes work \u2014 from CEOs and management consultants responding to formal RFPs, to landscaping, roofing, and home service companies sending a straightforward quote or client outreach post. The AI adapts its structure to whatever brief or business you describe.',
   },
   {
     q: 'How does pricing work?',
@@ -166,7 +166,8 @@ export default function Home() {
             style={{ color: 'rgba(248,245,238,0.7)' }}
           >
             A disciplined, precise approach to proposal writing — built for
-            consultants who value their time as much as their reputation.
+            consultants, contractors, and local businesses alike who value
+            their time as much as their reputation.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 fade-in-up fade-delay-3">

@@ -17,18 +17,18 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Try ProposalAI Free",
   description:
-    "AI-powered proposal generation for consultants. Paste an RFP, get a client-ready proposal in minutes, complete with your branding.",
+    "AI-powered proposal and outreach content for consultants, contractors, and local service businesses. Paste an RFP or describe a job, get a client-ready proposal or social post in minutes.",
   openGraph: {
     title: "Try ProposalAI Free",
     description:
-      "AI-powered proposal generation for consultants. Paste an RFP, get a client-ready proposal in minutes.",
+      "AI-powered proposal and outreach content for consultants, contractors, and local service businesses.",
     type: "website",
   },
   twitter: {
     card: "summary",
     title: "Try ProposalAI Free",
     description:
-      "AI-powered proposal generation for consultants. Paste an RFP, get a client-ready proposal in minutes.",
+      "AI-powered proposal and outreach content for consultants, contractors, and local service businesses.",
   },
 };
 

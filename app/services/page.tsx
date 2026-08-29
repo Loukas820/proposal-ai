@@ -24,6 +24,13 @@ const LIVE = [
     href: '/tools/rfp-analyzer',
     tag: 'Free with your account',
   },
+  {
+    icon: '📣',
+    title: 'Social Post Generator',
+    body: 'Not every business runs on formal RFPs. Landscapers, roofers, and local contractors can describe a job or offer and get three ready-to-post Facebook or Instagram updates for client outreach — no formal proposal needed.',
+    href: '/tools/outreach-post',
+    tag: 'Free with your account',
+  },
 ]
 
 const ROADMAP = [
@@ -81,7 +88,7 @@ export default function Services() {
           A Complete Practice Around Winning Work
         </h1>
         <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(248,245,238,0.65)' }}>
-          Proposal writing is one moment in a longer cycle — deciding what to bid on, sending it, and following up. ProposalAI is built to cover the whole thing, not just the document.
+          Whether you&apos;re a CEO responding to a formal RFP or a roofing or landscaping company promoting your next job on Facebook, winning work is one moment in a longer cycle — deciding what to pursue, pitching it, and following up. ProposalAI is built to cover the whole thing, not just the document.
         </p>
 
         <div className="card-dark card-featured p-10 mb-16 reveal">

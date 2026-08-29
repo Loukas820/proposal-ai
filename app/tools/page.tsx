@@ -48,6 +48,13 @@ const LIVE_TOOLS = [
     body: 'Paste an RFP before you commit to responding — get requirements, budget and deadline signals, and red flags pulled out in seconds.',
     tag: 'Free with your account',
   },
+  {
+    href: '/tools/outreach-post',
+    icon: '📣',
+    title: 'Social Post Generator',
+    body: 'For landscapers, roofers, contractors, and any local business — describe what you want to promote and get three ready-to-post Facebook/Instagram options.',
+    tag: 'Free with your account',
+  },
 ]
 
 const ROADMAP_TOOLS = [
