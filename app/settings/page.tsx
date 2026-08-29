@@ -64,7 +64,7 @@ export default function Settings() {
               type="text"
               value={profile.companyName}
               onChange={(e) => setProfile({ ...profile, companyName: e.target.value })}
-              placeholder="e.g. Luxury in Motion"
+              placeholder="e.g. Acme Consulting"
               className="input-refined w-full p-3 text-sm"
             />
           </div>
@@ -77,7 +77,7 @@ export default function Settings() {
               type="text"
               value={profile.tagline}
               onChange={(e) => setProfile({ ...profile, tagline: e.target.value })}
-              placeholder="e.g. Premium ground transportation across Greece"
+              placeholder="e.g. Marketing strategy for boutique brands"
               className="input-refined w-full p-3 text-sm"
             />
           </div>
@@ -103,7 +103,7 @@ export default function Settings() {
               type="text"
               value={profile.phone}
               onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
-              placeholder="+30 ..."
+              placeholder="+1 (555) 123-4567"
               className="input-refined w-full p-3 text-sm"
             />
           </div>
