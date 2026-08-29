@@ -3,10 +3,12 @@
 :root {
   --navy: #0b1220;
   --navy-deep: #060a13;
+  --navy-light: #141d33;
   --cream: #f8f5ee;
   --parchment: #f1ecdf;
   --gold: #b8944f;
   --gold-light: #d4b878;
+  --gold-dim: rgba(184, 148, 79, 0.25);
   --charcoal: #22262f;
   --hairline: #d9d2bf;
 }
@@ -16,7 +18,163 @@
   --font-sans: var(--font-geist-sans);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--charcoal);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ---------- Backgrounds ---------- */
+
+.bg-hero {
+  background-color: var(--navy);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(184, 148, 79, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(184, 148, 79, 0.07), transparent 40%);
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.fade-delay-1 { animation-delay: 0.08s; }
+.fade-delay-2 { animation-delay: 0.16s; }
+.fade-delay-3 { animation-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up { animation: none; }
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--navy-deep);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-gold:hover {
+  background-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(184, 148, 79, 0.45);
+}
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-navy {
+  background-color: var(--navy);
+  color: var(--cream);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-navy:hover {
+  background-color: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -10px rgba(11, 18, 32, 0.5);
+}
+.btn-navy:disabled {
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--gold);
+  color: var(--navy);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn-outline:hover {
+  background-color: rgba(184, 148, 79, 0.08);
+  transform: translateY(-2px);
+}
+
+.link-gold {
+  color: var(--gold-light);
+  transition: color 0.2s ease;
+}
+.link-gold:hover {
+  color: var(--cream);
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid var(--hairline);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 16px 32px -18px rgba(11, 18, 32, 0.25);
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+
+.card-dark {
+  border: 1px solid var(--gold-dim);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-dark:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+.card-featured {
+  border: 1px solid var(--gold);
+  background-color: rgba(184, 148, 79, 0.06);
+  box-shadow: 0 20px 44px -22px rgba(184, 148, 79, 0.3);
+}
+
+/* ---------- Inputs ---------- */
+
+.input-refined {
+  background-color: #ffffff;
+  border: 1px solid var(--hairline);
+  color: var(--charcoal);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-refined:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 148, 79, 0.15);
+}
+
+/* ---------- Ornament ---------- */
+
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1px;
+  width: 40px;
+  background: var(--gold-dim);
+}
+.ornament span {
+  color: var(--gold);
+  font-size: 10px;
+  transform: rotate(45deg);
+  display: inline-block;
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }

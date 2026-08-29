@@ -34,14 +34,15 @@ export default function History() {
             ProposalAI
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
-            <Link href="/dashboard" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
+            <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
             <Link href="/history" style={{ color: 'var(--gold)' }}>History</Link>
-            <Link href="/settings" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+            <Link href="/resources" className="link-gold" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
+            <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>
       </header>
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12 fade-in-up">
         <h1
           className="text-3xl mb-2"
           style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
@@ -53,7 +54,7 @@ export default function History() {
         </p>
 
         {history.length === 0 ? (
-          <div className="text-sm" style={{ color: 'rgba(34,38,47,0.5)' }}>
+          <div className="card p-10 text-sm text-center" style={{ color: 'rgba(34,38,47,0.5)' }}>
             No proposals generated yet. Head to the Workspace to create your first one.
           </div>
         ) : (
@@ -63,10 +64,10 @@ export default function History() {
                 <button
                   key={entry.id}
                   onClick={() => setSelected(entry)}
-                  className="text-left p-4 transition"
+                  className={`card card-hover text-left p-4 ${selected?.id === entry.id ? '' : ''}`}
                   style={{
                     backgroundColor: selected?.id === entry.id ? '#ffffff' : 'var(--parchment)',
-                    border: '1px solid var(--hairline)',
+                    borderColor: selected?.id === entry.id ? 'var(--gold)' : 'var(--hairline)',
                   }}
                 >
                   <div className="text-xs mb-1" style={{ color: 'var(--gold)' }}>
@@ -82,24 +83,21 @@ export default function History() {
             <div>
               {selected ? (
                 <div>
-                  <div
-                    className="h-96 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap mb-4"
-                    style={{ backgroundColor: '#ffffff', border: '1px solid var(--hairline)', color: 'var(--charcoal)' }}
-                  >
+                  <div className="card h-96 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap mb-4">
                     {selected.proposal}
                   </div>
                   <div className="flex gap-3">
                     <button
                       onClick={() => handleDownload(selected)}
-                      className="flex-1 py-3 text-sm tracking-[0.2em] uppercase"
-                      style={{ backgroundColor: 'var(--navy)', color: 'var(--cream)', fontWeight: 600 }}
+                      className="btn-navy flex-1 py-3 text-sm tracking-[0.2em] uppercase"
+                      style={{ fontWeight: 600 }}
                     >
                       Download PDF
                     </button>
                     <button
                       onClick={() => handleDelete(selected.id)}
-                      className="px-6 py-3 text-sm tracking-[0.2em] uppercase"
-                      style={{ border: '1px solid var(--hairline)', color: 'var(--charcoal)' }}
+                      className="btn-outline px-6 py-3 text-sm tracking-[0.2em] uppercase"
+                      style={{ color: 'var(--charcoal)', borderColor: 'var(--hairline)' }}
                     >
                       Delete
                     </button>

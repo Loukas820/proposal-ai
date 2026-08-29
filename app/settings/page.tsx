@@ -22,12 +22,6 @@ export default function Settings() {
     setTimeout(() => setSaved(false), 2000)
   }
 
-  const inputStyle = {
-    backgroundColor: '#ffffff',
-    border: '1px solid var(--hairline)',
-    color: 'var(--charcoal)',
-  }
-
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--cream)' }}>
       <header style={{ borderBottom: '1px solid var(--hairline)' }}>
@@ -40,14 +34,15 @@ export default function Settings() {
             ProposalAI
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
-            <Link href="/dashboard" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
-            <Link href="/history" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
+            <Link href="/history" className="link-gold" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/resources" className="link-gold" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
             <Link href="/settings" style={{ color: 'var(--gold)' }}>Profile</Link>
           </nav>
         </div>
       </header>
 
-      <main className="flex-1 max-w-2xl w-full mx-auto px-8 py-12">
+      <main className="flex-1 max-w-2xl w-full mx-auto px-8 py-12 fade-in-up">
         <h1
           className="text-3xl mb-2"
           style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
@@ -59,7 +54,7 @@ export default function Settings() {
           behalf of this company automatically.
         </p>
 
-        <div className="flex flex-col gap-6">
+        <div className="card p-8 flex flex-col gap-6">
           <div>
             <label className="block text-xs tracking-[0.2em] uppercase mb-2" style={{ color: 'var(--navy)' }}>
               Company Name
@@ -69,8 +64,7 @@ export default function Settings() {
               value={profile.companyName}
               onChange={(e) => setProfile({ ...profile, companyName: e.target.value })}
               placeholder="e.g. Luxury in Motion"
-              className="w-full p-3 text-sm focus:outline-none"
-              style={inputStyle}
+              className="input-refined w-full p-3 text-sm"
             />
           </div>
 
@@ -83,8 +77,7 @@ export default function Settings() {
               value={profile.tagline}
               onChange={(e) => setProfile({ ...profile, tagline: e.target.value })}
               placeholder="e.g. Premium ground transportation across Greece"
-              className="w-full p-3 text-sm focus:outline-none"
-              style={inputStyle}
+              className="input-refined w-full p-3 text-sm"
             />
           </div>
 
@@ -97,8 +90,7 @@ export default function Settings() {
               value={profile.email}
               onChange={(e) => setProfile({ ...profile, email: e.target.value })}
               placeholder="you@company.com"
-              className="w-full p-3 text-sm focus:outline-none"
-              style={inputStyle}
+              className="input-refined w-full p-3 text-sm"
             />
           </div>
 
@@ -111,15 +103,14 @@ export default function Settings() {
               value={profile.phone}
               onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
               placeholder="+30 ..."
-              className="w-full p-3 text-sm focus:outline-none"
-              style={inputStyle}
+              className="input-refined w-full p-3 text-sm"
             />
           </div>
 
           <button
             onClick={handleSave}
-            className="mt-2 py-3 text-sm tracking-[0.2em] uppercase transition"
-            style={{ backgroundColor: 'var(--navy)', color: 'var(--cream)', fontWeight: 600 }}
+            className="btn-navy mt-2 py-3 text-sm tracking-[0.2em] uppercase"
+            style={{ fontWeight: 600 }}
           >
             {saved ? 'Saved ✓' : 'Save Profile'}
           </button>

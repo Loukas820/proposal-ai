@@ -60,13 +60,14 @@ export default function Dashboard() {
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
             <Link href="/dashboard" style={{ color: 'var(--gold)' }}>Workspace</Link>
-            <Link href="/history" style={{ color: 'var(--charcoal)' }}>History</Link>
-            <Link href="/settings" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+            <Link href="/history" className="link-gold" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/resources" className="link-gold" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
+            <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>
       </header>
 
-      <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12 fade-in-up">
         <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
           <h1
             className="text-3xl"
@@ -102,22 +103,13 @@ export default function Dashboard() {
               value={rfp}
               onChange={(e) => setRfp(e.target.value)}
               placeholder="Paste RFP..."
-              className="w-full h-80 p-5 text-sm leading-relaxed focus:outline-none"
-              style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid var(--hairline)',
-                color: 'var(--charcoal)',
-              }}
+              className="input-refined w-full h-80 p-5 text-sm leading-relaxed"
             />
             <button
               onClick={generate}
               disabled={loading || !rfp}
-              className="w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase transition disabled:opacity-40"
-              style={{
-                backgroundColor: 'var(--navy)',
-                color: 'var(--cream)',
-                fontWeight: 600,
-              }}
+              className="btn-navy w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase disabled:opacity-40"
+              style={{ fontWeight: 600 }}
             >
               {loading ? 'Drafting…' : 'Generate Proposal'}
             </button>
@@ -130,14 +122,7 @@ export default function Dashboard() {
             >
               Draft Proposal
             </div>
-            <div
-              className="h-80 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap"
-              style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid var(--hairline)',
-                color: 'var(--charcoal)',
-              }}
-            >
+            <div className="card h-80 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap">
               {proposal || (
                 <span style={{ color: 'rgba(34,38,47,0.35)' }}>
                   Your draft will appear here…
@@ -147,12 +132,8 @@ export default function Dashboard() {
             {proposal && (
               <button
                 onClick={handleDownload}
-                className="w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase transition"
-                style={{
-                  border: '1px solid var(--gold)',
-                  color: 'var(--navy)',
-                  fontWeight: 600,
-                }}
+                className="btn-outline w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase"
+                style={{ fontWeight: 600 }}
               >
                 Download PDF
               </button>
