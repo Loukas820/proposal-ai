@@ -23,7 +23,7 @@ const FEATURES = [
 const STEPS = [
   {
     title: 'Tell it what’s happening',
-    body: 'A job, an appointment, an RFP, a missed call, a job that’s wrapping up — describe it in a line or two.',
+    body: 'A job, an appointment, a missed call, a job that’s wrapping up, even a big formal bid request — describe it in a line or two.',
   },
   {
     title: 'It writes the message',
@@ -38,7 +38,7 @@ const STEPS = [
 const FAQS = [
   {
     q: 'What is Daybase?',
-    a: 'Daybase is a set of AI-powered tools for running a service business day to day \u2014 turning an RFP into a proposal, quoting a job, confirming an appointment, following up on a missed call, updating a customer on a delivery, drafting a contract, and posting for new leads. Everything is written in your company\u2019s voice, using the profile you set up once.'
+    a: 'Daybase is a set of AI-powered tools for running a service business day to day \u2014 quoting a job, confirming an appointment, following up on a missed call, updating a customer on a delivery, drafting a contract, posting for new leads, and turning a bid request into a proposal. Everything is written in your company\u2019s voice, using the profile you set up once.'
   },
   {
     q: 'How is this different from just using a chatbot?',
@@ -46,11 +46,11 @@ const FAQS = [
   },
   {
     q: 'How accurate is the AI, and do I need to edit the output?',
-    a: 'Treat the draft as a strong first pass from a capable junior consultant \u2014 the structure, tone, and logic are consulting-grade, but you should still review it for your specific facts, figures, and client details before sending. It will never invent a dollar amount or statistic that wasn\u2019t in your RFP.',
+    a: 'Treat the draft as a strong first pass \u2014 clearly organized and well-written, but you should still check it against your own facts, figures, and client details before sending. It will never invent a dollar amount or detail that wasn\u2019t in what you gave it.',
   },
   {
     q: 'What industries does this work for?',
-    a: 'Any business that deals with jobs, appointments, quotes, or clients \u2014 from CEOs and management consultants responding to formal RFPs, to landscaping, roofing, HVAC, and home service companies juggling calls, appointments, and deliveries. The AI adapts to whatever job or business you describe.',
+    a: 'Any business that deals with jobs, appointments, quotes, or clients \u2014 from landscaping, roofing, HVAC, and home service companies juggling calls and deliveries, to CEOs and consultants responding to big formal bid requests. The AI adapts to whatever job or business you describe.',
   },
   {
     q: 'How does pricing work?',
@@ -70,7 +70,7 @@ const FAQS = [
   },
   {
     q: 'What tools come with an account besides proposals?',
-    a: 'Every account gets free access to the full toolkit: appointment and job update messages, a call script and missed-call text-back assistant, a review request generator, a social post generator for Facebook/Instagram, an RFP analyzer, a quote builder, a client onboarding packet generator, a service agreement drafter, and multi-language translation. See the Tools page for the full lineup.',
+    a: 'Every account gets free access to the full toolkit: appointment and job update messages, a call script and missed-call text-back assistant, a review request generator, a social post generator for Facebook/Instagram, a quote builder, a client onboarding packet generator, a service agreement drafter, multi-language translation, and a checker for big formal bid requests. See the Tools page for the full lineup.',
   },
 ]
 
@@ -78,7 +78,7 @@ const POPULAR_TOOLS = [
   {
     icon: '\u2726',
     title: 'Proposals & Quotes',
-    body: 'Turn an RFP or job description into a client-ready proposal, written in your voice.',
+    body: 'Turn a bid request or job description into a client-ready proposal, written in your voice.',
     href: '/dashboard',
   },
   {
@@ -320,12 +320,12 @@ export default function Home() {
             From Brief to Draft
           </h2>
           <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
-            One tool, closer up — an illustrative example. Your own output is generated live from your RFP and company profile.
+            One tool, closer up — an illustrative example. Your own output is generated live from your request and company profile.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="card-dark p-8 reveal">
               <div className="text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold-light)' }}>
-                The RFP
+                The Request
               </div>
               <p
                 className="text-sm leading-relaxed whitespace-pre-line"
@@ -503,7 +503,7 @@ export default function Home() {
               See full pricing details & feature comparison →
             </Link>
             <Link href="/resources" className="link-gold text-xs tracking-[0.2em] uppercase">
-              Not ready to try it? Get the free RFP Response Checklist →
+              Not ready to try it? Get the free Bid Response Checklist →
             </Link>
           </div>
         </section>

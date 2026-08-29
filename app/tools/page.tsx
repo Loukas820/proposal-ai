@@ -59,16 +59,16 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     blurb: 'Decide what to bid on, and make the case once you do.',
     tools: [
       {
-        href: '/tools/rfp-analyzer',
-        icon: '◎',
-        title: 'RFP Analyzer',
-        body: 'Paste an RFP before you commit to responding — requirements, budget/deadline signals, and red flags in seconds.',
-      },
-      {
         href: '/tools/quote-builder',
         icon: '🧾',
         title: 'Quote Builder',
         body: 'Line items, tax, and total calculated for you — export a branded quote PDF. No AI involved, just fast math.',
+      },
+      {
+        href: '/tools/rfp-analyzer',
+        icon: '◎',
+        title: 'Bid Request Checker',
+        body: 'Quickly check whether a big, formal bid request (also called an RFP) is worth your time before you write a full response.',
       },
     ],
   },

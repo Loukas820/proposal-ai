@@ -211,8 +211,8 @@ export default function Dashboard() {
         </div>
         <p className="text-sm mb-6" style={{ color: 'rgba(34,38,47,0.6)' }}>
           {profile.companyName
-            ? `Writing on behalf of ${profile.companyName}. Paste an RFP below to draft a proposal.`
-            : 'Paste an RFP below and let AI draft a precise, client-ready response.'}
+            ? `Writing on behalf of ${profile.companyName}. Paste the request, brief, or job details below to draft a proposal.`
+            : 'Paste the request, brief, or job details below and let AI draft a clear, client-ready response.'}
         </p>
 
         {/* Account / billing strip */}
@@ -319,12 +319,12 @@ export default function Dashboard() {
               className="text-xs tracking-[0.2em] uppercase mb-3"
               style={{ color: 'var(--navy)' }}
             >
-              Request for Proposal
+              Request Or Job Brief
             </div>
             <textarea
               value={rfp}
               onChange={(e) => setRfp(e.target.value)}
-              placeholder="Paste RFP..."
+              placeholder="Paste the request or brief here..."
               className="input-refined w-full h-80 p-5 text-sm leading-relaxed"
             />
             <button

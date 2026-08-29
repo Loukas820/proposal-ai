@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const CORE = {
   title: 'Proposals & Quotes',
-  body: 'Paste an RFP or describe a job, get a structured, client-ready proposal in your voice — executive summary, scope, timeline, and a clear next step. One of the tools built into Daybase, and still the fastest way to turn an opportunity into a sent document.',
+  body: 'Paste a bid request or describe a job, get a structured, client-ready proposal in your voice — executive summary, scope, timeline, and a clear next step. One of the tools built into Daybase, and still the fastest way to turn an opportunity into a sent document.',
   cta: { href: '/dashboard', label: 'Open the Workspace' },
   pricing: 'Free (2/mo) · $9.99/proposal · $49/mo unlimited',
 }
@@ -33,16 +33,16 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
     name: 'Win The Work',
     services: [
       {
-        icon: '◎',
-        title: 'RFP Analyzer',
-        body: 'Not every RFP is worth a full response. Paste one in before you commit hours to writing — get requirements, budget and deadline signals, and red flags pulled out so you can make a fast go/no-go call.',
-        href: '/tools/rfp-analyzer',
-      },
-      {
         icon: '🧾',
         title: 'Quote Builder',
         body: 'Line items, tax, and total calculated for you — export a branded quote as a PDF. Pure arithmetic, no AI, built for trades and service businesses that quote by the job.',
         href: '/tools/quote-builder',
+      },
+      {
+        icon: '◎',
+        title: 'Bid Request Checker',
+        body: 'Not every big, formal bid request (also called an RFP) is worth a full response. Paste one in and quickly see what it\u2019s asking for, before you spend hours writing.',
+        href: '/tools/rfp-analyzer',
       },
     ],
   },
@@ -147,7 +147,7 @@ export default function Services() {
           Everything It Takes To Run Your Day
         </h1>
         <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(248,245,238,0.65)' }}>
-          Whether you&apos;re a CEO responding to a formal RFP or a roofing or landscaping crew posting your next job on Facebook, the actual work is calls, appointments, quotes, jobs, deliveries, and staying in touch — not just one document. Daybase is built to cover the whole day, not just the pitch.
+          Whether you&apos;re a CEO responding to a big formal bid request or a roofing or landscaping crew posting your next job on Facebook, the actual work is calls, appointments, quotes, jobs, deliveries, and staying in touch — not just one document. Daybase is built to cover the whole day, not just the pitch.
         </p>
 
         <div className="card-dark card-featured p-10 mb-20 reveal">

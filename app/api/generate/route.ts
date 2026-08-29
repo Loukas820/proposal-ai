@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     const { rfp, companyProfile, email } = await request.json()
 
     if (!rfp) {
-      return Response.json({ error: 'No RFP provided' }, { status: 400 })
+      return Response.json({ error: 'No request or brief provided' }, { status: 400 })
     }
 
     if (!email) {

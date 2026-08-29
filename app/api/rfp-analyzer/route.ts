@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     const { rfp, email } = await request.json()
 
     if (!rfp) {
-      return Response.json({ error: 'Paste an RFP first' }, { status: 400 })
+      return Response.json({ error: 'Paste the bid request or brief first' }, { status: 400 })
     }
     if (!email) {
       return Response.json({ error: 'Enter your account email first' }, { status: 400 })

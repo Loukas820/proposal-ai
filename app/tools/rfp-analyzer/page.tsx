@@ -60,21 +60,21 @@ export default function RfpAnalyzerTool() {
           ← All Tools
         </Link>
         <h1 className="text-3xl mt-4 mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
-          RFP Analyzer
+          Bid Request Checker
         </h1>
         <p className="text-sm mb-10" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Paste an RFP before you commit to writing a full proposal. See requirements, budget and deadline signals, and red flags in seconds. Free with your account.
+          Paste a big, formal bid request (sometimes called an RFP) before you spend time writing a full proposal. See what it&apos;s asking for, budget and deadline clues, and anything that looks off, in seconds. Free with your account.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="text-xs tracking-[0.2em] uppercase mb-2 block" style={{ color: 'var(--navy)' }}>
-              RFP or Brief
+              Bid Request Or Brief
             </label>
             <textarea
               value={rfp}
               onChange={(e) => setRfp(e.target.value)}
-              placeholder="Paste the RFP..."
+              placeholder="Paste the request here..."
               className="input-refined w-full h-80 p-5 text-sm leading-relaxed"
             />
             <button
@@ -83,7 +83,7 @@ export default function RfpAnalyzerTool() {
               className="btn-navy w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase disabled:opacity-40"
               style={{ fontWeight: 600 }}
             >
-              {loading ? 'Analyzing…' : 'Analyze RFP'}
+              {loading ? 'Checking…' : 'Check It'}
             </button>
           </div>
 

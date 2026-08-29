@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const CHECKLIST = [
   {
-    title: 'Read the RFP twice before writing anything',
+    title: 'Read the request twice before writing anything',
     body: 'Once for the requirements, once for the unstated priorities — budget language, tone, and what they list first usually signals what they care about most.',
   },
   {
@@ -28,7 +28,7 @@ const CHECKLIST = [
   },
   {
     title: 'Answer the objection they haven’t asked yet',
-    body: 'Every RFP has a silent worry behind it — usually risk, price, or "will this actually get done." Address it before they have to ask.',
+    body: 'Every bid request has a silent worry behind it — usually risk, price, or "will this actually get done." Address it before they have to ask.',
   },
   {
     title: 'End with one clear next step',
@@ -70,7 +70,7 @@ export default function Resources() {
           className="text-4xl mb-6"
           style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
         >
-          The RFP Response Checklist
+          The Bid Response Checklist
         </h1>
         <p className="text-base leading-relaxed mb-12" style={{ color: 'rgba(34,38,47,0.65)' }}>
           Eight habits that separate proposals that win from proposals that
