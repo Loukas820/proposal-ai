@@ -74,6 +74,45 @@ const FAQS = [
   },
 ]
 
+const POPULAR_TOOLS = [
+  {
+    icon: '\u2726',
+    title: 'Proposals & Quotes',
+    body: 'Turn an RFP or job description into a client-ready proposal, written in your voice.',
+    href: '/dashboard',
+  },
+  {
+    icon: '\ud83d\udcc5',
+    title: 'Customer Update Messages',
+    body: 'Appointment confirmations, reminders, and job or delivery updates \u2014 written for you.',
+    href: '/tools/customer-updates',
+  },
+  {
+    icon: '\ud83d\udcde',
+    title: 'Call & Missed-Call Assistant',
+    body: 'Know what to say before you dial, and never leave a missed call hanging.',
+    href: '/tools/call-assistant',
+  },
+  {
+    icon: '\ud83d\udce3',
+    title: 'Social Post Generator',
+    body: 'Turn a job or offer into three ready-to-post Facebook/Instagram updates.',
+    href: '/tools/outreach-post',
+  },
+  {
+    icon: '\u2605',
+    title: 'Review Request Generator',
+    body: 'Ask for the review while the good feeling from a finished job is still fresh.',
+    href: '/tools/review-request',
+  },
+  {
+    icon: '\ud83d\udcc4',
+    title: 'Service Agreement Drafter',
+    body: 'A contract starting point built from your scope, terms, and timeline.',
+    href: '/tools/agreement',
+  },
+]
+
 const EXAMPLE_RFP = `We are seeking a marketing consultant to develop and execute a 6-month digital growth strategy for our boutique hospitality brand.
 
 Budget: $40,000–$60,000
@@ -179,8 +218,8 @@ export default function Home() {
             >
               Get Started Free
             </Link>
-            <a href="#example" className="link-gold text-sm tracking-[0.15em] uppercase">
-              See an example ↓
+            <a href="#popular-tools" className="link-gold text-sm tracking-[0.15em] uppercase">
+              See what it does ↓
             </a>
           </div>
 
@@ -224,13 +263,55 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="example" className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section id="popular-tools" className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
             style={{ color: 'var(--gold)' }}
           >
-            See It In Action
+            Most Popular
+          </div>
+          <h2
+            className="text-3xl text-center mb-4 reveal"
+            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+          >
+            The Tools Businesses Use Every Day
+          </h2>
+          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
+            Proposals are one piece. Most accounts lean on all of these just as much — every one is free with any account.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {POPULAR_TOOLS.map((tool) => (
+              <Link key={tool.title} href={tool.href} className="card-dark card p-7 reveal block">
+                <div
+                  className="w-9 h-9 flex items-center justify-center text-base mb-5"
+                  style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+                >
+                  {tool.icon}
+                </div>
+                <h3 className="text-base mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
+                  {tool.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.65)' }}>
+                  {tool.body}
+                </p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-12 text-center reveal">
+            <Link href="/tools" className="link-gold text-xs tracking-[0.2em] uppercase">
+              See every tool →
+            </Link>
+          </div>
+        </section>
+
+        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+          <div className="ornament mb-6"><span>◆</span></div>
+          <div
+            className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
+            style={{ color: 'var(--gold)' }}
+          >
+            Proposals, In Detail
           </div>
           <h2
             className="text-3xl text-center mb-4 reveal"
@@ -239,7 +320,7 @@ export default function Home() {
             From Brief to Draft
           </h2>
           <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
-            An illustrative example — your own output is generated live from your RFP and company profile.
+            One tool, closer up — an illustrative example. Your own output is generated live from your RFP and company profile.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="card-dark p-8 reveal">
@@ -358,7 +439,7 @@ export default function Home() {
             Simple, Transparent Pricing
           </h2>
           <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
-            Priced for what the writing alone is worth — not what a generic document platform charges for e-signatures and storage you may not need.
+            Only proposal generation is metered, priced below. Every other tool \u2014 calls, appointments, jobs, deliveries, outreach, contracts \u2014 is free with any account, on any plan.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="card-dark p-8 flex flex-col items-center text-center reveal">
@@ -465,8 +546,13 @@ export default function Home() {
             className="btn-gold inline-block px-10 py-4 text-sm tracking-[0.2em] uppercase"
             style={{ fontWeight: 600 }}
           >
-            Begin Your First Proposal
+            Get Started Free
           </Link>
+          <div className="mt-5">
+            <Link href="/tools" className="link-gold text-xs tracking-[0.2em] uppercase">
+              Or browse every tool first →
+            </Link>
+          </div>
         </div>
       </main>
 
