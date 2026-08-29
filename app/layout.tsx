@@ -15,18 +15,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "ProposalAI — Turn RFPs Into Proposals of Distinction",
+  title: "Try ProposalAI Free",
   description:
     "AI-powered proposal generation for consultants. Paste an RFP, get a client-ready proposal in minutes, complete with your branding.",
   openGraph: {
-    title: "ProposalAI",
+    title: "Try ProposalAI Free",
     description:
       "AI-powered proposal generation for consultants. Paste an RFP, get a client-ready proposal in minutes.",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "ProposalAI",
+    title: "Try ProposalAI Free",
     description:
       "AI-powered proposal generation for consultants. Paste an RFP, get a client-ready proposal in minutes.",
   },

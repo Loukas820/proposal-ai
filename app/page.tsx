@@ -38,23 +38,39 @@ const STEPS = [
 const FAQS = [
   {
     q: 'What is ProposalAI?',
-    a: 'ProposalAI turns an RFP or client brief into a polished, ready-to-send proposal in minutes, written on behalf of your company using the profile you set up.',
+    a: 'ProposalAI turns an RFP or client brief into a polished, ready-to-send proposal in minutes, written on behalf of your company using the profile you set up \u2014 structured with an executive summary, scope of work, timeline, and a clear next step, the way a senior consultant would write it.',
   },
   {
     q: 'How is this different from just using a chatbot?',
-    a: 'ProposalAI remembers your company details so you never re-explain them, keeps a history of every proposal you’ve generated, and exports a branded, client-ready PDF — not just raw chat text.',
+    a: 'A chatbot forgets everything the moment you close the tab. ProposalAI remembers your company details so you never re-explain them, keeps a running history of every proposal you\u2019ve generated, formats the output as an actual document instead of a wall of chat text, and exports a branded, client-ready PDF in one click.',
+  },
+  {
+    q: 'How accurate is the AI, and do I need to edit the output?',
+    a: 'Treat the draft as a strong first pass from a capable junior consultant \u2014 the structure, tone, and logic are consulting-grade, but you should still review it for your specific facts, figures, and client details before sending. It will never invent a dollar amount or statistic that wasn\u2019t in your RFP.',
+  },
+  {
+    q: 'What industries does this work for?',
+    a: 'Any RFP-driven or proposal-driven business \u2014 marketing and creative agencies, IT and software consultancies, management and strategy consultants, construction and trades, professional services, and B2B vendors responding to procurement requests. The AI adapts its structure to whatever brief you paste in.',
   },
   {
     q: 'How does pricing work?',
-    a: 'Pay per proposal, or go unlimited with a monthly plan if you send proposals regularly. Choose whichever fits how often you pitch new work.',
+    a: 'Pay per proposal at $9.99 if you pitch occasionally, or go unlimited at $49/month if you send proposals regularly \u2014 unlimited pays for itself after roughly five proposals a month. Everyone starts with 2 free proposals to see the quality before spending anything.',
+  },
+  {
+    q: 'Can I cancel the Unlimited plan anytime?',
+    a: 'Yes \u2014 there\u2019s no contract or minimum term. Cancel whenever you like and you\u2019ll keep unlimited access through the rest of the billing period you\u2019ve already paid for.',
   },
   {
     q: 'Is my payment information secure?',
-    a: 'Yes. Checkout is handled entirely by Stripe — ProposalAI never sees or stores your card details.',
+    a: 'Yes. Checkout is handled entirely by Stripe, the payment processor used by most modern SaaS companies \u2014 ProposalAI never sees or stores your card details.',
   },
   {
     q: 'Is my data private?',
-    a: 'Your company profile and proposal history are stored locally in your own browser — they are not sent anywhere except to generate each proposal.',
+    a: 'Your company profile and proposal history are stored locally in your own browser, not on a server \u2014 they\u2019re never sent anywhere except to the AI model at the moment you generate a proposal.',
+  },
+  {
+    q: 'Do you offer anything beyond proposal generation?',
+    a: 'Yes \u2014 every account also gets free access to a Follow-Up Email Generator and an RFP Analyzer, and we\u2019re actively building more. See the Services page for the full lineup.',
   },
 ]
 
@@ -99,7 +115,10 @@ export default function Home() {
             ProposalAI
           </div>
           <div className="flex items-center gap-8">
-            <Link href="/#pricing" className="link-gold text-sm tracking-widest uppercase hidden sm:inline">
+            <Link href="/services" className="link-gold text-sm tracking-widest uppercase hidden sm:inline">
+              Services
+            </Link>
+            <Link href="/pricing" className="link-gold text-sm tracking-widest uppercase hidden sm:inline">
               Pricing
             </Link>
             <Link href="/resources" className="link-gold text-sm tracking-widest uppercase">
@@ -315,6 +334,11 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="mt-12 text-center reveal">
+            <Link href="/services" className="link-gold text-xs tracking-[0.2em] uppercase">
+              See the full lineup, including free bonus tools →
+            </Link>
+          </div>
         </section>
 
         <section id="pricing" className="w-full max-w-4xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
@@ -391,7 +415,10 @@ export default function Home() {
           <p className="mt-10 text-center text-xs tracking-[0.15em] uppercase reveal" style={{ color: 'rgba(248,245,238,0.4)' }}>
             Secure checkout via Stripe · Cancel unlimited anytime · No card required for the free tier
           </p>
-          <div className="mt-6 text-center">
+          <div className="mt-6 flex flex-col items-center gap-3">
+            <Link href="/pricing" className="link-gold text-xs tracking-[0.2em] uppercase">
+              See full pricing details & feature comparison →
+            </Link>
             <Link href="/resources" className="link-gold text-xs tracking-[0.2em] uppercase">
               Not ready to try it? Get the free RFP Response Checklist →
             </Link>
@@ -448,7 +475,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(248,245,238,0.4)' }}>
           <div>ProposalAI — Precision proposal writing, powered by AI · © {new Date().getFullYear()}</div>
           <div className="flex items-center gap-6">
-            <Link href="/#pricing" className="link-gold uppercase tracking-[0.15em]">Pricing</Link>
+            <Link href="/services" className="link-gold uppercase tracking-[0.15em]">Services</Link>
+            <Link href="/pricing" className="link-gold uppercase tracking-[0.15em]">Pricing</Link>
             <Link href="/resources" className="link-gold uppercase tracking-[0.15em]">Free Guide</Link>
             <span>Payments secured by Stripe</span>
           </div>

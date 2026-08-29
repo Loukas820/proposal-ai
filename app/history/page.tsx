@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getHistory, deleteHistoryEntry, downloadProposalPDF, getProfile, HistoryEntry } from '../lib/storage'
+import ProposalView from '../components/ProposalView'
 
 export default function History() {
   const [history, setHistory] = useState<HistoryEntry[]>([])
@@ -35,6 +36,7 @@ export default function History() {
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
             <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
+            <Link href="/tools" className="link-gold" style={{ color: 'var(--charcoal)' }}>Tools</Link>
             <Link href="/history" style={{ color: 'var(--gold)' }}>History</Link>
             <Link href="/resources" className="link-gold" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
             <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
@@ -83,8 +85,8 @@ export default function History() {
             <div>
               {selected ? (
                 <div>
-                  <div className="card h-96 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap mb-4">
-                    {selected.proposal}
+                  <div className="doc-paper h-96 p-6 text-sm leading-relaxed overflow-y-auto mb-4">
+                    <ProposalView text={selected.proposal} />
                   </div>
                   <div className="flex gap-3">
                     <button

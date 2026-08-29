@@ -1,7 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getProfile, addHistoryEntry, downloadProposalPDF, CompanyProfile } from '../lib/storage'
+import { getProfile, addHistoryEntry, downloadProposalPDF, CompanyProfile, getAccountEmail, saveAccountEmail, clearAccountEmail } from '../lib/storage'
+import ProposalView from '../components/ProposalView'
 
 type AccountStatus = {
   plan: 'free' | 'unlimited'
@@ -10,8 +11,6 @@ type AccountStatus = {
   credits: number
   unlimitedActive: boolean
 }
-
-const EMAIL_KEY = 'proposalai_account_email'
 
 function isValidEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
@@ -52,7 +51,7 @@ export default function Dashboard() {
   useEffect(() => {
     setProfile(getProfile())
 
-    const savedEmail = typeof window !== 'undefined' ? window.localStorage.getItem(EMAIL_KEY) : ''
+    const savedEmail = getAccountEmail()
     if (savedEmail) {
       setAccountEmail(savedEmail)
       setEmailInput(savedEmail)
@@ -92,7 +91,7 @@ export default function Dashboard() {
       alert('Enter a valid email address to track your usage and plan.')
       return
     }
-    window.localStorage.setItem(EMAIL_KEY, trimmed)
+    saveAccountEmail(trimmed)
     setAccountEmail(trimmed)
     fetchStatus(trimmed)
   }
@@ -184,6 +183,7 @@ export default function Dashboard() {
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
             <Link href="/dashboard" style={{ color: 'var(--gold)' }}>Workspace</Link>
+            <Link href="/tools" className="link-gold" style={{ color: 'var(--charcoal)' }}>Tools</Link>
             <Link href="/history" className="link-gold" style={{ color: 'var(--charcoal)' }}>History</Link>
             <Link href="/resources" className="link-gold" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
             <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
@@ -262,7 +262,7 @@ export default function Dashboard() {
                 )}
                 <button
                   onClick={() => {
-                    window.localStorage.removeItem(EMAIL_KEY)
+                    clearAccountEmail()
                     setAccountEmail('')
                     setEmailInput('')
                     setStatus(null)
@@ -361,12 +361,12 @@ export default function Dashboard() {
                   <div className="skeleton-line w-10/12" />
                   <div className="skeleton-line w-3/6" />
                 </div>
+              ) : proposal ? (
+                <ProposalView text={proposal} />
               ) : (
-                proposal || (
-                  <span style={{ color: 'rgba(34,38,47,0.35)' }}>
-                    Your draft will appear here…
-                  </span>
-                )
+                <span style={{ color: 'rgba(34,38,47,0.35)' }}>
+                  Your draft will appear here…
+                </span>
               )}
             </div>
             {proposal && (

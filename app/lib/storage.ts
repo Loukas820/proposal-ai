@@ -15,6 +15,22 @@ export type HistoryEntry = {
 
 const PROFILE_KEY = 'proposalai_profile'
 const HISTORY_KEY = 'proposalai_history'
+const ACCOUNT_EMAIL_KEY = 'proposalai_account_email'
+
+export function getAccountEmail(): string {
+  if (typeof window === 'undefined') return ''
+  return window.localStorage.getItem(ACCOUNT_EMAIL_KEY) || ''
+}
+
+export function saveAccountEmail(email: string) {
+  if (typeof window === 'undefined') return
+  window.localStorage.setItem(ACCOUNT_EMAIL_KEY, email)
+}
+
+export function clearAccountEmail() {
+  if (typeof window === 'undefined') return
+  window.localStorage.removeItem(ACCOUNT_EMAIL_KEY)
+}
 
 export function getProfile(): CompanyProfile {
   if (typeof window === 'undefined') {

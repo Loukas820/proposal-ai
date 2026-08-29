@@ -20,8 +20,8 @@ export async function GET(request: Request) {
 
     const status = await getAccountStatus(email)
     return Response.json({ confirmed: paid, mode: session.mode, status })
-  } catch (error: any) {
+  } catch (error) {
     console.error('Confirm checkout error:', error)
-    return Response.json({ error: error.message || 'Failed to confirm checkout' }, { status: 500 })
+    return Response.json({ error: error instanceof Error ? error.message : 'Failed to confirm checkout' }, { status: 500 })
   }
 }

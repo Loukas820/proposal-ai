@@ -36,8 +36,8 @@ export async function POST(request: Request) {
     })
 
     return Response.json({ url: session.url })
-  } catch (error: any) {
+  } catch (error) {
     console.error('Checkout error:', error)
-    return Response.json({ error: error.message || 'Failed to start checkout' }, { status: 500 })
+    return Response.json({ error: error instanceof Error ? error.message : 'Failed to start checkout' }, { status: 500 })
   }
 }

@@ -9,8 +9,8 @@ export async function GET(request: Request) {
     }
     const status = await getAccountStatus(email)
     return Response.json(status)
-  } catch (error: any) {
+  } catch (error) {
     console.error('Account status error:', error)
-    return Response.json({ error: error.message || 'Failed to load account status' }, { status: 500 })
+    return Response.json({ error: error instanceof Error ? error.message : 'Failed to load account status' }, { status: 500 })
   }
 }
