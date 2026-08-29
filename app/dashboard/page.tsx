@@ -35,6 +35,7 @@ export default function Dashboard() {
   const [checkoutLoading, setCheckoutLoading] = useState<'single' | 'unlimited' | null>(null)
   const [limitReached, setLimitReached] = useState(false)
   const [banner, setBanner] = useState('')
+  const [copied, setCopied] = useState(false)
 
   const fetchStatus = async (email: string) => {
     setStatusLoading(true)
@@ -158,11 +159,21 @@ export default function Dashboard() {
     downloadProposalPDF(profile.companyName, profile.tagline, profile.email, profile.phone, proposal)
   }
 
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(proposal)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1800)
+    } catch {
+      // clipboard access can fail silently in some browser contexts — no-op
+    }
+  }
+
   const freeRemaining = status ? Math.max(status.freeLimit - status.freeUsed, 0) : null
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--cream)' }}>
-      <header style={{ borderBottom: '1px solid var(--hairline)' }}>
+      <header className="nav-glass-light" style={{ borderBottom: '1px solid var(--hairline)' }}>
         <div className="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
           <Link
             href="/"
@@ -234,10 +245,17 @@ export default function Dashboard() {
               <div className="text-sm flex items-center gap-3 flex-wrap">
                 {statusLoading && <span style={{ color: 'rgba(34,38,47,0.5)' }}>Checking plan…</span>}
                 {!statusLoading && status?.unlimitedActive && (
-                  <span style={{ color: 'var(--gold)' }} className="font-medium">Unlimited plan active</span>
+                  <span className="flex items-center gap-2" style={{ color: 'var(--gold)' }}>
+                    <span className="status-dot" style={{ backgroundColor: 'var(--gold)' }} />
+                    <span className="font-medium">Unlimited plan active</span>
+                  </span>
                 )}
                 {!statusLoading && status && !status.unlimitedActive && (
-                  <span style={{ color: 'rgba(34,38,47,0.7)' }}>
+                  <span className="flex items-center gap-2" style={{ color: 'rgba(34,38,47,0.7)' }}>
+                    <span
+                      className="status-dot"
+                      style={{ backgroundColor: freeRemaining && freeRemaining > 0 ? '#3f8f5f' : '#b5533c' }}
+                    />
                     {freeRemaining} of {status.freeLimit} free proposals left this month
                     {status.credits > 0 ? ` · ${status.credits} credit${status.credits === 1 ? '' : 's'} available` : ''}
                   </span>
@@ -271,7 +289,7 @@ export default function Dashboard() {
         {limitReached && (
           <div className="card-featured p-6 mb-10">
             <div className="text-lg mb-1" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
-              You've used your free proposals for this month
+              You&apos;ve used your free proposals for this month
             </div>
             <p className="text-sm mb-5" style={{ color: 'rgba(34,38,47,0.65)' }}>
               Buy a single proposal or go unlimited to keep drafting.
@@ -326,21 +344,48 @@ export default function Dashboard() {
             >
               Draft Proposal
             </div>
-            <div className="card h-80 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap">
-              {proposal || (
-                <span style={{ color: 'rgba(34,38,47,0.35)' }}>
-                  Your draft will appear here…
-                </span>
+            <div
+              className={
+                proposal
+                  ? 'doc-paper h-80 p-6 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap fade-in-up'
+                  : 'card h-80 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap'
+              }
+            >
+              {loading ? (
+                <div className="flex flex-col gap-3 pt-1">
+                  <div className="skeleton-line w-5/6" />
+                  <div className="skeleton-line w-full" />
+                  <div className="skeleton-line w-11/12" />
+                  <div className="skeleton-line w-4/6" />
+                  <div className="skeleton-line w-full mt-4" />
+                  <div className="skeleton-line w-10/12" />
+                  <div className="skeleton-line w-3/6" />
+                </div>
+              ) : (
+                proposal || (
+                  <span style={{ color: 'rgba(34,38,47,0.35)' }}>
+                    Your draft will appear here…
+                  </span>
+                )
               )}
             </div>
             {proposal && (
-              <button
-                onClick={handleDownload}
-                className="btn-outline w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase"
-                style={{ fontWeight: 600 }}
-              >
-                Download PDF
-              </button>
+              <div className="flex gap-3 mt-4">
+                <button
+                  onClick={handleCopy}
+                  className="btn-outline flex-1 py-3 text-sm tracking-[0.2em] uppercase"
+                  style={{ fontWeight: 600 }}
+                >
+                  {copied ? 'Copied ✓' : 'Copy Text'}
+                </button>
+                <button
+                  onClick={handleDownload}
+                  className="btn-navy flex-1 py-3 text-sm tracking-[0.2em] uppercase"
+                  style={{ fontWeight: 600 }}
+                >
+                  Download PDF
+                </button>
+              </div>
             )}
           </div>
         </div>

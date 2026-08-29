@@ -43,7 +43,7 @@ export default function Resources() {
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--cream)' }}>
-      <header className="no-print" style={{ borderBottom: '1px solid var(--hairline)' }}>
+      <header className="no-print nav-glass-light" style={{ borderBottom: '1px solid var(--hairline)' }}>
         <div className="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
           <Link
             href="/"
