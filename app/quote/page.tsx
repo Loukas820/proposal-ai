@@ -39,7 +39,7 @@ export default function PublicQuoteRequest() {
       <header style={{ borderBottom: '1px solid var(--hairline)' }}>
         <div className="max-w-3xl mx-auto px-8 py-6">
           <Link href="/" className="text-xl tracking-wide" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
-            ProposalAI
+            Daybase
           </Link>
         </div>
       </header>
@@ -103,7 +103,7 @@ export default function PublicQuoteRequest() {
       <footer className="px-8 py-6 text-center text-xs" style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}>
         Powered by{' '}
         <Link href="/" className="link-gold" style={{ color: 'var(--gold)' }}>
-          ProposalAI
+          Daybase
         </Link>
       </footer>
     </div>

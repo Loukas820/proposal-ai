@@ -50,7 +50,7 @@ export default function Settings() {
             className="text-2xl tracking-wide"
             style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
           >
-            ProposalAI
+            Daybase
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
             <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
@@ -162,7 +162,7 @@ export default function Settings() {
         className="px-8 py-6 text-center text-xs"
         style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
       >
-        ProposalAI — Precision proposal writing, powered by AI
+        Daybase — Run your business, without the busywork
       </footer>
     </div>
   )

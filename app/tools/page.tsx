@@ -14,7 +14,7 @@ function AppHeader({ active }: { active: string }) {
     <header className="nav-glass-light" style={{ borderBottom: '1px solid var(--hairline)' }}>
       <div className="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
         <Link href="/" className="text-2xl tracking-wide" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
-          ProposalAI
+          Daybase
         </Link>
         <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
           {APP_NAV.map((item) => (
@@ -73,6 +73,24 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     ],
   },
   {
+    name: 'Calls, Appointments & Jobs',
+    blurb: 'Keep customers in the loop on what\u2019s scheduled, what\u2019s happening, and what to say on the phone.',
+    tools: [
+      {
+        href: '/tools/customer-updates',
+        icon: '\ud83d\udcc5',
+        title: 'Customer Update Messages',
+        body: 'Appointment confirmations, reminders, delay notices, job and delivery updates \u2014 text and email versions in seconds.',
+      },
+      {
+        href: '/tools/call-assistant',
+        icon: '\ud83d\udcde',
+        title: 'Call & Missed-Call Assistant',
+        body: 'Talking points before you dial, plus a ready text-back for the calls that go to voicemail.',
+      },
+    ],
+  },
+  {
     name: 'Stay In Touch',
     blurb: 'The follow-through that turns a maybe into a yes.',
     tools: [
@@ -126,7 +144,7 @@ export default function Tools() {
           Tools
         </h1>
         <p className="text-sm mb-14" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Everything around winning and delivering work, beyond proposal generation itself — all free with your account.
+          Everything it takes to run the day \u2014 calls, appointments, jobs, deliveries, outreach, and the paperwork in between \u2014 all free with your account.
         </p>
 
         {CATEGORIES.map((cat) => (
@@ -165,7 +183,7 @@ export default function Tools() {
         className="px-8 py-6 text-center text-xs"
         style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
       >
-        ProposalAI — Precision proposal writing, powered by AI
+        Daybase — Run your business, without the busywork
       </footer>
     </div>
   )

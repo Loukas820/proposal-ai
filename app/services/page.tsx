@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 import Link from 'next/link'
 
 const CORE = {
-  title: 'Proposal Generation',
-  body: 'Paste an RFP or brief, get a structured, client-ready proposal in your voice — executive summary, scope, timeline, and a clear next step. The core of ProposalAI, and still the fastest way to turn an opportunity into a sent document.',
+  title: 'Proposals & Quotes',
+  body: 'Paste an RFP or describe a job, get a structured, client-ready proposal in your voice — executive summary, scope, timeline, and a clear next step. One of the tools built into Daybase, and still the fastest way to turn an opportunity into a sent document.',
   cta: { href: '/dashboard', label: 'Open the Workspace' },
   pricing: 'Free (2/mo) · $9.99/proposal · $49/mo unlimited',
 }
@@ -43,6 +43,23 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
         title: 'Quote Builder',
         body: 'Line items, tax, and total calculated for you — export a branded quote as a PDF. Pure arithmetic, no AI, built for trades and service businesses that quote by the job.',
         href: '/tools/quote-builder',
+      },
+    ],
+  },
+  {
+    name: 'Calls, Appointments & Jobs',
+    services: [
+      {
+        icon: '\ud83d\udcc5',
+        title: 'Customer Update Messages',
+        body: 'Appointment confirmations, reminders, delay notices, job-started and job-complete updates, delivery notices \u2014 the message that keeps a customer in the loop, written for you in seconds.',
+        href: '/tools/customer-updates',
+      },
+      {
+        icon: '\ud83d\udcde',
+        title: 'Call & Missed-Call Assistant',
+        body: 'A short talking-points script before you dial, plus a friendly missed-call text-back so a call that goes to voicemail never just goes cold.',
+        href: '/tools/call-assistant',
       },
     ],
   },
@@ -111,7 +128,7 @@ export default function Services() {
       <header className="nav-glass-dark" style={{ borderBottom: '1px solid var(--gold-dim)' }}>
         <nav className="max-w-5xl mx-auto px-8 py-6 flex items-center justify-between">
           <Link href="/" className="text-2xl tracking-wide" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
-            ProposalAI
+            Daybase
           </Link>
           <div className="flex items-center gap-8">
             <Link href="/services" className="text-sm tracking-widest uppercase" style={{ color: 'var(--gold)' }}>Services</Link>
@@ -124,13 +141,13 @@ export default function Services() {
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-20 relative z-10">
         <div className="text-xs tracking-[0.3em] uppercase mb-4 text-center" style={{ color: 'var(--gold)' }}>
-          What ProposalAI Does
+          What Daybase Does
         </div>
         <h1 className="text-4xl md:text-5xl text-center mb-6" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
-          A Complete Practice Around Winning Work
+          Everything It Takes To Run Your Day
         </h1>
         <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(248,245,238,0.65)' }}>
-          Whether you&apos;re a CEO responding to a formal RFP or a roofing or landscaping company promoting your next job on Facebook, winning work is one moment in a longer cycle — deciding what to pursue, pitching it, and following up. ProposalAI is built to cover the whole thing, not just the document.
+          Whether you&apos;re a CEO responding to a formal RFP or a roofing or landscaping crew posting your next job on Facebook, the actual work is calls, appointments, quotes, jobs, deliveries, and staying in touch — not just one document. Daybase is built to cover the whole day, not just the pitch.
         </p>
 
         <div className="card-dark card-featured p-10 mb-20 reveal">
@@ -185,7 +202,7 @@ export default function Services() {
       </main>
 
       <footer className="px-8 py-6 text-center text-xs relative z-10" style={{ borderTop: '1px solid var(--gold-dim)', color: 'rgba(248,245,238,0.4)' }}>
-        ProposalAI — Precision proposal writing, powered by AI · © {new Date().getFullYear()}
+        Daybase — Run your business, without the busywork · © {new Date().getFullYear()}
       </footer>
     </div>
   )

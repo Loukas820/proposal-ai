@@ -5,44 +5,44 @@ import Link from 'next/link'
 const FEATURES = [
   {
     icon: '◆',
-    title: 'Precision Drafting',
-    body: 'Every proposal is written in your company’s voice, referencing your capabilities and terms — not generic filler.',
+    title: 'Everything In Your Voice',
+    body: 'Every message — a proposal, a quote, an appointment reminder, a follow-up — uses your company’s real details and tone, not generic filler.',
   },
   {
     icon: '✦',
-    title: 'Client-Ready Documents',
-    body: 'Export a clean, branded PDF in one click — ready to send, not a wall of raw text to reformat yourself.',
+    title: 'Client-Ready, Every Time',
+    body: 'Text, email, or a branded PDF — get exactly what you need to send, ready to go, not a wall of text to clean up yourself.',
   },
   {
     icon: '●',
-    title: 'Built for Volume',
-    body: 'Every proposal is saved to your history automatically, so nothing is ever lost and nothing is retyped twice.',
+    title: 'One Account, Every Tool',
+    body: 'Calls, appointments, jobs, deliveries, outreach, quotes, and contracts — no separate sign-up per tool, and it’s all saved to your history.',
   },
 ]
 
 const STEPS = [
   {
-    title: 'Paste your RFP',
-    body: 'Drop in the request, brief, or even a rough email describing the opportunity — no reformatting needed.',
+    title: 'Tell it what’s happening',
+    body: 'A job, an appointment, an RFP, a missed call, a job that’s wrapping up — describe it in a line or two.',
   },
   {
-    title: 'AI drafts your proposal',
-    body: 'Written in your voice, referencing your company profile, structured and persuasive, in under a minute.',
+    title: 'It writes the message',
+    body: 'In your voice, using your business details, structured and ready to go — in under a minute.',
   },
   {
-    title: 'Export & send',
-    body: 'Download a branded, client-ready PDF straight from the workspace — nothing left to clean up.',
+    title: 'Send it, and get back to work',
+    body: 'Copy the text, send the email, or download the PDF. Nothing left to clean up.',
   },
 ]
 
 const FAQS = [
   {
-    q: 'What is ProposalAI?',
-    a: 'ProposalAI turns an RFP or client brief into a polished, ready-to-send proposal in minutes, written on behalf of your company using the profile you set up \u2014 structured with an executive summary, scope of work, timeline, and a clear next step, the way a senior consultant would write it.',
+    q: 'What is Daybase?',
+    a: 'Daybase is a set of AI-powered tools for running a service business day to day \u2014 turning an RFP into a proposal, quoting a job, confirming an appointment, following up on a missed call, updating a customer on a delivery, drafting a contract, and posting for new leads. Everything is written in your company\u2019s voice, using the profile you set up once.'
   },
   {
     q: 'How is this different from just using a chatbot?',
-    a: 'A chatbot forgets everything the moment you close the tab. ProposalAI remembers your company details so you never re-explain them, keeps a running history of every proposal you\u2019ve generated, formats the output as an actual document instead of a wall of chat text, and exports a branded, client-ready PDF in one click.',
+    a: 'A chatbot forgets everything the moment you close the tab. Daybase remembers your company details so you never re-explain them, keeps a running history of every proposal you\u2019ve generated, formats the output as an actual document instead of a wall of chat text, and exports a branded, client-ready PDF in one click.',
   },
   {
     q: 'How accurate is the AI, and do I need to edit the output?',
@@ -50,7 +50,7 @@ const FAQS = [
   },
   {
     q: 'What industries does this work for?',
-    a: 'Any business that quotes, pitches, or proposes work \u2014 from CEOs and management consultants responding to formal RFPs, to landscaping, roofing, and home service companies sending a straightforward quote or client outreach post. The AI adapts its structure to whatever brief or business you describe.',
+    a: 'Any business that deals with jobs, appointments, quotes, or clients \u2014 from CEOs and management consultants responding to formal RFPs, to landscaping, roofing, HVAC, and home service companies juggling calls, appointments, and deliveries. The AI adapts to whatever job or business you describe.',
   },
   {
     q: 'How does pricing work?',
@@ -62,15 +62,15 @@ const FAQS = [
   },
   {
     q: 'Is my payment information secure?',
-    a: 'Yes. Checkout is handled entirely by Stripe, the payment processor used by most modern SaaS companies \u2014 ProposalAI never sees or stores your card details.',
+    a: 'Yes. Checkout is handled entirely by Stripe, the payment processor used by most modern SaaS companies \u2014 Daybase never sees or stores your card details.',
   },
   {
     q: 'Is my data private?',
     a: 'Your company profile and proposal history are stored locally in your own browser, not on a server \u2014 they\u2019re never sent anywhere except to the AI model at the moment you generate a proposal.',
   },
   {
-    q: 'Do you offer anything beyond proposal generation?',
-    a: 'Yes \u2014 every account also gets free access to a Follow-Up Email Generator and an RFP Analyzer, and we\u2019re actively building more. See the Services page for the full lineup.',
+    q: 'What tools come with an account besides proposals?',
+    a: 'Every account gets free access to the full toolkit: appointment and job update messages, a call script and missed-call text-back assistant, a review request generator, a social post generator for Facebook/Instagram, an RFP analyzer, a quote builder, a client onboarding packet generator, a service agreement drafter, and multi-language translation. See the Tools page for the full lineup.',
   },
 ]
 
@@ -112,7 +112,7 @@ export default function Home() {
             className="text-2xl tracking-wide"
             style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
           >
-            ProposalAI
+            Daybase
           </div>
           <div className="flex items-center gap-8">
             <Link href="/services" className="link-gold text-sm tracking-widest uppercase hidden sm:inline">
@@ -141,14 +141,14 @@ export default function Home() {
 
           <div className="badge-ai fade-in-up" style={{ color: 'var(--gold-light)' }}>
             <span className="dot" />
-            Generative AI, purpose-built for proposals
+            AI-powered, built for how small businesses actually run
           </div>
 
           <h1
             className="max-w-3xl text-5xl md:text-6xl leading-tight mt-8 mb-8 fade-in-up fade-delay-1"
             style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
           >
-            Turn RFPs Into Proposals of{' '}
+            Running Your Business Should Be{' '}
             <span
               style={{
                 backgroundImage: 'linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%)',
@@ -157,7 +157,7 @@ export default function Home() {
                 backgroundClip: 'text',
               }}
             >
-              Distinction
+              Simple
             </span>
           </h1>
 
@@ -165,9 +165,10 @@ export default function Home() {
             className="max-w-xl text-lg mb-12 leading-relaxed fade-in-up fade-delay-2"
             style={{ color: 'rgba(248,245,238,0.7)' }}
           >
-            A disciplined, precise approach to proposal writing — built for
-            consultants, contractors, and local businesses alike who value
-            their time as much as their reputation.
+            Calls, appointments, jobs, deliveries, quotes, contracts, and
+            client outreach — all handled in your own voice, in minutes.
+            Built for consultants, contractors, and local businesses who
+            don&apos;t have time to waste.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 fade-in-up fade-delay-3">
@@ -176,7 +177,7 @@ export default function Home() {
               className="btn-gold px-10 py-4 text-sm tracking-[0.2em] uppercase"
               style={{ fontWeight: 600 }}
             >
-              Begin
+              Get Started Free
             </Link>
             <a href="#example" className="link-gold text-sm tracking-[0.15em] uppercase">
               See an example ↓
@@ -192,21 +193,10 @@ export default function Home() {
                 className="text-3xl mb-2"
                 style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
               >
-                20–40 hrs
-              </div>
-              <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
-                Saved per proposal
-              </div>
-            </div>
-            <div>
-              <div
-                className="text-3xl mb-2"
-                style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
-              >
                 Minutes
               </div>
               <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
-                From RFP to draft
+                From job to ready-to-send
               </div>
             </div>
             <div>
@@ -214,10 +204,21 @@ export default function Home() {
                 className="text-3xl mb-2"
                 style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
               >
-                Precision
+                $0 To Start
               </div>
               <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
-                Client-ready quality
+                No card needed, every tool free
+              </div>
+            </div>
+            <div>
+              <div
+                className="text-3xl mb-2"
+                style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
+              >
+                One Place
+              </div>
+              <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
+                Calls, jobs, quotes & outreach
               </div>
             </div>
           </div>
@@ -257,7 +258,7 @@ export default function Home() {
               style={{ backgroundColor: 'var(--parchment)', border: '1px solid var(--gold)' }}
             >
               <div className="text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold)' }}>
-                The Proposal ProposalAI Drafts
+                The Proposal Daybase Drafts
               </div>
               <p
                 className="text-sm leading-relaxed whitespace-pre-line"
@@ -306,7 +307,7 @@ export default function Home() {
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
             style={{ color: 'var(--gold)' }}
           >
-            Why ProposalAI
+            Why Daybase
           </div>
           <h2
             className="text-3xl text-center mb-16 reveal"
@@ -474,7 +475,7 @@ export default function Home() {
         style={{ borderTop: '1px solid var(--gold-dim)' }}
       >
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(248,245,238,0.4)' }}>
-          <div>ProposalAI — Precision proposal writing, powered by AI · © {new Date().getFullYear()}</div>
+          <div>Daybase — Run your business, without the busywork · © {new Date().getFullYear()}</div>
           <div className="flex items-center gap-6">
             <Link href="/services" className="link-gold uppercase tracking-[0.15em]">Services</Link>
             <Link href="/pricing" className="link-gold uppercase tracking-[0.15em]">Pricing</Link>

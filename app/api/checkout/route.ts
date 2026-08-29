@@ -20,7 +20,7 @@ export async function POST(request: Request) {
       currency: 'usd',
       unit_amount: isSingle ? 999 : 4900,
       product_data: {
-        name: isSingle ? 'ProposalAI — Single Proposal' : 'ProposalAI — Unlimited Monthly',
+        name: isSingle ? 'Daybase — Single Proposal' : 'Daybase — Unlimited Monthly',
       },
     }
     if (!isSingle) {

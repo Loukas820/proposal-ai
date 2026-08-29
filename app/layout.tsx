@@ -15,20 +15,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Try ProposalAI Free",
+  title: "Try Daybase Free",
   description:
-    "AI-powered proposal and outreach content for consultants, contractors, and local service businesses. Paste an RFP or describe a job, get a client-ready proposal or social post in minutes.",
+    "AI-powered tools to run a service business day to day: calls, appointments, job and delivery updates, quotes, proposals, contracts, and client outreach — built for consultants, contractors, and local service businesses.",
   openGraph: {
-    title: "Try ProposalAI Free",
+    title: "Try Daybase Free",
     description:
-      "AI-powered proposal and outreach content for consultants, contractors, and local service businesses.",
+      "AI-powered tools to run a service business day to day: calls, appointments, jobs, deliveries, quotes, proposals, and client outreach.",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Try ProposalAI Free",
+    title: "Try Daybase Free",
     description:
-      "AI-powered proposal and outreach content for consultants, contractors, and local service businesses.",
+      "AI-powered tools to run a service business day to day: calls, appointments, jobs, deliveries, quotes, proposals, and client outreach.",
   },
 };
 

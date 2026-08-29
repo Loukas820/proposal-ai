@@ -50,7 +50,7 @@ export default function Resources() {
             className="text-2xl tracking-wide"
             style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
           >
-            ProposalAI
+            Daybase
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
             <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
@@ -104,14 +104,14 @@ export default function Resources() {
             Ready to draft one in minutes?
           </h2>
           <p className="text-sm mb-8" style={{ color: 'rgba(34,38,47,0.6)' }}>
-            ProposalAI applies this exact approach automatically, every time.
+            Daybase applies this exact approach automatically, every time.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <button onClick={handlePrint} className="btn-outline px-8 py-3 text-sm tracking-[0.2em] uppercase">
               Download Checklist
             </button>
             <Link href="/dashboard" className="btn-navy px-8 py-3 text-sm tracking-[0.2em] uppercase" style={{ fontWeight: 600 }}>
-              Try ProposalAI Free
+              Try Daybase Free
             </Link>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function Resources() {
         className="no-print px-8 py-6 text-center text-xs"
         style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
       >
-        ProposalAI — Precision proposal writing, powered by AI
+        Daybase — Run your business, without the busywork
       </footer>
     </div>
   )
