@@ -1,11 +1,22 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { getProfile, addHistoryEntry, downloadProposalPDF, CompanyProfile } from '../lib/storage'
 
 export default function Dashboard() {
   const [rfp, setRfp] = useState('')
   const [proposal, setProposal] = useState('')
   const [loading, setLoading] = useState(false)
+  const [profile, setProfile] = useState<CompanyProfile>({
+    companyName: '',
+    tagline: '',
+    email: '',
+    phone: '',
+  })
+
+  useEffect(() => {
+    setProfile(getProfile())
+  }, [])
 
   const generate = async () => {
     setLoading(true)
@@ -13,18 +24,27 @@ export default function Dashboard() {
       const res = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ rfp }),
+        body: JSON.stringify({ rfp, companyProfile: profile }),
       })
       const data = await res.json()
       if (data.error) {
         alert('Error: ' + data.error)
       } else {
         setProposal(data.proposal)
+        addHistoryEntry({
+          rfp,
+          proposal: data.proposal,
+          companyName: profile.companyName,
+        })
       }
     } catch (e) {
       alert('Error: ' + e)
     }
     setLoading(false)
+  }
+
+  const handleDownload = () => {
+    downloadProposalPDF(profile.companyName, profile.tagline, profile.email, profile.phone, proposal)
   }
 
   return (
@@ -38,24 +58,36 @@ export default function Dashboard() {
           >
             ProposalAI
           </Link>
-          <div
-            className="text-xs tracking-[0.2em] uppercase"
-            style={{ color: 'var(--gold)' }}
-          >
-            Draft Workspace
-          </div>
+          <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
+            <Link href="/dashboard" style={{ color: 'var(--gold)' }}>Workspace</Link>
+            <Link href="/history" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/settings" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+          </nav>
         </div>
       </header>
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12">
-        <h1
-          className="text-3xl mb-2"
-          style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
-        >
-          Compose a Proposal
-        </h1>
+        <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
+          <h1
+            className="text-3xl"
+            style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
+          >
+            Compose a Proposal
+          </h1>
+          {!profile.companyName && (
+            <Link
+              href="/settings"
+              className="text-xs tracking-[0.15em] uppercase self-center"
+              style={{ color: 'var(--gold)' }}
+            >
+              Set up your company profile →
+            </Link>
+          )}
+        </div>
         <p className="text-sm mb-10" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Paste an RFP below and let AI draft a precise, client-ready response.
+          {profile.companyName
+            ? `Writing on behalf of ${profile.companyName}. Paste an RFP below to draft a proposal.`
+            : 'Paste an RFP below and let AI draft a precise, client-ready response.'}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -112,6 +144,19 @@ export default function Dashboard() {
                 </span>
               )}
             </div>
+            {proposal && (
+              <button
+                onClick={handleDownload}
+                className="w-full mt-4 py-3 text-sm tracking-[0.2em] uppercase transition"
+                style={{
+                  border: '1px solid var(--gold)',
+                  color: 'var(--navy)',
+                  fontWeight: 600,
+                }}
+              >
+                Download PDF
+              </button>
+            )}
           </div>
         </div>
       </main>

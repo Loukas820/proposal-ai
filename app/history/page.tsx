@@ -1,0 +1,129 @@
+'use client'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { getHistory, deleteHistoryEntry, downloadProposalPDF, getProfile, HistoryEntry } from '../lib/storage'
+
+export default function History() {
+  const [history, setHistory] = useState<HistoryEntry[]>([])
+  const [selected, setSelected] = useState<HistoryEntry | null>(null)
+
+  useEffect(() => {
+    setHistory(getHistory())
+  }, [])
+
+  const handleDelete = (id: string) => {
+    deleteHistoryEntry(id)
+    setHistory(getHistory())
+    if (selected?.id === id) setSelected(null)
+  }
+
+  const handleDownload = (entry: HistoryEntry) => {
+    const profile = getProfile()
+    downloadProposalPDF(entry.companyName || profile.companyName, profile.tagline, profile.email, profile.phone, entry.proposal)
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--cream)' }}>
+      <header style={{ borderBottom: '1px solid var(--hairline)' }}>
+        <div className="max-w-6xl mx-auto px-8 py-6 flex items-center justify-between">
+          <Link
+            href="/"
+            className="text-2xl tracking-wide"
+            style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
+          >
+            ProposalAI
+          </Link>
+          <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
+            <Link href="/dashboard" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
+            <Link href="/history" style={{ color: 'var(--gold)' }}>History</Link>
+            <Link href="/settings" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+          </nav>
+        </div>
+      </header>
+
+      <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12">
+        <h1
+          className="text-3xl mb-2"
+          style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}
+        >
+          Proposal History
+        </h1>
+        <p className="text-sm mb-10" style={{ color: 'rgba(34,38,47,0.6)' }}>
+          Saved on this device. Click any entry to view or download it again.
+        </p>
+
+        {history.length === 0 ? (
+          <div className="text-sm" style={{ color: 'rgba(34,38,47,0.5)' }}>
+            No proposals generated yet. Head to the Workspace to create your first one.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex flex-col gap-3">
+              {history.map((entry) => (
+                <button
+                  key={entry.id}
+                  onClick={() => setSelected(entry)}
+                  className="text-left p-4 transition"
+                  style={{
+                    backgroundColor: selected?.id === entry.id ? '#ffffff' : 'var(--parchment)',
+                    border: '1px solid var(--hairline)',
+                  }}
+                >
+                  <div className="text-xs mb-1" style={{ color: 'var(--gold)' }}>
+                    {new Date(entry.createdAt).toLocaleString()}
+                  </div>
+                  <div className="text-sm line-clamp-2" style={{ color: 'var(--charcoal)' }}>
+                    {entry.rfp.slice(0, 140)}{entry.rfp.length > 140 ? '…' : ''}
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div>
+              {selected ? (
+                <div>
+                  <div
+                    className="h-96 p-5 text-sm leading-relaxed overflow-y-auto whitespace-pre-wrap mb-4"
+                    style={{ backgroundColor: '#ffffff', border: '1px solid var(--hairline)', color: 'var(--charcoal)' }}
+                  >
+                    {selected.proposal}
+                  </div>
+                  <div className="flex gap-3">
+                    <button
+                      onClick={() => handleDownload(selected)}
+                      className="flex-1 py-3 text-sm tracking-[0.2em] uppercase"
+                      style={{ backgroundColor: 'var(--navy)', color: 'var(--cream)', fontWeight: 600 }}
+                    >
+                      Download PDF
+                    </button>
+                    <button
+                      onClick={() => handleDelete(selected.id)}
+                      className="px-6 py-3 text-sm tracking-[0.2em] uppercase"
+                      style={{ border: '1px solid var(--hairline)', color: 'var(--charcoal)' }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className="h-96 flex items-center justify-center text-sm"
+                  style={{ border: '1px dashed var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
+                >
+                  Select a proposal to view it
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </main>
+
+      <footer
+        className="px-8 py-6 text-center text-xs"
+        style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
+      >
+        ProposalAI — Precision proposal writing, powered by AI
+      </footer>
+    </div>
+  )
+}

@@ -1,6 +1,6 @@
 export async function POST(request: Request) {
   try {
-    const { rfp } = await request.json()
+    const { rfp, companyProfile } = await request.json()
 
     if (!rfp) {
       return Response.json({ error: 'No RFP provided' }, { status: 400 })
@@ -15,7 +15,12 @@ export async function POST(request: Request) {
       )
     }
 
-    const prompt = `You are an expert proposal writer. Based on this RFP, write a professional consulting proposal. Make it detailed, persuasive, and ready to send to the client.\n\nRFP:\n${rfp}`
+    let senderContext = ''
+    if (companyProfile && (companyProfile.companyName || companyProfile.tagline)) {
+      senderContext = `\n\nThis proposal is being written on behalf of the following company. Write it in their voice, as the sender:\nCompany Name: ${companyProfile.companyName || ''}\nWhat they do: ${companyProfile.tagline || ''}\nContact Email: ${companyProfile.email || ''}\nContact Phone: ${companyProfile.phone || ''}\nDo not invent a different company name in the proposal — use the one provided above.`
+    }
+
+    const prompt = `You are an expert proposal writer. Based on this RFP, write a professional consulting proposal. Make it detailed, persuasive, and ready to send to the client.${senderContext}\n\nRFP:\n${rfp}`
 
     const geminiRes = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${apiKey}`,
