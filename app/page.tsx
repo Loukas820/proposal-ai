@@ -282,17 +282,17 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {POPULAR_TOOLS.map((tool) => (
-              <Link key={tool.title} href={tool.href} className="card-dark card p-7 reveal block">
+              <Link key={tool.title} href={tool.href} className="card card-hover p-7 reveal block">
                 <div
                   className="w-9 h-9 flex items-center justify-center text-base mb-5"
                   style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
                 >
                   {tool.icon}
                 </div>
-                <h3 className="text-base mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
+                <h3 className="text-base mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
                   {tool.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.65)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(34,38,47,0.65)' }}>
                   {tool.body}
                 </p>
               </Link>
