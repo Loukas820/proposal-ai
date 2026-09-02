@@ -71,13 +71,28 @@ export default function OutreachPostTool() {
         <Link href="/tools" className="text-xs tracking-[0.15em] uppercase link-gold" style={{ color: 'var(--gold)' }}>
           ← All Tools
         </Link>
-        <h1 className="text-3xl mt-4 mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+        <div className="flex items-center gap-3 mt-5 mb-4">
+          <div
+            className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
+            style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+          >
+            📣
+          </div>
+          <span
+            className="text-xs tracking-[0.2em] uppercase px-3 py-1"
+            style={{ border: '1px solid var(--gold-dim)', color: 'var(--gold)' }}
+          >
+            Free Tool
+          </span>
+        </div>
+        <h1 className="text-3xl mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
           Social Post Generator
         </h1>
-        <p className="text-sm mb-10" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          For landscapers, roofers, contractors, salons, and any local business that markets itself on Facebook or Instagram. Describe your business and what you want to promote — get three ready-to-post options. Free with your account.
+        <p className="text-sm mb-10 max-w-xl" style={{ color: 'rgba(34,38,47,0.6)' }}>
+          For landscapers, roofers, salons, and any local business on social media — describe the job, get three ready-to-post options.
         </p>
 
+        <div className="card p-8 md:p-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="text-xs tracking-[0.2em] uppercase mb-2 block" style={{ color: 'var(--navy)' }}>
@@ -133,6 +148,7 @@ export default function OutreachPostTool() {
               </button>
             )}
           </div>
+        </div>
         </div>
       </main>
 

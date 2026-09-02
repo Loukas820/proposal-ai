@@ -55,11 +55,25 @@ export default function QuoteBuilderTool() {
         <Link href="/tools" className="text-xs tracking-[0.15em] uppercase link-gold" style={{ color: 'var(--gold)' }}>
           ← All Tools
         </Link>
-        <h1 className="text-3xl mt-4 mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+        <div className="flex items-center gap-3 mt-5 mb-4">
+          <div
+            className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
+            style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+          >
+            🧾
+          </div>
+          <span
+            className="text-xs tracking-[0.2em] uppercase px-3 py-1"
+            style={{ border: '1px solid var(--gold-dim)', color: 'var(--gold)' }}
+          >
+            Free Tool · No AI
+          </span>
+        </div>
+        <h1 className="text-3xl mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
           Quote Builder
         </h1>
-        <p className="text-sm mb-10" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Line items, tax, and total, calculated for you — export a branded quote as a PDF. Free with your account, no AI involved.
+        <p className="text-sm mb-10 max-w-xl" style={{ color: 'rgba(34,38,47,0.6)' }}>
+          Add line items, we calculate tax and the total — export a branded quote PDF in one click.
         </p>
 
         {!profile.companyName && (

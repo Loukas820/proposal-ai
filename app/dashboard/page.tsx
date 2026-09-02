@@ -192,6 +192,20 @@ export default function Dashboard() {
       </header>
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-8 py-12 fade-in-up">
+        <div className="flex items-center gap-3 mb-4">
+          <div
+            className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
+            style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+          >
+            ✦
+          </div>
+          <span
+            className="text-xs tracking-[0.2em] uppercase px-3 py-1"
+            style={{ border: '1px solid var(--gold-dim)', color: 'var(--gold)' }}
+          >
+            Proposals & Quotes
+          </span>
+        </div>
         <div className="flex items-start justify-between mb-2 flex-wrap gap-2">
           <h1
             className="text-3xl"
@@ -313,6 +327,7 @@ export default function Dashboard() {
           </div>
         )}
 
+        <div className="card p-8 md:p-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <div
@@ -388,6 +403,7 @@ export default function Dashboard() {
               </div>
             )}
           </div>
+        </div>
         </div>
       </main>
 

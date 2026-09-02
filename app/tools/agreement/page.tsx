@@ -80,16 +80,31 @@ export default function AgreementTool() {
         <Link href="/tools" className="text-xs tracking-[0.15em] uppercase link-gold" style={{ color: 'var(--gold)' }}>
           ← All Tools
         </Link>
-        <h1 className="text-3xl mt-4 mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+        <div className="flex items-center gap-3 mt-5 mb-4">
+          <div
+            className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
+            style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+          >
+            📄
+          </div>
+          <span
+            className="text-xs tracking-[0.2em] uppercase px-3 py-1"
+            style={{ border: '1px solid var(--gold-dim)', color: 'var(--gold)' }}
+          >
+            Free Tool
+          </span>
+        </div>
+        <h1 className="text-3xl mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
           Service Agreement Drafter
         </h1>
-        <p className="text-sm mb-3" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          A starting template for a service agreement, built from your scope, payment terms, and timeline. Free with your account.
+        <p className="text-sm mb-3 max-w-xl" style={{ color: 'rgba(34,38,47,0.6)' }}>
+          A contract starting point, built from your scope, payment terms, and timeline.
         </p>
         <div className="mb-10 px-5 py-4 text-sm" style={{ backgroundColor: 'var(--gold-dim)', border: '1px solid var(--gold)', color: 'var(--navy)' }}>
           <strong>Not legal advice.</strong> This drafts a generic starting point only — have any agreement reviewed by a licensed attorney in your state before sending it to a client.
         </div>
 
+        <div className="card p-8 md:p-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="text-xs tracking-[0.2em] uppercase mb-2 block" style={{ color: 'var(--navy)' }}>
@@ -169,6 +184,7 @@ export default function AgreementTool() {
               </div>
             )}
           </div>
+        </div>
         </div>
       </main>
 
