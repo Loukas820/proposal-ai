@@ -38,35 +38,35 @@ const STEPS = [
 const FAQS = [
   {
     q: 'What is Daybase?',
-    a: 'Daybase is a set of AI-powered tools for running a service business day to day \u2014 quoting a job, confirming an appointment, following up on a missed call, updating a customer on a delivery, drafting a contract, posting for new leads, and turning a bid request into a proposal. Everything is written in your company\u2019s voice, using the profile you set up once.'
+    a: 'Daybase is a set of AI-powered tools for running a service business day to day — quoting a job, confirming an appointment, following up on a missed call, updating a customer on a delivery, drafting a contract, posting for new leads, and turning a bid request into a proposal. Everything is written in your company’s voice, using the profile you set up once.'
   },
   {
     q: 'How is this different from just using a chatbot?',
-    a: 'A chatbot forgets everything the moment you close the tab. Daybase remembers your company details so you never re-explain them, keeps a running history of every proposal you\u2019ve generated, formats the output as an actual document instead of a wall of chat text, and exports a branded, client-ready PDF in one click.',
+    a: 'A chatbot forgets everything the moment you close the tab. Daybase remembers your company details so you never re-explain them, keeps a running history of every proposal you’ve generated, formats the output as an actual document instead of a wall of chat text, and exports a branded, client-ready PDF in one click.',
   },
   {
     q: 'How accurate is the AI, and do I need to edit the output?',
-    a: 'Treat the draft as a strong first pass \u2014 clearly organized and well-written, but you should still check it against your own facts, figures, and client details before sending. It will never invent a dollar amount or detail that wasn\u2019t in what you gave it.',
+    a: 'Treat the draft as a strong first pass — clearly organized and well-written, but you should still check it against your own facts, figures, and client details before sending. It will never invent a dollar amount or detail that wasn’t in what you gave it.',
   },
   {
     q: 'What industries does this work for?',
-    a: 'Any business that deals with jobs, appointments, quotes, or clients \u2014 from landscaping, roofing, HVAC, and home service companies juggling calls and deliveries, to CEOs and consultants responding to big formal bid requests. The AI adapts to whatever job or business you describe.',
+    a: 'Any business that deals with jobs, appointments, quotes, or clients — from landscaping, roofing, HVAC, and home service companies juggling calls and deliveries, to CEOs and consultants responding to big formal bid requests. The AI adapts to whatever job or business you describe.',
   },
   {
     q: 'How does pricing work?',
-    a: 'Pay per proposal at $9.99 if you pitch occasionally, or go unlimited at $49/month if you send proposals regularly \u2014 unlimited pays for itself after roughly five proposals a month. Everyone starts with 2 free proposals to see the quality before spending anything.',
+    a: 'Pay per proposal at $9.99 if you pitch occasionally, or go unlimited at $49/month if you send proposals regularly — unlimited pays for itself after roughly five proposals a month. Everyone starts with 2 free proposals to see the quality before spending anything.',
   },
   {
     q: 'Can I cancel the Unlimited plan anytime?',
-    a: 'Yes \u2014 there\u2019s no contract or minimum term. Cancel whenever you like and you\u2019ll keep unlimited access through the rest of the billing period you\u2019ve already paid for.',
+    a: 'Yes — there’s no contract or minimum term. Cancel whenever you like and you’ll keep unlimited access through the rest of the billing period you’ve already paid for.',
   },
   {
     q: 'Is my payment information secure?',
-    a: 'Yes. Checkout is handled entirely by Stripe, the payment processor used by most modern SaaS companies \u2014 Daybase never sees or stores your card details.',
+    a: 'Yes. Checkout is handled entirely by Stripe, the payment processor used by most modern SaaS companies — Daybase never sees or stores your card details.',
   },
   {
     q: 'Is my data private?',
-    a: 'Your company profile and proposal history are stored locally in your own browser, not on a server \u2014 they\u2019re never sent anywhere except to the AI model at the moment you generate a proposal.',
+    a: 'Your company profile and proposal history are stored locally in your own browser, not on a server — they’re never sent anywhere except to the AI model at the moment you generate a proposal.',
   },
   {
     q: 'What tools come with an account besides proposals?',
@@ -84,7 +84,7 @@ const POPULAR_TOOLS = [
   {
     icon: '\ud83d\udcc5',
     title: 'Customer Update Messages',
-    body: 'Appointment confirmations, reminders, and job or delivery updates \u2014 written for you.',
+    body: 'Appointment confirmations, reminders, and job or delivery updates — written for you.',
     href: '/tools/customer-updates',
   },
   {
@@ -438,8 +438,11 @@ export default function Home() {
           >
             Simple, Transparent Pricing
           </h2>
-          <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
-            Only proposal generation is metered, priced below. Every other tool \u2014 calls, appointments, jobs, deliveries, outreach, contracts \u2014 is free with any account, on any plan.
+          <p className="text-center text-sm mb-3 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
+            Only proposal generation is metered, priced below. Every other tool — calls, appointments, jobs, deliveries, outreach, contracts — is free with any account, on any plan.
+          </p>
+          <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.45)' }}>
+            Most proposal software charges $29–65 per seat, every month. Daybase is $49 flat, unlimited, seats included.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="card-dark p-8 flex flex-col items-center text-center reveal">

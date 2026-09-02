@@ -41,7 +41,7 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
       {
         icon: '◎',
         title: 'Bid Request Checker',
-        body: 'Not every big, formal bid request (also called an RFP) is worth a full response. Paste one in and quickly see what it\u2019s asking for, before you spend hours writing.',
+        body: 'Not every big, formal bid request (also called an RFP) is worth a full response. Paste one in and quickly see what it’s asking for, before you spend hours writing.',
         href: '/tools/rfp-analyzer',
       },
     ],
@@ -52,7 +52,7 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
       {
         icon: '\ud83d\udcc5',
         title: 'Customer Update Messages',
-        body: 'Appointment confirmations, reminders, delay notices, job-started and job-complete updates, delivery notices \u2014 the message that keeps a customer in the loop, written for you in seconds.',
+        body: 'Appointment confirmations, reminders, delay notices, job-started and job-complete updates, delivery notices — the message that keeps a customer in the loop, written for you in seconds.',
         href: '/tools/customer-updates',
       },
       {
@@ -98,7 +98,7 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
       {
         icon: '📄',
         title: 'Service Agreement Drafter',
-        body: 'A starting contract template built from your scope, payment terms, and timeline \u2014 not legal advice, but a real head start before an attorney reviews it.',
+        body: 'A starting contract template built from your scope, payment terms, and timeline — not legal advice, but a real head start before an attorney reviews it.',
         href: '/tools/agreement',
       },
     ],

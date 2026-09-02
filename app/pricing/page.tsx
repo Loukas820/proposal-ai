@@ -26,6 +26,13 @@ const MINI_FAQ = [
   },
 ]
 
+const COMPARISON = [
+  { name: 'PandaDoc', price: '$35\u2013$65/user/mo', note: '(or $19\u2013$49/mo per user, billed annually)' },
+  { name: 'Proposify', price: '$29\u2013$49/mo', note: '(3-seat cap even on the Team plan)' },
+  { name: 'Qwilr', price: '$49/mo per user', note: '(or $35/mo per user, billed annually)' },
+  { name: 'Daybase', price: '$49/mo flat', note: 'unlimited proposals, every other tool included, no seats to count', highlight: true },
+]
+
 export default function Pricing() {
   return (
     <div className="min-h-screen flex flex-col bg-hero bg-grain relative" style={{ color: 'var(--cream)' }}>
@@ -84,6 +91,41 @@ export default function Pricing() {
               Go Unlimited
             </Link>
           </div>
+        </div>
+
+        <div className="mb-20">
+          <h2 className="text-2xl text-center mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
+            Priced To Undercut, Not Just Compete
+          </h2>
+          <p className="text-center text-sm mb-10 max-w-xl mx-auto" style={{ color: 'rgba(248,245,238,0.55)' }}>
+            Most proposal software charges per seat and pushes you toward annual billing to get a fair rate. Daybase is one flat price, month to month, and includes the rest of the toolkit at no extra cost.
+          </p>
+          <div className="max-w-lg mx-auto flex flex-col gap-3">
+            {COMPARISON.map((c) => (
+              <div
+                key={c.name}
+                className="flex items-center justify-between gap-4 px-6 py-4"
+                style={
+                  c.highlight
+                    ? { backgroundColor: 'rgba(47,111,237,0.1)', border: '1px solid var(--gold)' }
+                    : { border: '1px solid var(--gold-dim)' }
+                }
+              >
+                <div style={{ color: c.highlight ? 'var(--gold-light)' : 'rgba(248,245,238,0.75)', fontWeight: c.highlight ? 600 : 400 }}>
+                  {c.name}
+                </div>
+                <div className="text-right">
+                  <div style={{ color: c.highlight ? 'var(--cream)' : 'rgba(248,245,238,0.75)', fontWeight: c.highlight ? 600 : 400 }}>
+                    {c.price}
+                  </div>
+                  <div className="text-xs" style={{ color: 'rgba(248,245,238,0.45)' }}>{c.note}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs mt-6 max-w-lg mx-auto" style={{ color: 'rgba(248,245,238,0.4)' }}>
+            Competitor pricing shown is publicly listed, standard-tier pricing as of {new Date().getFullYear()} and can change — check each provider’s site for current rates. None of them offer a true pay-once option; Daybase’s $9.99 single proposal means you’re never forced into a subscription just to send one.
+          </p>
         </div>
 
         <div className="overflow-x-auto mb-20">

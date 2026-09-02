@@ -74,13 +74,13 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
   },
   {
     name: 'Calls, Appointments & Jobs',
-    blurb: 'Keep customers in the loop on what\u2019s scheduled, what\u2019s happening, and what to say on the phone.',
+    blurb: 'Keep customers in the loop on what’s scheduled, what’s happening, and what to say on the phone.',
     tools: [
       {
         href: '/tools/customer-updates',
         icon: '\ud83d\udcc5',
         title: 'Customer Update Messages',
-        body: 'Appointment confirmations, reminders, delay notices, job and delivery updates \u2014 text and email versions in seconds.',
+        body: 'Appointment confirmations, reminders, delay notices, job and delivery updates — text and email versions in seconds.',
       },
       {
         href: '/tools/call-assistant',
@@ -144,7 +144,7 @@ export default function Tools() {
           Tools
         </h1>
         <p className="text-sm mb-14" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Everything it takes to run the day \u2014 calls, appointments, jobs, deliveries, outreach, and the paperwork in between \u2014 all free with your account.
+          Everything it takes to run the day — calls, appointments, jobs, deliveries, outreach, and the paperwork in between — all free with your account.
         </p>
 
         {CATEGORIES.map((cat) => (
