@@ -23,14 +23,17 @@ const FEATURES = [
 
 const STEPS = [
   {
+    icon: 'megaphone' as const,
     title: 'Tell it what’s happening',
     body: 'A job, an appointment, a missed call, a job that’s wrapping up, even a big formal bid request — describe it in a line or two.',
   },
   {
+    icon: 'sparkle' as const,
     title: 'It writes the message',
     body: 'In your voice, using your business details, structured and ready to go — in under a minute.',
   },
   {
+    icon: 'mail' as const,
     title: 'Send it, and get back to work',
     body: 'Copy the text, send the email, or download the PDF. Nothing left to clean up.',
   },
@@ -114,17 +117,20 @@ const POPULAR_TOOLS = [
   },
 ]
 
-const EXAMPLE_RFP = `We are seeking a marketing consultant to develop and execute a 6-month digital growth strategy for our boutique hospitality brand.
+const EXAMPLE_RFP = `Hey! We need our office parking lot restriped before the end of the month — about 40 regular spaces plus 2 accessible spots.
 
-Budget: $40,000–$60,000
-Deadline: Proposals due within 10 business days
-Requirements: Include a proposed timeline, key deliverables, and relevant experience with hospitality or lifestyle brands.`
+Would be great if it could be done on a weekend so it doesn't get in the way of business. Could you send over a price and how long it'd take?`
 
-const EXAMPLE_PROPOSAL = `Dear [Client],
+const EXAMPLE_PROPOSAL = `Hi there,
 
-Thank you for the opportunity to submit this proposal for your digital growth strategy. Having reviewed your objectives, we propose a phased six-month engagement designed to increase qualified bookings by 25–40% while strengthening your brand's presence across key channels.
+Thanks for reaching out — we'd be glad to take care of your parking lot restriping.
 
-Our approach unfolds in three phases: Discovery & Audit (Weeks 1–2), Strategy & Campaign Build (Weeks 3–6), and Execution & Optimization (Weeks 7–24). Each phase concludes with a milestone review, so progress is never ambiguous...`
+Here's what we'd do: repaint all 40 standard spaces and the 2 accessible spots using durable, traffic-rated line paint. We'd schedule it for a Saturday, starting early so everything is dry and ready before Monday.
+
+Estimated cost: $1,850 (materials, layout, and cleanup included)
+Estimated time: 4–5 hours, weather permitting
+
+Let us know if that works and we'll get you on the calendar.`
 
 export default function Home() {
   useEffect(() => {
@@ -276,26 +282,43 @@ export default function Home() {
             className="text-3xl text-center mb-4 reveal"
             style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
           >
-            The Tools Businesses Use Every Day
+            Everything You&apos;ll Actually Use
           </h2>
           <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
-            Proposals are one piece. Most accounts lean on all of these just as much — every one is free with any account.
+            Pick one below and try it in seconds — no setup, no card, every tool free with your account.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {POPULAR_TOOLS.map((tool) => (
-              <Link key={tool.title} href={tool.href} className="card card-hover p-7 reveal block">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {POPULAR_TOOLS.map((tool, i) => (
+              <Link
+                key={tool.title}
+                href={tool.href}
+                className={`group card card-hover reveal block p-7 relative overflow-hidden ${i === 0 ? 'md:col-span-2' : ''}`}
+              >
+                <span
+                  className="absolute top-6 right-6 text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-full"
+                  style={{ border: '1px solid var(--gold-dim)', color: 'var(--gold)' }}
+                >
+                  Free
+                </span>
                 <div
-                  className="w-9 h-9 flex items-center justify-center text-base mb-5"
-                  style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-2xl"
+                  style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold)' }}
                 >
                   <ToolIcon name={tool.icon} />
                 </div>
-                <h3 className="text-base mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+                <h3 className="text-lg mb-2 pr-12" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
                   {tool.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(34,38,47,0.65)' }}>
+                <p className="text-sm leading-relaxed mb-5 max-w-sm" style={{ color: 'rgba(34,38,47,0.65)' }}>
                   {tool.body}
                 </p>
+                <span
+                  className="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase"
+                  style={{ color: 'var(--gold)', fontWeight: 600 }}
+                >
+                  Try it
+                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                </span>
               </Link>
             ))}
           </div>
@@ -321,12 +344,18 @@ export default function Home() {
             From Brief to Draft
           </h2>
           <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
-            One tool, closer up — an illustrative example. Your own output is generated live from your request and company profile.
+            A plain, everyday request in — a client-ready proposal out. Your own output is generated live from your request and company profile.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="card-dark p-8 reveal">
-              <div className="text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold-light)' }}>
-                The Request
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative reveal">
+            <div className="card-dark p-8">
+              <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold-light)' }}>
+                <span
+                  className="w-6 h-6 rounded-full flex items-center justify-center text-xs"
+                  style={{ backgroundColor: 'var(--gold-dim)' }}
+                >
+                  <ToolIcon name="phone" className="w-3 h-3" />
+                </span>
+                What They Sent You
               </div>
               <p
                 className="text-sm leading-relaxed whitespace-pre-line"
@@ -335,12 +364,26 @@ export default function Home() {
                 {EXAMPLE_RFP}
               </p>
             </div>
+
             <div
-              className="p-8 reveal"
+              className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center text-lg"
+              style={{ backgroundColor: 'var(--gold)', color: 'var(--navy-deep)', fontWeight: 700 }}
+            >
+              →
+            </div>
+
+            <div
+              className="p-8"
               style={{ backgroundColor: 'var(--parchment)', border: '1px solid var(--gold)' }}
             >
-              <div className="text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold)' }}>
-                The Proposal Daybase Drafts
+              <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold)' }}>
+                <span
+                  className="w-6 h-6 rounded-full flex items-center justify-center text-xs"
+                  style={{ backgroundColor: 'rgba(47,111,237,0.12)' }}
+                >
+                  <ToolIcon name="document" className="w-3 h-3" />
+                </span>
+                What Daybase Drafts
               </div>
               <p
                 className="text-sm leading-relaxed whitespace-pre-line"
@@ -352,7 +395,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full max-w-4xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -366,18 +409,41 @@ export default function Home() {
           >
             Three Steps, Minutes Apart
           </h2>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-0">
+          <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-0">
             {STEPS.map((step, i) => (
-              <div key={step.title} className="flex md:flex-1 md:flex-col items-start md:items-center gap-5 md:gap-0 reveal">
-                <div className="step-number">{String(i + 1).padStart(2, '0')}</div>
-                <div className="md:text-center md:mt-5 md:px-6">
-                  <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
-                    {step.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.65)' }}>
-                    {step.body}
-                  </p>
+              <div key={step.title} className="flex md:flex-1 items-stretch">
+                <div className="card-dark p-8 relative overflow-hidden reveal flex-1">
+                  <div
+                    className="absolute -top-3 -right-1 text-[100px] leading-none select-none pointer-events-none"
+                    style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-dim)' }}
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </div>
+                  <div className="relative z-10">
+                    <div
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-xl"
+                      style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold-light)' }}
+                    >
+                      <ToolIcon name={step.icon} />
+                    </div>
+                    <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.65)' }}>
+                      {step.body}
+                    </p>
+                  </div>
                 </div>
+                {i < STEPS.length - 1 && (
+                  <div
+                    className="hidden md:flex items-center justify-center px-4 text-2xl reveal"
+                    style={{ color: 'var(--gold-dim)' }}
+                    aria-hidden="true"
+                  >
+                    →
+                  </div>
+                )}
               </div>
             ))}
           </div>
