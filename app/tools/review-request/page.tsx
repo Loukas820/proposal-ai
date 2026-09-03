@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getProfile, getAccountEmail } from '../../lib/storage'
 import ProposalView from '../../components/ProposalView'
+import ToolIcon from '../../components/ToolIcon'
 
 export default function ReviewRequestTool() {
   const [businessName, setBusinessName] = useState('')
@@ -79,7 +80,7 @@ export default function ReviewRequestTool() {
             className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
             style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
           >
-            ★
+            <ToolIcon name="star" />
           </div>
           <span
             className="text-xs tracking-[0.2em] uppercase px-3 py-1"

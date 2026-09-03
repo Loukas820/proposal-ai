@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import ToolIcon from './components/ToolIcon'
 
 const FEATURES = [
   {
@@ -76,37 +77,37 @@ const FAQS = [
 
 const POPULAR_TOOLS = [
   {
-    icon: '\u2726',
+    icon: 'sparkle' as const,
     title: 'Proposals & Quotes',
     body: 'Turn a bid request or job description into a client-ready proposal, written in your voice.',
     href: '/dashboard',
   },
   {
-    icon: '\ud83d\udcc5',
+    icon: 'calendar' as const,
     title: 'Customer Update Messages',
     body: 'Appointment confirmations, reminders, and job or delivery updates — written for you.',
     href: '/tools/customer-updates',
   },
   {
-    icon: '\ud83d\udcde',
+    icon: 'phone' as const,
     title: 'Call & Missed-Call Assistant',
     body: 'Know what to say before you dial, and never leave a missed call hanging.',
     href: '/tools/call-assistant',
   },
   {
-    icon: '\ud83d\udce3',
+    icon: 'megaphone' as const,
     title: 'Social Post Generator',
     body: 'Turn a job or offer into three ready-to-post Facebook/Instagram updates.',
     href: '/tools/outreach-post',
   },
   {
-    icon: '\u2605',
+    icon: 'star' as const,
     title: 'Review Request Generator',
     body: 'Ask for the review while the good feeling from a finished job is still fresh.',
     href: '/tools/review-request',
   },
   {
-    icon: '\ud83d\udcc4',
+    icon: 'document' as const,
     title: 'Service Agreement Drafter',
     body: 'A contract starting point built from your scope, terms, and timeline.',
     href: '/tools/agreement',
@@ -287,7 +288,7 @@ export default function Home() {
                   className="w-9 h-9 flex items-center justify-center text-base mb-5"
                   style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
                 >
-                  {tool.icon}
+                  <ToolIcon name={tool.icon} />
                 </div>
                 <h3 className="text-base mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
                   {tool.title}

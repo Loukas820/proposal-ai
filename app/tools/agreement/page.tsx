@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getProfile, getAccountEmail, downloadProposalPDF, CompanyProfile } from '../../lib/storage'
 import ProposalView from '../../components/ProposalView'
+import ToolIcon from '../../components/ToolIcon'
 
 export default function AgreementTool() {
   const [clientName, setClientName] = useState('')
@@ -85,7 +86,7 @@ export default function AgreementTool() {
             className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
             style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
           >
-            📄
+            <ToolIcon name="document" />
           </div>
           <span
             className="text-xs tracking-[0.2em] uppercase px-3 py-1"

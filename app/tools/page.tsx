@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import ToolIcon, { IconName } from '../components/ToolIcon'
 
 const APP_NAV = [
   { href: '/dashboard', label: 'Workspace' },
@@ -33,7 +34,7 @@ function AppHeader({ active }: { active: string }) {
   )
 }
 
-type Tool = { href: string; icon: string; title: string; body: string }
+type Tool = { href: string; icon: IconName; title: string; body: string }
 
 const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
   {
@@ -42,13 +43,13 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     tools: [
       {
         href: '/tools/outreach-post',
-        icon: '📣',
+        icon: 'megaphone',
         title: 'Social Post Generator',
         body: 'Describe what you want to promote and get three ready-to-post Facebook/Instagram options.',
       },
       {
         href: '/settings',
-        icon: '🔗',
+        icon: 'link',
         title: 'Public Quote Request Link',
         body: 'A shareable link for your bio or posts — anyone can request a quote straight to your inbox, no app needed.',
       },
@@ -60,13 +61,13 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     tools: [
       {
         href: '/tools/quote-builder',
-        icon: '🧾',
+        icon: 'receipt',
         title: 'Quote Builder',
         body: 'Line items, tax, and total calculated for you — export a branded quote PDF. No AI involved, just fast math.',
       },
       {
         href: '/tools/rfp-analyzer',
-        icon: '◎',
+        icon: 'search',
         title: 'Bid Request Checker',
         body: 'Quickly check whether a big, formal bid request (also called an RFP) is worth your time before you write a full response.',
       },
@@ -78,13 +79,13 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     tools: [
       {
         href: '/tools/customer-updates',
-        icon: '\ud83d\udcc5',
+        icon: 'calendar',
         title: 'Customer Update Messages',
         body: 'Appointment confirmations, reminders, delay notices, job and delivery updates — text and email versions in seconds.',
       },
       {
         href: '/tools/call-assistant',
-        icon: '\ud83d\udcde',
+        icon: 'phone',
         title: 'Call & Missed-Call Assistant',
         body: 'Talking points before you dial, plus a ready text-back for the calls that go to voicemail.',
       },
@@ -96,13 +97,13 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     tools: [
       {
         href: '/tools/follow-up',
-        icon: '✉',
+        icon: 'mail',
         title: 'Follow-Up Email Generator',
         body: 'Paste your proposal and get a warm, low-pressure follow-up email ready to send.',
       },
       {
         href: '/tools/review-request',
-        icon: '★',
+        icon: 'star',
         title: 'Review Request Generator',
         body: 'Job’s done — get a text and email version asking for a review while the feeling is fresh.',
       },
@@ -114,19 +115,19 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     tools: [
       {
         href: '/tools/onboarding-packet',
-        icon: '✎',
+        icon: 'pencil',
         title: 'Client Onboarding Packet',
         body: 'Generate a welcome packet automatically — next steps, what you need from them, and who to contact.',
       },
       {
         href: '/tools/translate',
-        icon: '⇄',
+        icon: 'swap',
         title: 'Multi-Language Proposals',
         body: 'Translate a proposal into another language, preserving structure and tone.',
       },
       {
         href: '/tools/agreement',
-        icon: '📄',
+        icon: 'document',
         title: 'Service Agreement Drafter',
         body: 'A starting contract template built from your scope, payment terms, and timeline. Not legal advice — for attorney review.',
       },
@@ -164,7 +165,7 @@ export default function Tools() {
                     className="w-10 h-10 flex items-center justify-center text-lg mb-5"
                     style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
                   >
-                    {tool.icon}
+                    <ToolIcon name={tool.icon} />
                   </div>
                   <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
                     {tool.title}

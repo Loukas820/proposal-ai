@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getProfile, getAccountEmail, CompanyProfile } from '../../lib/storage'
 import ProposalView from '../../components/ProposalView'
+import ToolIcon from '../../components/ToolIcon'
 
 export default function FollowUpTool() {
   const [context, setContext] = useState('')
@@ -78,7 +79,7 @@ export default function FollowUpTool() {
             className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
             style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
           >
-            ✉
+            <ToolIcon name="mail" />
           </div>
           <span
             className="text-xs tracking-[0.2em] uppercase px-3 py-1"

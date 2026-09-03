@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getProfile, downloadQuotePDF, CompanyProfile, QuoteLineItem } from '../../lib/storage'
+import ToolIcon from '../../components/ToolIcon'
 
 function newItem(): QuoteLineItem {
   return { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), description: '', qty: 1, unitPrice: 0 }
@@ -60,7 +61,7 @@ export default function QuoteBuilderTool() {
             className="w-10 h-10 flex items-center justify-center text-lg shrink-0"
             style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
           >
-            🧾
+            <ToolIcon name="receipt" />
           </div>
           <span
             className="text-xs tracking-[0.2em] uppercase px-3 py-1"

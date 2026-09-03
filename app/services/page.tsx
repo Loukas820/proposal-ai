@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import ToolIcon, { IconName } from '../components/ToolIcon'
 
 const CORE = {
   title: 'Proposals & Quotes',
@@ -9,20 +10,20 @@ const CORE = {
   pricing: 'Free (2/mo) · $9.99/proposal · $49/mo unlimited',
 }
 
-type Service = { icon: string; title: string; body: string; href: string }
+type Service = { icon: IconName; title: string; body: string; href: string }
 
 const CATEGORIES: { name: string; services: Service[] }[] = [
   {
     name: 'Get Found & Get Leads',
     services: [
       {
-        icon: '📣',
+        icon: 'megaphone',
         title: 'Social Post Generator',
         body: 'Not every business runs on formal RFPs. Landscapers, roofers, and local contractors can describe a job or offer and get three ready-to-post Facebook or Instagram updates for client outreach.',
         href: '/tools/outreach-post',
       },
       {
-        icon: '🔗',
+        icon: 'link',
         title: 'Public Quote Request Link',
         body: 'A shareable link for your Facebook bio or posts — anyone can request a quote and it lands straight in your inbox, no app or account needed on their end.',
         href: '/settings',
@@ -33,13 +34,13 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
     name: 'Win The Work',
     services: [
       {
-        icon: '🧾',
+        icon: 'receipt',
         title: 'Quote Builder',
         body: 'Line items, tax, and total calculated for you — export a branded quote as a PDF. Pure arithmetic, no AI, built for trades and service businesses that quote by the job.',
         href: '/tools/quote-builder',
       },
       {
-        icon: '◎',
+        icon: 'search',
         title: 'Bid Request Checker',
         body: 'Not every big, formal bid request (also called an RFP) is worth a full response. Paste one in and quickly see what it’s asking for, before you spend hours writing.',
         href: '/tools/rfp-analyzer',
@@ -50,13 +51,13 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
     name: 'Calls, Appointments & Jobs',
     services: [
       {
-        icon: '\ud83d\udcc5',
+        icon: 'calendar',
         title: 'Customer Update Messages',
         body: 'Appointment confirmations, reminders, delay notices, job-started and job-complete updates, delivery notices — the message that keeps a customer in the loop, written for you in seconds.',
         href: '/tools/customer-updates',
       },
       {
-        icon: '\ud83d\udcde',
+        icon: 'phone',
         title: 'Call & Missed-Call Assistant',
         body: 'A short talking-points script before you dial, plus a friendly missed-call text-back so a call that goes to voicemail never just goes cold.',
         href: '/tools/call-assistant',
@@ -67,13 +68,13 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
     name: 'Stay In Touch',
     services: [
       {
-        icon: '✉',
+        icon: 'mail',
         title: 'Follow-Up Email Generator',
         body: 'Silence after sending a proposal is where deals quietly die. Paste what you sent and get a warm, low-pressure follow-up in seconds.',
         href: '/tools/follow-up',
       },
       {
-        icon: '★',
+        icon: 'star',
         title: 'Review Request Generator',
         body: 'Job’s done — get a text message and email version asking for a review while the good feeling is still fresh.',
         href: '/tools/review-request',
@@ -84,19 +85,19 @@ const CATEGORIES: { name: string; services: Service[] }[] = [
     name: 'Close & Deliver',
     services: [
       {
-        icon: '✎',
+        icon: 'pencil',
         title: 'Client Onboarding Packet',
         body: 'The moment a proposal is accepted, generate a welcome packet automatically — next steps, what you need from them, and who to contact.',
         href: '/tools/onboarding-packet',
       },
       {
-        icon: '⇄',
+        icon: 'swap',
         title: 'Multi-Language Proposals',
         body: 'Translate a proposal into another language for international clients, preserving tone and structure.',
         href: '/tools/translate',
       },
       {
-        icon: '📄',
+        icon: 'document',
         title: 'Service Agreement Drafter',
         body: 'A starting contract template built from your scope, payment terms, and timeline — not legal advice, but a real head start before an attorney reviews it.',
         href: '/tools/agreement',
@@ -177,7 +178,7 @@ export default function Services() {
                     className="w-9 h-9 flex items-center justify-center text-base mb-5"
                     style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
                   >
-                    {s.icon}
+                    <ToolIcon name={s.icon} />
                   </div>
                   <h3 className="text-lg mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
                     {s.title}
