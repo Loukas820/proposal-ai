@@ -161,12 +161,6 @@ export default function Home() {
             Daybase
           </div>
           <div className="flex items-center gap-8">
-            <Link href="/services" className="link-gold text-sm tracking-widest uppercase hidden sm:inline">
-              Services
-            </Link>
-            <Link href="/pricing" className="link-gold text-sm tracking-widest uppercase hidden sm:inline">
-              Pricing
-            </Link>
             <Link href="/resources" className="link-gold text-sm tracking-widest uppercase">
               Free Guide
             </Link>
@@ -267,6 +261,49 @@ export default function Home() {
                 Calls, jobs, quotes & outreach
               </div>
             </div>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md w-full">
+            <Link
+              href="/services"
+              className="card-dark p-5 flex items-center justify-between group"
+              style={{ textDecoration: 'none' }}
+            >
+              <div>
+                <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: 'var(--gold-light)' }}>
+                  Explore
+                </div>
+                <div style={{ color: 'var(--cream)', fontFamily: 'var(--font-serif)' }} className="text-lg">
+                  Our Services
+                </div>
+              </div>
+              <span
+                className="text-lg transition-transform group-hover:translate-x-1"
+                style={{ color: 'var(--gold-light)' }}
+              >
+                →
+              </span>
+            </Link>
+            <Link
+              href="/pricing"
+              className="card-dark p-5 flex items-center justify-between group"
+              style={{ textDecoration: 'none' }}
+            >
+              <div>
+                <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: 'var(--gold-light)' }}>
+                  See
+                </div>
+                <div style={{ color: 'var(--cream)', fontFamily: 'var(--font-serif)' }} className="text-lg">
+                  Pricing
+                </div>
+              </div>
+              <span
+                className="text-lg transition-transform group-hover:translate-x-1"
+                style={{ color: 'var(--gold-light)' }}
+              >
+                →
+              </span>
+            </Link>
           </div>
         </div>
 
