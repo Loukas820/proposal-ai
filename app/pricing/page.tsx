@@ -183,6 +183,10 @@ export default function Pricing() {
 
       <footer className="px-8 py-6 text-center text-xs relative z-10" style={{ borderTop: '1px solid var(--gold-dim)', color: 'rgba(248,245,238,0.4)' }}>
         Daybase — Run your business, without the busywork · © {new Date().getFullYear()}
+        <span className="mx-3">·</span>
+        <Link href="/terms" className="link-gold uppercase tracking-[0.15em]">Terms</Link>
+        <span className="mx-3">·</span>
+        <Link href="/privacy" className="link-gold uppercase tracking-[0.15em]">Privacy</Link>
       </footer>
     </div>
   )
