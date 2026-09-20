@@ -34,18 +34,24 @@ function AppHeader({ active }: { active: string }) {
   )
 }
 
-type Tool = { href: string; icon: IconName; title: string; body: string }
+type Tool = { href: string; icon: IconName; title: string; body: string; note?: string }
 
 const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
   {
-    name: 'Get Found & Get Leads',
-    blurb: 'Turn attention into requests, whether that’s a Facebook post or a link in your bio.',
+    name: 'Your Front Desk',
+    blurb: 'The calls, appointments, and inbound requests that used to need someone answering the phone.',
     tools: [
       {
-        href: '/tools/outreach-post',
-        icon: 'megaphone',
-        title: 'Social Post Generator',
-        body: 'Describe what you want to promote and get three ready-to-post Facebook/Instagram options.',
+        href: '/tools/call-assistant',
+        icon: 'phone',
+        title: 'Call & Missed-Call Assistant',
+        body: 'Talking points before you dial, plus a ready text-back for the calls that go to voicemail.',
+      },
+      {
+        href: '/tools/customer-updates',
+        icon: 'calendar',
+        title: 'Customer Update Messages',
+        body: 'Appointment confirmations, reminders, delay notices, job and delivery updates — text and email versions in seconds.',
       },
       {
         href: '/settings',
@@ -56,9 +62,40 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
     ],
   },
   {
-    name: 'Win The Work',
-    blurb: 'Decide what to bid on, and make the case once you do.',
+    name: 'Get Found & Stay In Touch',
+    blurb: 'The outreach that keeps new work coming in, and keeps past clients coming back.',
     tools: [
+      {
+        href: '/tools/outreach-post',
+        icon: 'megaphone',
+        title: 'Social Post Generator',
+        body: 'Describe what you want to promote and get three ready-to-post Facebook/Instagram options.',
+      },
+      {
+        href: '/tools/follow-up',
+        icon: 'mail',
+        title: 'Follow-Up Email Generator',
+        body: 'Paste your proposal or quote and get a warm, low-pressure follow-up email ready to send.',
+      },
+      {
+        href: '/tools/review-request',
+        icon: 'star',
+        title: 'Review Request Generator',
+        body: 'Job’s done — get a text and email version asking for a review while the feeling is fresh.',
+      },
+    ],
+  },
+  {
+    name: 'Back Office',
+    blurb: 'The paperwork — quotes, proposals, contracts — once someone’s ready to say yes.',
+    tools: [
+      {
+        href: '/dashboard',
+        icon: 'sparkle',
+        title: 'Proposals & Quotes',
+        body: 'Paste a bid request or describe a job and get a structured, client-ready proposal in your voice.',
+        note: '2 free/mo · $9.99/proposal · $49/mo unlimited',
+      },
       {
         href: '/tools/quote-builder',
         icon: 'receipt',
@@ -71,48 +108,12 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
         title: 'Bid Request Checker',
         body: 'Quickly check whether a big, formal bid request (also called an RFP) is worth your time before you write a full response.',
       },
-    ],
-  },
-  {
-    name: 'Calls, Appointments & Jobs',
-    blurb: 'Keep customers in the loop on what’s scheduled, what’s happening, and what to say on the phone.',
-    tools: [
       {
-        href: '/tools/customer-updates',
-        icon: 'calendar',
-        title: 'Customer Update Messages',
-        body: 'Appointment confirmations, reminders, delay notices, job and delivery updates — text and email versions in seconds.',
+        href: '/tools/agreement',
+        icon: 'document',
+        title: 'Service Agreement Drafter',
+        body: 'A starting contract template built from your scope, payment terms, and timeline. Not legal advice — for attorney review.',
       },
-      {
-        href: '/tools/call-assistant',
-        icon: 'phone',
-        title: 'Call & Missed-Call Assistant',
-        body: 'Talking points before you dial, plus a ready text-back for the calls that go to voicemail.',
-      },
-    ],
-  },
-  {
-    name: 'Stay In Touch',
-    blurb: 'The follow-through that turns a maybe into a yes.',
-    tools: [
-      {
-        href: '/tools/follow-up',
-        icon: 'mail',
-        title: 'Follow-Up Email Generator',
-        body: 'Paste your proposal and get a warm, low-pressure follow-up email ready to send.',
-      },
-      {
-        href: '/tools/review-request',
-        icon: 'star',
-        title: 'Review Request Generator',
-        body: 'Job’s done — get a text and email version asking for a review while the feeling is fresh.',
-      },
-    ],
-  },
-  {
-    name: 'Close & Deliver',
-    blurb: 'What happens the moment someone says yes.',
-    tools: [
       {
         href: '/tools/onboarding-packet',
         icon: 'pencil',
@@ -124,12 +125,6 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
         icon: 'swap',
         title: 'Multi-Language Proposals',
         body: 'Translate a proposal into another language, preserving structure and tone.',
-      },
-      {
-        href: '/tools/agreement',
-        icon: 'document',
-        title: 'Service Agreement Drafter',
-        body: 'A starting contract template built from your scope, payment terms, and timeline. Not legal advice — for attorney review.',
       },
     ],
   },
@@ -145,7 +140,7 @@ export default function Tools() {
           Tools
         </h1>
         <p className="text-sm mb-14" style={{ color: 'rgba(34,38,47,0.6)' }}>
-          Everything it takes to run the day — calls, appointments, jobs, deliveries, outreach, and the paperwork in between — all free with your account.
+          Your front desk, your outreach, and the paperwork behind it — all free with your account.
         </p>
 
         {CATEGORIES.map((cat) => (
@@ -161,11 +156,21 @@ export default function Tools() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {cat.tools.map((tool) => (
                 <Link key={tool.href} href={tool.href} className="card card-hover p-8 block">
-                  <div
-                    className="w-10 h-10 flex items-center justify-center text-lg mb-5"
-                    style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
-                  >
-                    <ToolIcon name={tool.icon} />
+                  <div className="flex items-center justify-between mb-5">
+                    <div
+                      className="w-10 h-10 flex items-center justify-center text-lg"
+                      style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
+                    >
+                      <ToolIcon name={tool.icon} />
+                    </div>
+                    {tool.note && (
+                      <span
+                        className="text-[10px] tracking-[0.15em] uppercase px-2 py-1 rounded-full"
+                        style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold)' }}
+                      >
+                        Paid
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
                     {tool.title}
@@ -173,6 +178,11 @@ export default function Tools() {
                   <p className="text-sm leading-relaxed" style={{ color: 'rgba(34,38,47,0.6)' }}>
                     {tool.body}
                   </p>
+                  {tool.note && (
+                    <p className="text-xs mt-3" style={{ color: 'rgba(34,38,47,0.45)' }}>
+                      {tool.note}
+                    </p>
+                  )}
                 </Link>
               ))}
             </div>
