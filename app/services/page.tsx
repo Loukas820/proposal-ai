@@ -142,7 +142,7 @@ export default function Services() {
         <h1 className="text-4xl md:text-5xl text-center mb-6" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
           Everything It Takes To Run Your Day
         </h1>
-        <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(248,245,238,0.65)' }}>
+        <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(246,247,249,0.65)' }}>
           Most of running a service business isn&apos;t the pitch — it&apos;s the phone ringing, the calendar filling up, and staying in touch after the job&apos;s done. Daybase runs your front desk first, and handles the quotes, proposals, and contracts once someone&apos;s ready to say yes.
         </p>
 
@@ -151,7 +151,7 @@ export default function Services() {
             <div className="text-xs tracking-[0.3em] uppercase mb-3 text-center reveal" style={{ color: 'var(--gold)' }}>
               {cat.name}{cat.freeAll ? ' · Free With Every Account' : ''}
             </div>
-            <p className="text-center text-sm max-w-md mx-auto mb-8 reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
+            <p className="text-center text-sm max-w-md mx-auto mb-8 reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
               {cat.blurb}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -166,7 +166,7 @@ export default function Services() {
                     </div>
                     {s.note && (
                       <span
-                        className="text-[10px] tracking-[0.15em] uppercase px-2 py-1 rounded-full"
+                        className="text-[10px] tracking-[0.15em] uppercase px-2 py-1"
                         style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold-light)' }}
                       >
                         Paid Tool
@@ -176,11 +176,11 @@ export default function Services() {
                   <h3 className="text-lg mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
                     {s.title}
                   </h3>
-                  <p className="text-sm leading-relaxed mb-2" style={{ color: 'rgba(248,245,238,0.65)' }}>
+                  <p className="text-sm leading-relaxed mb-2" style={{ color: 'rgba(246,247,249,0.65)' }}>
                     {s.body}
                   </p>
                   {s.note && (
-                    <p className="text-xs mb-3" style={{ color: 'rgba(248,245,238,0.45)' }}>
+                    <p className="text-xs mb-3" style={{ color: 'rgba(246,247,249,0.45)' }}>
                       {s.note}
                     </p>
                   )}
@@ -200,7 +200,7 @@ export default function Services() {
         </div>
       </main>
 
-      <footer className="px-8 py-6 text-center text-xs relative z-10" style={{ borderTop: '1px solid var(--gold-dim)', color: 'rgba(248,245,238,0.4)' }}>
+      <footer className="px-8 py-6 text-center text-xs relative z-10" style={{ borderTop: '1px solid var(--gold-dim)', color: 'rgba(246,247,249,0.4)' }}>
         Daybase — Run your business, without the busywork · © {new Date().getFullYear()}
       </footer>
     </div>

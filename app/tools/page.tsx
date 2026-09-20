@@ -165,7 +165,7 @@ export default function Tools() {
                     </div>
                     {tool.note && (
                       <span
-                        className="text-[10px] tracking-[0.15em] uppercase px-2 py-1 rounded-full"
+                        className="text-[10px] tracking-[0.15em] uppercase px-2 py-1"
                         style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold)' }}
                       >
                         Paid

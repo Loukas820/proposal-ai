@@ -203,7 +203,7 @@ export default function Home() {
 
           <p
             className="max-w-xl text-lg mb-12 leading-relaxed fade-in-up fade-delay-2"
-            style={{ color: 'rgba(248,245,238,0.7)' }}
+            style={{ color: 'rgba(246,247,249,0.7)' }}
           >
             Calls, appointments, jobs, deliveries, quotes, contracts, and
             client outreach — all handled in your own voice, in minutes.
@@ -235,7 +235,7 @@ export default function Home() {
               >
                 Minutes
               </div>
-              <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
+              <div className="text-sm" style={{ color: 'rgba(246,247,249,0.6)' }}>
                 From job to ready-to-send
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function Home() {
               >
                 $0 To Start
               </div>
-              <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
+              <div className="text-sm" style={{ color: 'rgba(246,247,249,0.6)' }}>
                 No card needed, every tool free
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function Home() {
               >
                 One Place
               </div>
-              <div className="text-sm" style={{ color: 'rgba(248,245,238,0.6)' }}>
+              <div className="text-sm" style={{ color: 'rgba(246,247,249,0.6)' }}>
                 Calls, jobs, quotes & outreach
               </div>
             </div>
@@ -321,7 +321,7 @@ export default function Home() {
           >
             Everything You&apos;ll Actually Use
           </h2>
-          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
+          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
             Pick one below and try it in seconds — no setup, no card, every tool free with your account.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -332,13 +332,13 @@ export default function Home() {
                 className={`group card card-hover reveal block p-7 relative overflow-hidden ${i === 0 ? 'md:col-span-2' : ''}`}
               >
                 <span
-                  className="absolute top-6 right-6 text-[9px] tracking-[0.2em] uppercase px-2 py-1 rounded-full"
+                  className="absolute top-6 right-6 text-[9px] tracking-[0.2em] uppercase px-2 py-1"
                   style={{ border: '1px solid var(--gold-dim)', color: 'var(--gold)' }}
                 >
                   Free
                 </span>
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 text-2xl"
+                  className="w-14 h-14 flex items-center justify-center mb-6 text-2xl"
                   style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold)' }}
                 >
                   <ToolIcon name={tool.icon} />
@@ -380,7 +380,7 @@ export default function Home() {
           >
             From Brief to Draft
           </h2>
-          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
+          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
             A plain, everyday request in — a client-ready proposal out. Your own output is generated live from your request and company profile.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative reveal">
@@ -396,7 +396,7 @@ export default function Home() {
               </div>
               <p
                 className="text-sm leading-relaxed whitespace-pre-line"
-                style={{ color: 'rgba(248,245,238,0.7)', fontFamily: 'Georgia, serif' }}
+                style={{ color: 'rgba(246,247,249,0.7)', fontFamily: 'Georgia, serif' }}
               >
                 {EXAMPLE_RFP}
               </p>
@@ -416,7 +416,7 @@ export default function Home() {
               <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold)' }}>
                 <span
                   className="w-6 h-6 rounded-full flex items-center justify-center text-xs"
-                  style={{ backgroundColor: 'rgba(47,111,237,0.12)' }}
+                  style={{ backgroundColor: 'rgba(30,79,216,0.12)' }}
                 >
                   <ToolIcon name="document" className="w-3 h-3" />
                 </span>
@@ -459,7 +459,7 @@ export default function Home() {
                   </div>
                   <div className="relative z-10">
                     <div
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-xl"
+                      className="w-12 h-12 flex items-center justify-center mb-6 text-xl"
                       style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold-light)' }}
                     >
                       <ToolIcon name={step.icon} />
@@ -467,7 +467,7 @@ export default function Home() {
                     <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
                       {step.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.65)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.65)' }}>
                       {step.body}
                     </p>
                   </div>
@@ -515,7 +515,7 @@ export default function Home() {
                 >
                   {f.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.65)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.65)' }}>
                   {f.body}
                 </p>
               </div>
@@ -542,10 +542,10 @@ export default function Home() {
           >
             Simple, Transparent Pricing
           </h2>
-          <p className="text-center text-sm mb-3 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.55)' }}>
+          <p className="text-center text-sm mb-3 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
             Only proposal generation is metered, priced below. Every other tool — calls, appointments, jobs, deliveries, outreach, contracts — is free with any account, on any plan.
           </p>
-          <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(248,245,238,0.45)' }}>
+          <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.45)' }}>
             Most proposal software charges $29–65 per seat, every month. Daybase is $49 flat, unlimited, seats included.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -557,10 +557,10 @@ export default function Home() {
               <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
                 $0
               </div>
-              <div className="text-sm mb-8" style={{ color: 'rgba(248,245,238,0.55)' }}>
+              <div className="text-sm mb-8" style={{ color: 'rgba(246,247,249,0.55)' }}>
                 2 proposals every month
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.6)' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.6)' }}>
                 No card required. See the quality for yourself before you spend anything.
               </p>
             </div>
@@ -572,10 +572,10 @@ export default function Home() {
               <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
                 $9.99
               </div>
-              <div className="text-sm mb-8" style={{ color: 'rgba(248,245,238,0.55)' }}>
+              <div className="text-sm mb-8" style={{ color: 'rgba(246,247,249,0.55)' }}>
                 pay only when you send one
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.6)' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.6)' }}>
                 For the occasional pitch — no subscription to remember to cancel.
               </p>
             </div>
@@ -594,15 +594,15 @@ export default function Home() {
                 $49
                 <span className="text-base"> /mo</span>
               </div>
-              <div className="text-sm mb-8" style={{ color: 'rgba(248,245,238,0.55)' }}>
+              <div className="text-sm mb-8" style={{ color: 'rgba(246,247,249,0.55)' }}>
                 unlimited proposals
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(248,245,238,0.6)' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.6)' }}>
                 Less than one hour of billable time, for every proposal you send all month.
               </p>
             </div>
           </div>
-          <p className="mt-10 text-center text-xs tracking-[0.15em] uppercase reveal" style={{ color: 'rgba(248,245,238,0.4)' }}>
+          <p className="mt-10 text-center text-xs tracking-[0.15em] uppercase reveal" style={{ color: 'rgba(246,247,249,0.4)' }}>
             Secure checkout via Stripe · Cancel unlimited anytime · No card required for the free tier
           </p>
           <div className="mt-6 flex flex-col items-center gap-3">
@@ -639,7 +639,7 @@ export default function Home() {
                   {item.q}
                   <span style={{ color: 'var(--gold)' }} className="ml-4 group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-sm leading-relaxed mt-4" style={{ color: 'rgba(248,245,238,0.6)' }}>
+                <p className="text-sm leading-relaxed mt-4" style={{ color: 'rgba(246,247,249,0.6)' }}>
                   {item.a}
                 </p>
               </details>
@@ -667,7 +667,7 @@ export default function Home() {
         className="px-8 py-10 relative z-10"
         style={{ borderTop: '1px solid var(--gold-dim)' }}
       >
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(248,245,238,0.4)' }}>
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(246,247,249,0.4)' }}>
           <div>Daybase — Run your business, without the busywork · © {new Date().getFullYear()}</div>
           <div className="flex items-center gap-6">
             <Link href="/services" className="link-gold uppercase tracking-[0.15em]">Services</Link>
