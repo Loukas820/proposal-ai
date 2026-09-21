@@ -23,6 +23,22 @@ const SERVICE_LINKS = [
 export default function SiteHeader({ active }: { active?: 'services' | 'pricing' }) {
   const [open, setOpen] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  function clearCloseTimer() {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+  }
+  function openMenu() {
+    clearCloseTimer()
+    setOpen(true)
+  }
+  function scheduleClose() {
+    clearCloseTimer()
+    closeTimer.current = setTimeout(() => setOpen(false), 150)
+  }
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -38,6 +54,7 @@ export default function SiteHeader({ active }: { active?: 'services' | 'pricing'
     return () => {
       document.removeEventListener('mousedown', onClick)
       document.removeEventListener('keydown', onKey)
+      clearCloseTimer()
     }
   }, [])
 
@@ -53,7 +70,12 @@ export default function SiteHeader({ active }: { active?: 'services' | 'pricing'
         </Link>
 
         <div className="flex items-center gap-8">
-          <div ref={wrapRef} className="relative">
+          <div
+            ref={wrapRef}
+            className="relative"
+            onMouseEnter={openMenu}
+            onMouseLeave={scheduleClose}
+          >
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
