@@ -53,11 +53,11 @@ export default function Resources() {
             Daybase
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
-            <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
-            <Link href="/tools" className="link-gold" style={{ color: 'var(--charcoal)' }}>Tools</Link>
+            <Link href="/dashboard" className="link-navy" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
+            <Link href="/tools" className="link-navy" style={{ color: 'var(--charcoal)' }}>Tools</Link>
             <Link href="/resources" style={{ color: 'var(--gold)' }}>Free Guide</Link>
-            <Link href="/history" className="link-gold" style={{ color: 'var(--charcoal)' }}>History</Link>
-            <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+            <Link href="/history" className="link-navy" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/settings" className="link-navy" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>
       </header>

@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import ToolIcon from './components/ToolIcon'
+import SiteHeader from './components/SiteHeader'
 
 const FEATURES = [
   {
@@ -80,22 +81,16 @@ const FAQS = [
 
 const POPULAR_TOOLS = [
   {
-    icon: 'sparkle' as const,
-    title: 'Proposals & Quotes',
-    body: 'Turn a bid request or job description into a client-ready proposal, written in your voice.',
-    href: '/dashboard',
+    icon: 'phone' as const,
+    title: 'Call & Missed-Call Assistant',
+    body: 'Know what to say before you dial, and never leave a missed call hanging — a ready text-back goes out automatically.',
+    href: '/tools/call-assistant',
   },
   {
     icon: 'calendar' as const,
     title: 'Customer Update Messages',
     body: 'Appointment confirmations, reminders, and job or delivery updates — written for you.',
     href: '/tools/customer-updates',
-  },
-  {
-    icon: 'phone' as const,
-    title: 'Call & Missed-Call Assistant',
-    body: 'Know what to say before you dial, and never leave a missed call hanging.',
-    href: '/tools/call-assistant',
   },
   {
     icon: 'megaphone' as const,
@@ -114,6 +109,12 @@ const POPULAR_TOOLS = [
     title: 'Service Agreement Drafter',
     body: 'A contract starting point built from your scope, terms, and timeline.',
     href: '/tools/agreement',
+  },
+  {
+    icon: 'sparkle' as const,
+    title: 'Proposals & Quotes',
+    body: 'Turn a bid request or job description into a client-ready proposal, written in your voice.',
+    href: '/dashboard',
   },
 ]
 
@@ -151,59 +152,28 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col bg-hero bg-grain relative" style={{ color: 'var(--cream)' }}>
-      <header className="nav-glass-dark" style={{ borderBottom: '1px solid var(--gold-dim)' }}>
-        <nav className="max-w-5xl mx-auto px-8 py-6 flex items-center justify-between">
-          <div
-            className="text-2xl tracking-wide"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
-          >
-            Daybase
-          </div>
-          <div className="flex items-center gap-8">
-            <Link href="/resources" className="link-gold text-sm tracking-widest uppercase">
-              Free Guide
-            </Link>
-            <Link href="/dashboard" className="link-gold text-sm tracking-widest uppercase">
-              Enter →
-            </Link>
-          </div>
-        </nav>
-      </header>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--cream)', color: 'var(--charcoal)' }}>
+      <SiteHeader />
 
       <main className="flex-1 flex flex-col items-center px-6 relative z-10">
-        <div className="relative flex flex-col items-center justify-center text-center pt-28 pb-24 w-full overflow-hidden">
-          <div className="bg-mesh">
-            <div className="orb orb-1" />
-            <div className="orb orb-2" />
-            <div className="orb orb-3" />
-          </div>
-
-          <div className="badge-ai fade-in-up" style={{ color: 'var(--gold-light)' }}>
-            <span className="dot" />
-            AI-powered, built for how small businesses actually run
+        <div className="relative flex flex-col items-center justify-center text-center pt-28 pb-24 w-full">
+          <div
+            className="text-xs tracking-[0.3em] uppercase mb-8 fade-in-up"
+            style={{ color: 'var(--gold)', fontWeight: 600 }}
+          >
+            AI-Powered · Built For How Small Businesses Actually Run
           </div>
 
           <h1
-            className="max-w-3xl text-5xl md:text-6xl leading-tight mt-8 mb-8 fade-in-up fade-delay-1"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            className="max-w-3xl text-5xl md:text-6xl leading-tight mb-8 fade-in-up fade-delay-1"
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
-            Running Your Business Should Be{' '}
-            <span
-              style={{
-                backgroundImage: 'linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Simple
-            </span>
+            Running Your Business Should Be <span style={{ color: 'var(--gold)' }}>Simple</span>
           </h1>
 
           <p
             className="max-w-xl text-lg mb-12 leading-relaxed fade-in-up fade-delay-2"
-            style={{ color: 'rgba(246,247,249,0.7)' }}
+            style={{ color: 'rgba(27,30,38,0.65)' }}
           >
             Calls, appointments, jobs, deliveries, quotes, contracts, and
             client outreach — all handled in your own voice, in minutes.
@@ -219,45 +189,45 @@ export default function Home() {
             >
               Get Started Free
             </Link>
-            <a href="#popular-tools" className="link-gold text-sm tracking-[0.15em] uppercase">
+            <a href="#popular-tools" className="link-navy text-sm tracking-[0.15em] uppercase">
               See what it does ↓
             </a>
           </div>
 
           <div
             className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-3xl w-full pt-12"
-            style={{ borderTop: '1px solid var(--gold-dim)' }}
+            style={{ borderTop: '1px solid var(--hairline)' }}
           >
             <div>
               <div
                 className="text-3xl mb-2"
-                style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
+                style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
               >
                 Minutes
               </div>
-              <div className="text-sm" style={{ color: 'rgba(246,247,249,0.6)' }}>
+              <div className="text-sm" style={{ color: 'rgba(27,30,38,0.55)' }}>
                 From job to ready-to-send
               </div>
             </div>
             <div>
               <div
                 className="text-3xl mb-2"
-                style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
+                style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
               >
                 $0 To Start
               </div>
-              <div className="text-sm" style={{ color: 'rgba(246,247,249,0.6)' }}>
+              <div className="text-sm" style={{ color: 'rgba(27,30,38,0.55)' }}>
                 No card needed, every tool free
               </div>
             </div>
             <div>
               <div
                 className="text-3xl mb-2"
-                style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
+                style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
               >
                 One Place
               </div>
-              <div className="text-sm" style={{ color: 'rgba(246,247,249,0.6)' }}>
+              <div className="text-sm" style={{ color: 'rgba(27,30,38,0.55)' }}>
                 Calls, jobs, quotes & outreach
               </div>
             </div>
@@ -266,40 +236,40 @@ export default function Home() {
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-md w-full">
             <Link
               href="/services"
-              className="card-dark p-5 flex items-center justify-between group"
+              className="card card-hover p-5 flex items-center justify-between group"
               style={{ textDecoration: 'none' }}
             >
               <div>
-                <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: 'var(--gold-light)' }}>
+                <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: 'var(--gold)' }}>
                   Explore
                 </div>
-                <div style={{ color: 'var(--cream)', fontFamily: 'var(--font-serif)' }} className="text-lg">
+                <div style={{ color: 'var(--navy)', fontFamily: 'var(--font-serif)', fontWeight: 600 }} className="text-lg">
                   Our Services
                 </div>
               </div>
               <span
                 className="text-lg transition-transform group-hover:translate-x-1"
-                style={{ color: 'var(--gold-light)' }}
+                style={{ color: 'var(--gold)' }}
               >
                 →
               </span>
             </Link>
             <Link
               href="/pricing"
-              className="card-dark p-5 flex items-center justify-between group"
+              className="card card-hover p-5 flex items-center justify-between group"
               style={{ textDecoration: 'none' }}
             >
               <div>
-                <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: 'var(--gold-light)' }}>
+                <div className="text-xs tracking-[0.2em] uppercase mb-1" style={{ color: 'var(--gold)' }}>
                   See
                 </div>
-                <div style={{ color: 'var(--cream)', fontFamily: 'var(--font-serif)' }} className="text-lg">
+                <div style={{ color: 'var(--navy)', fontFamily: 'var(--font-serif)', fontWeight: 600 }} className="text-lg">
                   Pricing
                 </div>
               </div>
               <span
                 className="text-lg transition-transform group-hover:translate-x-1"
-                style={{ color: 'var(--gold-light)' }}
+                style={{ color: 'var(--gold)' }}
               >
                 →
               </span>
@@ -307,7 +277,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="popular-tools" className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section id="popular-tools" className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--hairline)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -317,11 +287,11 @@ export default function Home() {
           </div>
           <h2
             className="text-3xl text-center mb-4 reveal"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
             Everything You&apos;ll Actually Use
           </h2>
-          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
+          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(27,30,38,0.55)' }}>
             Pick one below and try it in seconds — no setup, no card, every tool free with your account.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -343,10 +313,10 @@ export default function Home() {
                 >
                   <ToolIcon name={tool.icon} />
                 </div>
-                <h3 className="text-lg mb-2 pr-12" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
+                <h3 className="text-lg mb-2 pr-12" style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, color: 'var(--navy)' }}>
                   {tool.title}
                 </h3>
-                <p className="text-sm leading-relaxed mb-5 max-w-sm" style={{ color: 'rgba(34,38,47,0.65)' }}>
+                <p className="text-sm leading-relaxed mb-5 max-w-sm" style={{ color: 'rgba(27,30,38,0.6)' }}>
                   {tool.body}
                 </p>
                 <span
@@ -360,13 +330,13 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-12 text-center reveal">
-            <Link href="/tools" className="link-gold text-xs tracking-[0.2em] uppercase">
+            <Link href="/tools" className="link-navy text-xs tracking-[0.2em] uppercase">
               See every tool →
             </Link>
           </div>
         </section>
 
-        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--hairline)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -376,16 +346,16 @@ export default function Home() {
           </div>
           <h2
             className="text-3xl text-center mb-4 reveal"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
             From Brief to Draft
           </h2>
-          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
+          <p className="text-center text-sm mb-14 max-w-lg mx-auto reveal" style={{ color: 'rgba(27,30,38,0.55)' }}>
             A plain, everyday request in — a client-ready proposal out. Your own output is generated live from your request and company profile.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative reveal">
-            <div className="card-dark p-8">
-              <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold-light)' }}>
+            <div className="p-8" style={{ backgroundColor: 'var(--parchment)', border: '1px solid var(--hairline)' }}>
+              <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold)', fontWeight: 600 }}>
                 <span
                   className="w-6 h-6 rounded-full flex items-center justify-center text-xs"
                   style={{ backgroundColor: 'var(--gold-dim)' }}
@@ -396,7 +366,7 @@ export default function Home() {
               </div>
               <p
                 className="text-sm leading-relaxed whitespace-pre-line"
-                style={{ color: 'rgba(246,247,249,0.7)', fontFamily: 'Georgia, serif' }}
+                style={{ color: 'rgba(27,30,38,0.7)', fontFamily: 'Georgia, serif' }}
               >
                 {EXAMPLE_RFP}
               </p>
@@ -404,19 +374,19 @@ export default function Home() {
 
             <div
               className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full items-center justify-center text-lg"
-              style={{ backgroundColor: 'var(--gold)', color: 'var(--navy-deep)', fontWeight: 700 }}
+              style={{ backgroundColor: 'var(--gold)', color: '#ffffff', fontWeight: 700 }}
             >
               →
             </div>
 
             <div
               className="p-8"
-              style={{ backgroundColor: 'var(--parchment)', border: '1px solid var(--gold)' }}
+              style={{ backgroundColor: '#ffffff', border: '1px solid var(--gold)' }}
             >
               <div className="flex items-center gap-2 text-xs tracking-[0.2em] uppercase mb-5" style={{ color: 'var(--gold)' }}>
                 <span
                   className="w-6 h-6 rounded-full flex items-center justify-center text-xs"
-                  style={{ backgroundColor: 'rgba(30,79,216,0.12)' }}
+                  style={{ backgroundColor: 'var(--gold-dim)' }}
                 >
                   <ToolIcon name="document" className="w-3 h-3" />
                 </span>
@@ -432,7 +402,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--hairline)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -442,17 +412,17 @@ export default function Home() {
           </div>
           <h2
             className="text-3xl text-center mb-16 reveal"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
             Three Steps, Minutes Apart
           </h2>
           <div className="flex flex-col md:flex-row items-stretch gap-6 md:gap-0">
             {STEPS.map((step, i) => (
               <div key={step.title} className="flex md:flex-1 items-stretch">
-                <div className="card-dark p-8 relative overflow-hidden reveal flex-1">
+                <div className="card card-hover p-8 relative overflow-hidden reveal flex-1">
                   <div
                     className="absolute -top-3 -right-1 text-[100px] leading-none select-none pointer-events-none"
-                    style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-dim)' }}
+                    style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--gold-dim)' }}
                     aria-hidden="true"
                   >
                     {String(i + 1).padStart(2, '0')}
@@ -460,14 +430,14 @@ export default function Home() {
                   <div className="relative z-10">
                     <div
                       className="w-12 h-12 flex items-center justify-center mb-6 text-xl"
-                      style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold-light)' }}
+                      style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold)' }}
                     >
                       <ToolIcon name={step.icon} />
                     </div>
-                    <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
+                    <h3 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, color: 'var(--navy)' }}>
                       {step.title}
                     </h3>
-                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.65)' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(27,30,38,0.65)' }}>
                       {step.body}
                     </p>
                   </div>
@@ -475,7 +445,7 @@ export default function Home() {
                 {i < STEPS.length - 1 && (
                   <div
                     className="hidden md:flex items-center justify-center px-4 text-2xl reveal"
-                    style={{ color: 'var(--gold-dim)' }}
+                    style={{ color: 'var(--hairline)' }}
                     aria-hidden="true"
                   >
                     →
@@ -486,7 +456,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section className="w-full max-w-5xl py-24" style={{ borderTop: '1px solid var(--hairline)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -496,13 +466,13 @@ export default function Home() {
           </div>
           <h2
             className="text-3xl text-center mb-16 reveal"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
             More Than a Chatbot
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {FEATURES.map((f) => (
-              <div key={f.title} className="card-dark p-8 reveal">
+              <div key={f.title} className="card card-hover p-8 reveal">
                 <div
                   className="w-8 h-8 flex items-center justify-center mb-5 text-sm"
                   style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}
@@ -511,24 +481,24 @@ export default function Home() {
                 </div>
                 <h3
                   className="text-lg mb-3"
-                  style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}
+                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, color: 'var(--navy)' }}
                 >
                   {f.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.65)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(27,30,38,0.65)' }}>
                   {f.body}
                 </p>
               </div>
             ))}
           </div>
           <div className="mt-12 text-center reveal">
-            <Link href="/services" className="link-gold text-xs tracking-[0.2em] uppercase">
+            <Link href="/services" className="link-navy text-xs tracking-[0.2em] uppercase">
               See the full lineup, including free bonus tools →
             </Link>
           </div>
         </section>
 
-        <section id="pricing" className="w-full max-w-4xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section id="pricing" className="w-full max-w-4xl py-24" style={{ borderTop: '1px solid var(--hairline)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -538,84 +508,84 @@ export default function Home() {
           </div>
           <h2
             className="text-3xl text-center mb-16 reveal"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
             Simple, Transparent Pricing
           </h2>
-          <p className="text-center text-sm mb-3 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
+          <p className="text-center text-sm mb-3 max-w-lg mx-auto reveal" style={{ color: 'rgba(27,30,38,0.55)' }}>
             Only proposal generation is metered, priced below. Every other tool — calls, appointments, jobs, deliveries, outreach, contracts — is free with any account, on any plan.
           </p>
-          <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(246,247,249,0.45)' }}>
+          <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(27,30,38,0.4)' }}>
             Most proposal software charges $29–65 per seat, every month. Daybase is $49 flat, unlimited, seats included.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="card-dark p-8 flex flex-col items-center text-center reveal">
+            <div className="card p-8 flex flex-col items-center text-center reveal">
               <div className="text-lg mb-3" style={{ color: 'var(--gold)' }}>○</div>
-              <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold-light)' }}>
+              <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>
                 Free
               </div>
-              <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
+              <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>
                 $0
               </div>
-              <div className="text-sm mb-8" style={{ color: 'rgba(246,247,249,0.55)' }}>
+              <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>
                 2 proposals every month
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.6)' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(27,30,38,0.6)' }}>
                 No card required. See the quality for yourself before you spend anything.
               </p>
             </div>
-            <div className="card-dark p-8 flex flex-col items-center text-center reveal">
+            <div className="card p-8 flex flex-col items-center text-center reveal">
               <div className="text-lg mb-3" style={{ color: 'var(--gold)' }}>◆</div>
-              <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold-light)' }}>
+              <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>
                 Per Proposal
               </div>
-              <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
+              <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>
                 $9.99
               </div>
-              <div className="text-sm mb-8" style={{ color: 'rgba(246,247,249,0.55)' }}>
+              <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>
                 pay only when you send one
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.6)' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(27,30,38,0.6)' }}>
                 For the occasional pitch — no subscription to remember to cancel.
               </p>
             </div>
-            <div className="card-dark card-featured p-8 flex flex-col items-center text-center relative reveal">
+            <div className="card card-featured p-8 flex flex-col items-center text-center relative reveal">
               <div
                 className="absolute -top-3 px-4 py-1 text-xs tracking-[0.2em] uppercase"
-                style={{ backgroundColor: 'var(--gold)', color: 'var(--navy-deep)', fontWeight: 600 }}
+                style={{ backgroundColor: 'var(--gold)', color: '#ffffff', fontWeight: 600 }}
               >
                 Best Value
               </div>
               <div className="text-lg mb-3" style={{ color: 'var(--gold)' }}>✦</div>
-              <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold-light)' }}>
+              <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>
                 Unlimited
               </div>
-              <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
+              <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>
                 $49
                 <span className="text-base"> /mo</span>
               </div>
-              <div className="text-sm mb-8" style={{ color: 'rgba(246,247,249,0.55)' }}>
+              <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>
                 unlimited proposals
               </div>
-              <p className="text-sm leading-relaxed" style={{ color: 'rgba(246,247,249,0.6)' }}>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(27,30,38,0.6)' }}>
                 Less than one hour of billable time, for every proposal you send all month.
               </p>
             </div>
           </div>
-          <p className="mt-10 text-center text-xs tracking-[0.15em] uppercase reveal" style={{ color: 'rgba(246,247,249,0.4)' }}>
+          <p className="mt-10 text-center text-xs tracking-[0.15em] uppercase reveal" style={{ color: 'rgba(27,30,38,0.4)' }}>
             Secure checkout via Stripe · Cancel unlimited anytime · No card required for the free tier
           </p>
           <div className="mt-6 flex flex-col items-center gap-3">
-            <Link href="/pricing" className="link-gold text-xs tracking-[0.2em] uppercase">
+            <Link href="/pricing" className="link-navy text-xs tracking-[0.2em] uppercase">
               See full pricing details & feature comparison →
             </Link>
-            <Link href="/resources" className="link-gold text-xs tracking-[0.2em] uppercase">
+            <Link href="/resources" className="link-navy text-xs tracking-[0.2em] uppercase">
               Not ready to try it? Get the free Bid Response Checklist →
             </Link>
           </div>
         </section>
 
-        <section className="w-full max-w-3xl py-24" style={{ borderTop: '1px solid var(--gold-dim)' }}>
+        <section className="w-full max-w-3xl py-24" style={{ borderTop: '1px solid var(--hairline)' }}>
           <div className="ornament mb-6"><span>◆</span></div>
           <div
             className="text-xs tracking-[0.3em] uppercase mb-4 text-center reveal"
@@ -625,21 +595,21 @@ export default function Home() {
           </div>
           <h2
             className="text-3xl text-center mb-16 reveal"
-            style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+            style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
           >
             Questions & Answers
           </h2>
           <div className="flex flex-col gap-6 reveal">
             {FAQS.map((item) => (
-              <details key={item.q} className="group" style={{ borderBottom: '1px solid var(--gold-dim)', paddingBottom: '1.5rem' }}>
+              <details key={item.q} className="group" style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: '1.5rem' }}>
                 <summary
                   className="cursor-pointer text-lg list-none flex items-center justify-between"
-                  style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}
+                  style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, color: 'var(--navy)' }}
                 >
                   {item.q}
                   <span style={{ color: 'var(--gold)' }} className="ml-4 group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="text-sm leading-relaxed mt-4" style={{ color: 'rgba(246,247,249,0.6)' }}>
+                <p className="text-sm leading-relaxed mt-4" style={{ color: 'rgba(27,30,38,0.6)' }}>
                   {item.a}
                 </p>
               </details>
@@ -656,7 +626,7 @@ export default function Home() {
             Get Started Free
           </Link>
           <div className="mt-5">
-            <Link href="/tools" className="link-gold text-xs tracking-[0.2em] uppercase">
+            <Link href="/tools" className="link-navy text-xs tracking-[0.2em] uppercase">
               Or browse every tool first →
             </Link>
           </div>
@@ -665,9 +635,9 @@ export default function Home() {
 
       <footer
         className="px-8 py-10 relative z-10"
-        style={{ borderTop: '1px solid var(--gold-dim)' }}
+        style={{ backgroundColor: 'var(--navy)' }}
       >
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(246,247,249,0.4)' }}>
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(246,247,249,0.5)' }}>
           <div>Daybase — Run your business, without the busywork · © {new Date().getFullYear()}</div>
           <div className="flex items-center gap-6">
             <Link href="/services" className="link-gold uppercase tracking-[0.15em]">Services</Link>

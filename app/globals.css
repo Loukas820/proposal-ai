@@ -14,7 +14,7 @@
 }
 
 @theme inline {
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-geist-sans);
   --font-sans: var(--font-geist-sans);
 }
 
@@ -103,6 +103,14 @@ body {
 }
 .link-gold:hover {
   color: var(--cream);
+}
+
+.link-navy {
+  color: var(--gold);
+  transition: color 0.2s ease;
+}
+.link-navy:hover {
+  color: var(--navy);
 }
 
 /* ---------- Cards ---------- */

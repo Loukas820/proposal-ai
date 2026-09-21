@@ -102,7 +102,7 @@ export default function PublicQuoteRequest() {
 
       <footer className="px-8 py-6 text-center text-xs" style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}>
         Powered by{' '}
-        <Link href="/" className="link-gold" style={{ color: 'var(--gold)' }}>
+        <Link href="/" className="link-navy" style={{ color: 'var(--gold)' }}>
           Daybase
         </Link>
       </footer>

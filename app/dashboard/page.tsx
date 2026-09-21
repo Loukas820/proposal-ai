@@ -184,10 +184,10 @@ export default function Dashboard() {
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
             <Link href="/dashboard" style={{ color: 'var(--gold)' }}>Workspace</Link>
-            <Link href="/tools" className="link-gold" style={{ color: 'var(--charcoal)' }}>Tools</Link>
-            <Link href="/history" className="link-gold" style={{ color: 'var(--charcoal)' }}>History</Link>
-            <Link href="/resources" className="link-gold" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
-            <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+            <Link href="/tools" className="link-navy" style={{ color: 'var(--charcoal)' }}>Tools</Link>
+            <Link href="/history" className="link-navy" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
+            <Link href="/settings" className="link-navy" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>
       </header>

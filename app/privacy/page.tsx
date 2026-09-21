@@ -57,8 +57,8 @@ export default function Privacy() {
             Daybase
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
-            <Link href="/terms" className="link-gold" style={{ color: 'var(--charcoal)' }}>Terms</Link>
-            <Link href="/pricing" className="link-gold" style={{ color: 'var(--charcoal)' }}>Pricing</Link>
+            <Link href="/terms" className="link-navy" style={{ color: 'var(--charcoal)' }}>Terms</Link>
+            <Link href="/pricing" className="link-navy" style={{ color: 'var(--charcoal)' }}>Pricing</Link>
           </nav>
         </div>
       </header>
@@ -98,7 +98,7 @@ export default function Privacy() {
         className="px-8 py-6 text-center text-xs"
         style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
       >
-        <Link href="/terms" className="link-gold uppercase tracking-[0.15em]">Terms of Service</Link>
+        <Link href="/terms" className="link-navy uppercase tracking-[0.15em]">Terms of Service</Link>
         <span className="mx-3">·</span>
         Daybase — Run your business, without the busywork
       </footer>

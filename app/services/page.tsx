@@ -2,11 +2,13 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import ToolIcon, { IconName } from '../components/ToolIcon'
+import SiteHeader from '../components/SiteHeader'
 
 type Service = { icon: IconName; title: string; body: string; href: string; note?: string }
 
-const CATEGORIES: { name: string; blurb: string; freeAll?: boolean; services: Service[] }[] = [
+const CATEGORIES: { id: string; name: string; blurb: string; freeAll?: boolean; services: Service[] }[] = [
   {
+    id: 'front-desk',
     name: 'Your Front Desk',
     blurb: 'The calls, appointments, and inbound requests that used to need someone answering the phone.',
     freeAll: true,
@@ -32,6 +34,7 @@ const CATEGORIES: { name: string; blurb: string; freeAll?: boolean; services: Se
     ],
   },
   {
+    id: 'get-found',
     name: 'Get Found & Stay In Touch',
     blurb: 'The outreach that keeps new work coming in, and keeps past clients coming back.',
     freeAll: true,
@@ -57,6 +60,7 @@ const CATEGORIES: { name: string; blurb: string; freeAll?: boolean; services: Se
     ],
   },
   {
+    id: 'back-office',
     name: 'Back Office',
     blurb: 'The paperwork — quotes, proposals, contracts — once someone’s ready to say yes.',
     services: [
@@ -120,43 +124,34 @@ export default function Services() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col bg-hero bg-grain relative" style={{ color: 'var(--cream)' }}>
-      <header className="nav-glass-dark" style={{ borderBottom: '1px solid var(--gold-dim)' }}>
-        <nav className="max-w-5xl mx-auto px-8 py-6 flex items-center justify-between">
-          <Link href="/" className="text-2xl tracking-wide" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
-            Daybase
-          </Link>
-          <div className="flex items-center gap-8">
-            <Link href="/services" className="text-sm tracking-widest uppercase" style={{ color: 'var(--gold)' }}>Services</Link>
-            <Link href="/pricing" className="link-gold text-sm tracking-widest uppercase">Pricing</Link>
-            <Link href="/resources" className="link-gold text-sm tracking-widest uppercase">Free Guide</Link>
-            <Link href="/dashboard" className="link-gold text-sm tracking-widest uppercase">Enter →</Link>
-          </div>
-        </nav>
-      </header>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--cream)', color: 'var(--charcoal)' }}>
+      <SiteHeader active="services" />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-20 relative z-10">
-        <div className="text-xs tracking-[0.3em] uppercase mb-4 text-center" style={{ color: 'var(--gold)' }}>
+      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-20">
+        <div className="text-xs tracking-[0.3em] uppercase mb-4 text-center" style={{ color: 'var(--gold)', fontWeight: 600 }}>
           What Daybase Does
         </div>
-        <h1 className="text-4xl md:text-5xl text-center mb-6" style={{ fontFamily: 'var(--font-serif)', color: 'var(--cream)' }}>
+        <h1
+          className="text-4xl md:text-5xl text-center mb-6"
+          style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}
+        >
           Everything It Takes To Run Your Day
         </h1>
-        <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(246,247,249,0.65)' }}>
+        <p className="text-center text-base max-w-xl mx-auto mb-20" style={{ color: 'rgba(27,30,38,0.65)' }}>
           Most of running a service business isn&apos;t the pitch — it&apos;s the phone ringing, the calendar filling up, and staying in touch after the job&apos;s done. Daybase runs your front desk first, and handles the quotes, proposals, and contracts once someone&apos;s ready to say yes.
         </p>
 
         {CATEGORIES.map((cat) => (
-          <div key={cat.name} className="mb-16">
-            <div className="text-xs tracking-[0.3em] uppercase mb-3 text-center reveal" style={{ color: 'var(--gold)' }}>
+          <div key={cat.name} id={cat.id} className="mb-16 scroll-mt-24">
+            <div className="text-xs tracking-[0.3em] uppercase mb-3 text-center reveal" style={{ color: 'var(--gold)', fontWeight: 600 }}>
               {cat.name}{cat.freeAll ? ' · Free With Every Account' : ''}
             </div>
-            <p className="text-center text-sm max-w-md mx-auto mb-8 reveal" style={{ color: 'rgba(246,247,249,0.55)' }}>
+            <p className="text-center text-sm max-w-md mx-auto mb-8 reveal" style={{ color: 'rgba(27,30,38,0.55)' }}>
               {cat.blurb}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {cat.services.map((s) => (
-                <div key={s.title} className="card-dark p-8 reveal">
+                <Link key={s.title} href={s.href} className="card card-hover p-8 block reveal">
                   <div className="flex items-center justify-between mb-5">
                     <div
                       className="w-9 h-9 flex items-center justify-center text-base"
@@ -167,27 +162,27 @@ export default function Services() {
                     {s.note && (
                       <span
                         className="text-[10px] tracking-[0.15em] uppercase px-2 py-1"
-                        style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold-light)' }}
+                        style={{ backgroundColor: 'var(--gold-dim)', color: 'var(--gold)' }}
                       >
                         Paid Tool
                       </span>
                     )}
                   </div>
-                  <h3 className="text-lg mb-3" style={{ fontFamily: 'var(--font-serif)', color: 'var(--gold-light)' }}>
+                  <h3 className="text-lg mb-3" style={{ fontFamily: 'var(--font-serif)', fontWeight: 600, color: 'var(--navy)' }}>
                     {s.title}
                   </h3>
-                  <p className="text-sm leading-relaxed mb-2" style={{ color: 'rgba(246,247,249,0.65)' }}>
+                  <p className="text-sm leading-relaxed mb-2" style={{ color: 'rgba(27,30,38,0.65)' }}>
                     {s.body}
                   </p>
                   {s.note && (
-                    <p className="text-xs mb-3" style={{ color: 'rgba(246,247,249,0.45)' }}>
+                    <p className="text-xs mb-3" style={{ color: 'rgba(27,30,38,0.45)' }}>
                       {s.note}
                     </p>
                   )}
-                  <Link href={s.href} className="link-gold text-xs tracking-[0.2em] uppercase">
+                  <span className="link-navy text-xs tracking-[0.2em] uppercase">
                     Try it →
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               ))}
             </div>
           </div>
@@ -200,8 +195,21 @@ export default function Services() {
         </div>
       </main>
 
-      <footer className="px-8 py-6 text-center text-xs relative z-10" style={{ borderTop: '1px solid var(--gold-dim)', color: 'rgba(246,247,249,0.4)' }}>
-        Daybase — Run your business, without the busywork · © {new Date().getFullYear()}
+      <footer
+        className="px-8 py-10"
+        style={{ backgroundColor: 'var(--navy)' }}
+      >
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs" style={{ color: 'rgba(246,247,249,0.5)' }}>
+          <div>Daybase — Run your business, without the busywork · © {new Date().getFullYear()}</div>
+          <div className="flex items-center gap-6">
+            <Link href="/services" className="link-gold uppercase tracking-[0.15em]">Services</Link>
+            <Link href="/pricing" className="link-gold uppercase tracking-[0.15em]">Pricing</Link>
+            <Link href="/resources" className="link-gold uppercase tracking-[0.15em]">Free Guide</Link>
+            <Link href="/terms" className="link-gold uppercase tracking-[0.15em]">Terms</Link>
+            <Link href="/privacy" className="link-gold uppercase tracking-[0.15em]">Privacy</Link>
+            <span>Payments secured by Stripe</span>
+          </div>
+        </div>
       </footer>
     </div>
   )

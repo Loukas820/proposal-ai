@@ -60,16 +60,16 @@ export default function OutreachPostTool() {
             Daybase
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
-            <Link href="/dashboard" className="link-gold" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
+            <Link href="/dashboard" className="link-navy" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
             <Link href="/tools" style={{ color: 'var(--gold)' }}>Tools</Link>
-            <Link href="/history" className="link-gold" style={{ color: 'var(--charcoal)' }}>History</Link>
-            <Link href="/settings" className="link-gold" style={{ color: 'var(--charcoal)' }}>Profile</Link>
+            <Link href="/history" className="link-navy" style={{ color: 'var(--charcoal)' }}>History</Link>
+            <Link href="/settings" className="link-navy" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>
       </header>
 
       <main className="flex-1 max-w-5xl w-full mx-auto px-8 py-12 fade-in-up">
-        <Link href="/tools" className="text-xs tracking-[0.15em] uppercase link-gold" style={{ color: 'var(--gold)' }}>
+        <Link href="/tools" className="text-xs tracking-[0.15em] uppercase link-navy" style={{ color: 'var(--gold)' }}>
           ← All Tools
         </Link>
         <div className="flex items-center gap-3 mt-5 mb-4">

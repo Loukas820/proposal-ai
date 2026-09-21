@@ -73,8 +73,8 @@ export default function Terms() {
             Daybase
           </Link>
           <nav className="flex gap-6 text-xs tracking-[0.2em] uppercase">
-            <Link href="/privacy" className="link-gold" style={{ color: 'var(--charcoal)' }}>Privacy</Link>
-            <Link href="/pricing" className="link-gold" style={{ color: 'var(--charcoal)' }}>Pricing</Link>
+            <Link href="/privacy" className="link-navy" style={{ color: 'var(--charcoal)' }}>Privacy</Link>
+            <Link href="/pricing" className="link-navy" style={{ color: 'var(--charcoal)' }}>Pricing</Link>
           </nav>
         </div>
       </header>
@@ -111,7 +111,7 @@ export default function Terms() {
         className="px-8 py-6 text-center text-xs"
         style={{ borderTop: '1px solid var(--hairline)', color: 'rgba(34,38,47,0.4)' }}
       >
-        <Link href="/privacy" className="link-gold uppercase tracking-[0.15em]">Privacy Policy</Link>
+        <Link href="/privacy" className="link-navy uppercase tracking-[0.15em]">Privacy Policy</Link>
         <span className="mx-3">·</span>
         Daybase — Run your business, without the busywork
       </footer>

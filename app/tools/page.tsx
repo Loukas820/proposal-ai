@@ -22,7 +22,7 @@ function AppHeader({ active }: { active: string }) {
             <Link
               key={item.href}
               href={item.href}
-              className={item.href === active ? '' : 'link-gold'}
+              className={item.href === active ? '' : 'link-navy'}
               style={{ color: item.href === active ? 'var(--gold)' : 'var(--charcoal)' }}
             >
               {item.label}
