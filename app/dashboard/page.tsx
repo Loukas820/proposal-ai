@@ -19,6 +19,10 @@ function isValidEmail(v: string) {
 
 export default function Dashboard() {
   const [rfp, setRfp] = useState('')
+  const [projectName, setProjectName] = useState('')
+  const [budget, setBudget] = useState('')
+  const [timeline, setTimeline] = useState('')
+  const [showDetails, setShowDetails] = useState(false)
   const [proposal, setProposal] = useState('')
   const [loading, setLoading] = useState(false)
   const [profile, setProfile] = useState<CompanyProfile>({
@@ -115,7 +119,7 @@ export default function Dashboard() {
       const res = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ rfp, companyProfile: profile, email: accountEmail }),
+        body: JSON.stringify({ rfp, companyProfile: profile, email: accountEmail, projectName, budget, timeline }),
       })
       const data = await res.json()
       if (res.status === 402) {
@@ -231,10 +235,13 @@ export default function Dashboard() {
             </Link>
           )}
         </div>
-        <p className="text-sm mb-6" style={{ color: 'rgba(34,38,47,0.6)' }}>
+        <p className="text-sm mb-2" style={{ color: 'rgba(34,38,47,0.6)' }}>
           {profile.companyName
             ? `Writing on behalf of ${profile.companyName}. Paste the request, brief, or job details below to draft a proposal.`
             : 'Paste the request, brief, or job details below and let AI draft a clear, client-ready response.'}
+        </p>
+        <p className="text-xs mb-6" style={{ color: 'rgba(34,38,47,0.45)' }}>
+          Instead of starting from a blank page, you get a structured first draft — summary, scope, timeline, and a close — in your voice, in under a minute. Add the optional details below to sharpen it further.
         </p>
 
         {/* Account / billing strip */}
@@ -334,6 +341,60 @@ export default function Dashboard() {
             </div>
           </div>
         )}
+
+        <div className="mb-6">
+          <button
+            type="button"
+            onClick={() => setShowDetails((v) => !v)}
+            className="text-xs tracking-[0.15em] uppercase"
+            style={{ color: 'var(--gold)', fontWeight: 600 }}
+          >
+            {showDetails ? '−' : '+'} Add project details for a sharper draft (optional)
+          </button>
+          {showDetails && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 card p-6">
+              <div>
+                <label className="block text-[10px] tracking-[0.15em] uppercase mb-2" style={{ color: 'var(--navy)' }}>
+                  Client / Project Name
+                </label>
+                <input
+                  type="text"
+                  value={projectName}
+                  onChange={(e) => setProjectName(e.target.value)}
+                  placeholder="e.g. Riverside Office Park"
+                  className="input-refined w-full px-3 py-2 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] tracking-[0.15em] uppercase mb-2" style={{ color: 'var(--navy)' }}>
+                  Budget Or Rate
+                </label>
+                <input
+                  type="text"
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  placeholder="e.g. $1,800 or $150/hr"
+                  className="input-refined w-full px-3 py-2 text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[10px] tracking-[0.15em] uppercase mb-2" style={{ color: 'var(--navy)' }}>
+                  Timeline Or Deadline
+                </label>
+                <input
+                  type="text"
+                  value={timeline}
+                  onChange={(e) => setTimeline(e.target.value)}
+                  placeholder="e.g. Within 3 weeks"
+                  className="input-refined w-full px-3 py-2 text-sm"
+                />
+              </div>
+              <p className="md:col-span-3 text-xs" style={{ color: 'rgba(34,38,47,0.5)' }}>
+                Fill in what you already know and Daybase will state it directly instead of hedging — leave any of these blank and it&apos;ll stick to what&apos;s in the brief below.
+              </p>
+            </div>
+          )}
+        </div>
 
         <div className="card p-8 md:p-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

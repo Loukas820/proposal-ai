@@ -3,7 +3,7 @@ import { callGemini } from '../../lib/gemini'
 
 export async function POST(request: Request) {
   try {
-    const { rfp, companyProfile, email } = await request.json()
+    const { rfp, companyProfile, email, projectName, budget, timeline } = await request.json()
 
     if (!rfp) {
       return Response.json({ error: 'No request or brief provided' }, { status: 400 })
@@ -36,6 +36,16 @@ export async function POST(request: Request) {
       senderContext = `\n\nThis proposal is being written on behalf of the following company. Write it in their voice, as the sender:\nCompany Name: ${companyProfile.companyName || ''}\nWhat they do: ${companyProfile.tagline || ''}\nContact Email: ${companyProfile.email || ''}\nContact Phone: ${companyProfile.phone || ''}\nDo not invent a different company name in the proposal — use the one provided above.`
     }
 
+    let knownDetails = ''
+    if (projectName || budget || timeline) {
+      const lines = [
+        projectName ? `Client or project name: ${projectName}` : '',
+        budget ? `Budget or rate: ${budget}` : '',
+        timeline ? `Timeline or deadline: ${timeline}` : '',
+      ].filter(Boolean).join('\n')
+      knownDetails = `\n\nThe sender has confirmed the following specific details. State them directly and confidently in the proposal (in the relevant section) even if they are not repeated in the brief below — these are known facts, not invented ones:\n${lines}`
+    }
+
     const prompt = `You are an elite consulting proposal writer, trained on the standards of top-tier firms. Based on this RFP or brief, write a polished, persuasive, client-ready proposal.
 
 Structure it using Markdown (#### for section headings, **bold** for emphasis, - for bullet lists, no raw HTML), covering:
@@ -47,7 +57,7 @@ Structure it using Markdown (#### for section headings, **bold** for emphasis, -
 - #### Why [Company Name] — a short, confident case for why this team is the right fit, grounded in the company profile if provided
 - #### Next Steps — one clear, specific call to action
 
-Keep the tone precise and confident, never generic or padded with filler. Do not invent specific dollar figures, client names, or statistics that were not in the RFP — if pricing isn't specified, describe the investment in terms of value and offer to discuss scope-based pricing on a call.${senderContext}
+Keep the tone precise and confident, never generic or padded with filler. Do not invent specific dollar figures, client names, or statistics that were not in the RFP or in the confirmed details below — if no pricing is available from either source, describe the investment in terms of value and offer to discuss scope-based pricing on a call.${senderContext}${knownDetails}
 
 RFP:
 ${rfp}`
