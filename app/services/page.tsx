@@ -204,7 +204,7 @@ export default function Services() {
           <div className="flex items-center gap-6">
             <Link href="/services" className="link-gold uppercase tracking-[0.15em]">Services</Link>
             <Link href="/pricing" className="link-gold uppercase tracking-[0.15em]">Pricing</Link>
-            <Link href="/resources" className="link-gold uppercase tracking-[0.15em]">Free Guide</Link>
+            <Link href="/resources" className="link-gold uppercase tracking-[0.15em]">Free Guides</Link>
             <Link href="/terms" className="link-gold uppercase tracking-[0.15em]">Terms</Link>
             <Link href="/privacy" className="link-gold uppercase tracking-[0.15em]">Privacy</Link>
             <span>Payments secured by Stripe</span>

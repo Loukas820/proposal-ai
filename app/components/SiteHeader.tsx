@@ -153,7 +153,7 @@ export default function SiteHeader({ active }: { active?: 'services' | 'pricing'
             Pricing
           </Link>
           <Link href="/resources" className="link-navy text-sm tracking-widest uppercase">
-            Free Guide
+            Free Guides
           </Link>
           <Link href="/dashboard" className="link-navy text-sm tracking-widest uppercase">
             Enter →

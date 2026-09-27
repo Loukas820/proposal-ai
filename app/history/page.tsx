@@ -38,7 +38,7 @@ export default function History() {
             <Link href="/dashboard" className="link-navy" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
             <Link href="/tools" className="link-navy" style={{ color: 'var(--charcoal)' }}>Tools</Link>
             <Link href="/history" style={{ color: 'var(--gold)' }}>History</Link>
-            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
+            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guides</Link>
             <Link href="/settings" className="link-navy" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>

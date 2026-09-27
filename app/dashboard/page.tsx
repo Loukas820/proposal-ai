@@ -50,9 +50,16 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    setProfile(getProfile())
+    const loadedProfile = getProfile()
+    setProfile(loadedProfile)
 
-    const savedEmail = getAccountEmail()
+    // Your Company Profile email doubles as your Workspace account email,
+    // so returning users never have to type it in twice.
+    let savedEmail = getAccountEmail()
+    if (!savedEmail && loadedProfile.email) {
+      savedEmail = loadedProfile.email
+      saveAccountEmail(savedEmail)
+    }
     if (savedEmail) {
       setAccountEmail(savedEmail)
       setEmailInput(savedEmail)
@@ -186,7 +193,7 @@ export default function Dashboard() {
             <Link href="/dashboard" style={{ color: 'var(--gold)' }}>Workspace</Link>
             <Link href="/tools" className="link-navy" style={{ color: 'var(--charcoal)' }}>Tools</Link>
             <Link href="/history" className="link-navy" style={{ color: 'var(--charcoal)' }}>History</Link>
-            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
+            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guides</Link>
             <Link href="/settings" className="link-navy" style={{ color: 'var(--charcoal)' }}>Profile</Link>
           </nav>
         </div>

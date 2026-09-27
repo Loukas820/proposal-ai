@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { getProfile, saveProfile, CompanyProfile } from '../lib/storage'
+import { getProfile, saveProfile, saveAccountEmail, CompanyProfile } from '../lib/storage'
 
 export default function Settings() {
   const [profile, setProfile] = useState<CompanyProfile>({
@@ -37,6 +37,9 @@ export default function Settings() {
 
   const handleSave = () => {
     saveProfile(profile)
+    // Your contact email doubles as your Daybase account email, so the
+    // Workspace never has to ask you to type it in a second time.
+    if (profile.email) saveAccountEmail(profile.email)
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)
   }
@@ -56,7 +59,7 @@ export default function Settings() {
             <Link href="/dashboard" className="link-navy" style={{ color: 'var(--charcoal)' }}>Workspace</Link>
             <Link href="/tools" className="link-navy" style={{ color: 'var(--charcoal)' }}>Tools</Link>
             <Link href="/history" className="link-navy" style={{ color: 'var(--charcoal)' }}>History</Link>
-            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guide</Link>
+            <Link href="/resources" className="link-navy" style={{ color: 'var(--charcoal)' }}>Free Guides</Link>
             <Link href="/settings" style={{ color: 'var(--gold)' }}>Profile</Link>
           </nav>
         </div>
@@ -71,7 +74,8 @@ export default function Settings() {
         </h1>
         <p className="text-sm mb-10" style={{ color: 'rgba(34,38,47,0.6)' }}>
           Saved on this device. Every proposal you generate will be written on
-          behalf of this company automatically.
+          behalf of this company automatically, and this email doubles as your
+          Workspace account so you won&apos;t be asked for it again.
         </p>
 
         <div className="card p-8 flex flex-col gap-6">
@@ -136,22 +140,22 @@ export default function Settings() {
           </button>
         </div>
 
-        <div className="card p-8 mt-8">
-          <h2 className="text-lg mb-2" style={{ fontFamily: 'var(--font-serif)', color: 'var(--navy)' }}>
-            Your Public Quote Request Link
-          </h2>
-          <p className="text-sm mb-5" style={{ color: 'rgba(34,38,47,0.6)' }}>
-            Share this in your Facebook bio, posts, or anywhere else you reach clients — anyone who opens it can send a quote request straight to your inbox, no account or app needed on their end.
+        <div className="mt-6 px-6 py-5" style={{ border: '1px solid var(--hairline)' }}>
+          <div className="text-[10px] tracking-[0.2em] uppercase mb-2" style={{ color: 'var(--gold)', fontWeight: 600 }}>
+            Public Quote Request Link
+          </div>
+          <p className="text-xs leading-relaxed mb-4" style={{ color: 'rgba(34,38,47,0.55)' }}>
+            Share this anywhere you reach clients — quote requests land straight in your inbox, no account needed on their end.
           </p>
           {quoteLink ? (
-            <div className="flex gap-3 flex-wrap">
-              <input readOnly value={quoteLink} className="input-refined flex-1 min-w-[240px] px-4 py-3 text-sm" />
-              <button onClick={copyQuoteLink} className="btn-outline px-6 py-3 text-xs tracking-[0.2em] uppercase" style={{ fontWeight: 600 }}>
+            <div className="flex gap-2 flex-wrap">
+              <input readOnly value={quoteLink} className="input-refined flex-1 min-w-[220px] px-3 py-2 text-xs" />
+              <button onClick={copyQuoteLink} className="btn-outline px-4 py-2 text-[10px] tracking-[0.15em] uppercase" style={{ fontWeight: 600 }}>
                 {linkCopied ? 'Copied ✓' : 'Copy Link'}
               </button>
             </div>
           ) : (
-            <p className="text-sm" style={{ color: 'rgba(34,38,47,0.45)' }}>
+            <p className="text-xs" style={{ color: 'rgba(34,38,47,0.4)' }}>
               Add a Contact Email above and save your profile to generate your link.
             </p>
           )}

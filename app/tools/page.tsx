@@ -6,7 +6,7 @@ const APP_NAV = [
   { href: '/dashboard', label: 'Workspace' },
   { href: '/tools', label: 'Tools' },
   { href: '/history', label: 'History' },
-  { href: '/resources', label: 'Free Guide' },
+  { href: '/resources', label: 'Free Guides' },
   { href: '/settings', label: 'Profile' },
 ]
 
