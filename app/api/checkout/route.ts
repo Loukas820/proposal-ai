@@ -18,9 +18,9 @@ export async function POST(request: Request) {
 
     const priceData: Record<string, unknown> = {
       currency: 'usd',
-      unit_amount: isSingle ? 999 : 4900,
+      unit_amount: isSingle ? 399 : 3500,
       product_data: {
-        name: isSingle ? 'Daybase — Single Proposal' : 'Daybase — Unlimited Monthly',
+        name: isSingle ? 'Daybase — 2 Proposal Pack' : 'Daybase — Unlimited Monthly',
       },
     }
     if (!isSingle) {

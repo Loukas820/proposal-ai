@@ -77,7 +77,7 @@ export default function Dashboard() {
             setBanner(
               data.mode === 'subscription'
                 ? 'Unlimited plan active — generate as many proposals as you need.'
-                : 'Payment received — 1 proposal credit added to your account.'
+                : 'Payment received — 2 proposal credits added to your account.'
             )
             setLimitReached(false)
           }
@@ -314,7 +314,7 @@ export default function Dashboard() {
               You&apos;ve used your free proposals for this month
             </div>
             <p className="text-sm mb-5" style={{ color: 'rgba(34,38,47,0.65)' }}>
-              Buy a single proposal or go unlimited to keep drafting.
+              Buy a 2-proposal pack or go unlimited to keep drafting.
             </p>
             <div className="flex flex-wrap gap-3">
               <button
@@ -322,14 +322,14 @@ export default function Dashboard() {
                 disabled={checkoutLoading !== null}
                 className="btn-outline px-6 py-3 text-xs tracking-[0.15em] uppercase disabled:opacity-40"
               >
-                {checkoutLoading === 'single' ? 'Redirecting…' : 'Buy 1 Proposal — $9.99'}
+                {checkoutLoading === 'single' ? 'Redirecting…' : 'Buy 2 Proposals — $3.99'}
               </button>
               <button
                 onClick={() => startCheckout('unlimited')}
                 disabled={checkoutLoading !== null}
                 className="btn-gold px-6 py-3 text-xs tracking-[0.15em] uppercase disabled:opacity-40"
               >
-                {checkoutLoading === 'unlimited' ? 'Redirecting…' : 'Go Unlimited — $49/mo'}
+                {checkoutLoading === 'unlimited' ? 'Redirecting…' : 'Go Unlimited — $35/mo'}
               </button>
             </div>
           </div>

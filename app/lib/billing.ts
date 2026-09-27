@@ -108,20 +108,21 @@ export async function consumeUsage(
   return { allowed: false, status }
 }
 
-// Idempotent: a given Checkout Session only ever grants one credit, even if
-// the confirm endpoint is called more than once (e.g. the user refreshes).
-export async function grantCreditOnce(customerId: string, sessionId: string) {
+// Idempotent: a given Checkout Session only ever grants its credits once, even
+// if the confirm endpoint is called more than once (e.g. the user refreshes).
+export async function grantCreditOnce(customerId: string, sessionId: string, quantity: number = 1) {
   const customer: StripeCustomer = await stripeRequest(`/customers/${customerId}`)
   const metadata = customer.metadata || {}
   const already = (metadata.credited_sessions || '').split(',').filter(Boolean)
   if (already.includes(sessionId)) return
 
   const current = parseInt(metadata.credits || '0', 10)
+  const updated = current + quantity
   const updatedSessions = [...already, sessionId].slice(-20).join(',')
 
   await stripeRequest(`/customers/${customerId}`, 'POST', {
     metadata: {
-      credits: String(current + 1),
+      credits: String(updated),
       credited_sessions: updatedSessions,
     },
   })

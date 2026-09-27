@@ -3,7 +3,7 @@ import Link from 'next/link'
 import SiteHeader from '../components/SiteHeader'
 
 const ROWS: { label: string; free: string; single: string; unlimited: string }[] = [
-  { label: 'Proposals included', free: '2 / month', single: 'Pay per proposal', unlimited: 'Unlimited' },
+  { label: 'Proposals included', free: '2 / month', single: '2 per pack', unlimited: 'Unlimited' },
   { label: 'Branded PDF export', free: '✓', single: '✓', unlimited: '✓' },
   { label: 'Company voice & profile', free: '✓', single: '✓', unlimited: '✓' },
   { label: 'Proposal history', free: '✓', single: '✓', unlimited: '✓' },
@@ -15,11 +15,11 @@ const ROWS: { label: string; free: string; single: string; unlimited: string }[]
 const MINI_FAQ = [
   {
     q: 'What happens after my 2 free proposals?',
-    a: 'You’ll be prompted to buy a single proposal or go unlimited. Nothing is ever charged automatically — the free tier simply pauses until the next month or until you choose a paid option.',
+    a: 'You’ll be prompted to buy a 2-proposal pack or go unlimited. Nothing is ever charged automatically — the free tier simply pauses until the next month or until you choose a paid option.',
   },
   {
     q: 'Can I switch between plans?',
-    a: 'Yes. Buying a single proposal never locks you in, and you can start or cancel Unlimited at any time from Stripe’s checkout — there’s no downgrade fee or waiting period.',
+    a: 'Yes. Buying a proposal pack never locks you in, and you can start or cancel Unlimited at any time from Stripe’s checkout — there’s no downgrade fee or waiting period.',
   },
   {
     q: 'Do unused free proposals roll over?',
@@ -31,7 +31,7 @@ const COMPARISON = [
   { name: 'PandaDoc', price: '$35–$65/user/mo', note: '(or $19–$49/mo per user, billed annually)' },
   { name: 'Proposify', price: '$29–$49/mo', note: '(3-seat cap even on the Team plan)' },
   { name: 'Qwilr', price: '$49/mo per user', note: '(or $35/mo per user, billed annually)' },
-  { name: 'Daybase', price: '$49/mo flat', note: 'unlimited proposals, every other tool included, no seats to count', highlight: true },
+  { name: 'Daybase', price: '$35/mo flat', note: 'unlimited proposals, every other tool included, no seats to count', highlight: true },
 ]
 
 export default function Pricing() {
@@ -63,11 +63,11 @@ export default function Pricing() {
             </Link>
           </div>
           <div className="card p-8 flex flex-col items-center text-center">
-            <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>Per Proposal</div>
-            <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>$9.99</div>
-            <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>pay only when you send one</div>
+            <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>Proposal Pack</div>
+            <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>$3.99</div>
+            <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>2 proposals, pay once</div>
             <Link href="/dashboard" className="btn-outline w-full py-3 text-xs tracking-[0.2em] uppercase text-center">
-              Buy One
+              Buy Pack
             </Link>
           </div>
           <div className="card card-featured p-8 flex flex-col items-center text-center relative">
@@ -76,7 +76,7 @@ export default function Pricing() {
             </div>
             <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>Unlimited</div>
             <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>
-              $49<span className="text-base"> /mo</span>
+              $35<span className="text-base"> /mo</span>
             </div>
             <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>unlimited proposals</div>
             <Link href="/dashboard" className="btn-gold w-full py-3 text-xs tracking-[0.2em] uppercase text-center" style={{ fontWeight: 600 }}>
@@ -116,7 +116,7 @@ export default function Pricing() {
             ))}
           </div>
           <p className="text-center text-xs mt-6 max-w-lg mx-auto" style={{ color: 'rgba(27,30,38,0.4)' }}>
-            Competitor pricing shown is publicly listed, standard-tier pricing as of {new Date().getFullYear()} and can change — check each provider’s site for current rates. None of them offer a true pay-once option; Daybase’s $9.99 single proposal means you’re never forced into a subscription just to send one.
+            Competitor pricing shown is publicly listed, standard-tier pricing as of {new Date().getFullYear()} and can change — check each provider’s site for current rates. None of them offer a true pay-once option; Daybase’s $3.99 two-proposal pack means you’re never forced into a subscription just to send one.
           </p>
         </div>
 
@@ -126,7 +126,7 @@ export default function Pricing() {
               <tr style={{ borderBottom: '1px solid var(--hairline)' }}>
                 <th className="text-left py-4 font-normal" style={{ color: 'rgba(27,30,38,0.5)' }}>Feature</th>
                 <th className="text-center py-4 font-normal" style={{ color: 'var(--gold)' }}>Free</th>
-                <th className="text-center py-4 font-normal" style={{ color: 'var(--gold)' }}>Per Proposal</th>
+                <th className="text-center py-4 font-normal" style={{ color: 'var(--gold)' }}>Proposal Pack</th>
                 <th className="text-center py-4 font-normal" style={{ color: 'var(--navy)', fontWeight: 600 }}>Unlimited</th>
               </tr>
             </thead>

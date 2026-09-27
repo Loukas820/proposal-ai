@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     const paid = session.payment_status === 'paid' || session.status === 'complete'
 
     if (paid && session.mode === 'payment' && session.customer) {
-      await grantCreditOnce(session.customer, sessionId)
+      await grantCreditOnce(session.customer, sessionId, 2) // one-time purchase = a 2-proposal pack
     }
 
     const status = await getAccountStatus(email)

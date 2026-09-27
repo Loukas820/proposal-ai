@@ -94,7 +94,7 @@ const CATEGORIES: { name: string; blurb: string; tools: Tool[] }[] = [
         icon: 'sparkle',
         title: 'Proposals & Quotes',
         body: 'Paste a bid request or describe a job and get a structured, client-ready proposal in your voice.',
-        note: '2 free/mo · $9.99/proposal · $49/mo unlimited',
+        note: '2 free/mo · $3.99 for 2 · $35/mo unlimited',
       },
       {
         href: '/tools/quote-builder',

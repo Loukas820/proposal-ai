@@ -59,7 +59,7 @@ const FAQS = [
   },
   {
     q: 'How does pricing work?',
-    a: 'Pay per proposal at $9.99 if you pitch occasionally, or go unlimited at $49/month if you send proposals regularly — unlimited pays for itself after roughly five proposals a month. Everyone starts with 2 free proposals to see the quality before spending anything.',
+    a: 'Buy a 2-proposal pack for $3.99 if you pitch occasionally, or go unlimited at $35/month if you send proposals regularly — unlimited pays for itself after roughly four proposals a month. Everyone starts with 2 free proposals to see the quality before spending anything.',
   },
   {
     q: 'Can I cancel the Unlimited plan anytime?',
@@ -516,7 +516,7 @@ export default function Home() {
             Only proposal generation is metered, priced below. Every other tool — calls, appointments, jobs, deliveries, outreach, contracts — is free with any account, on any plan.
           </p>
           <p className="text-center text-sm mb-12 max-w-lg mx-auto reveal" style={{ color: 'rgba(27,30,38,0.4)' }}>
-            Most proposal software charges $29–65 per seat, every month. Daybase is $49 flat, unlimited, seats included.
+            Most proposal software charges $29–65 per seat, every month. Daybase is $35 flat, unlimited, seats included.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="card p-8 flex flex-col items-center text-center reveal">
@@ -537,13 +537,13 @@ export default function Home() {
             <div className="card p-8 flex flex-col items-center text-center reveal">
               <div className="text-lg mb-3" style={{ color: 'var(--gold)' }}>◆</div>
               <div className="text-sm tracking-[0.2em] uppercase mb-4" style={{ color: 'var(--gold)', fontWeight: 600 }}>
-                Per Proposal
+                Proposal Pack
               </div>
               <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>
-                $9.99
+                $3.99
               </div>
               <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>
-                pay only when you send one
+                2 proposals, pay once
               </div>
               <p className="text-sm leading-relaxed" style={{ color: 'rgba(27,30,38,0.6)' }}>
                 For the occasional pitch — no subscription to remember to cancel.
@@ -561,7 +561,7 @@ export default function Home() {
                 Unlimited
               </div>
               <div className="text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)', fontWeight: 700, color: 'var(--navy)' }}>
-                $49
+                $35
                 <span className="text-base"> /mo</span>
               </div>
               <div className="text-sm mb-8" style={{ color: 'rgba(27,30,38,0.55)' }}>
